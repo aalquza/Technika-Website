@@ -1,0 +1,317 @@
+"use client"
+
+import { useState } from "react"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent } from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import { Textarea } from "@/components/ui/textarea"
+import { Building, Phone, Mail, MapPin, Menu, Clock, X, ChevronDown } from "lucide-react"
+import Image from "next/image"
+import Link from "next/link"
+import Footer from "@/components/footer"
+
+/* Header moved to components/header.tsx */
+
+export default function ContactPage() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [isServicesOpen, setIsServicesOpen] = useState(false)
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Full Screen Mobile Menu */}
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50 md:hidden">
+          {/* Backdrop */}
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setIsMenuOpen(false)} />
+
+          {/* Menu Content */}
+          <div className="relative bg-slate-800 text-white h-full w-full flex flex-col animate-in slide-in-from-right duration-300">
+            {/* Header */}
+            <div className="flex items-center justify-between p-6 border-b border-slate-700">
+              <div className="flex items-center gap-2">
+                <Building className="h-8 w-8 text-yellow-400" />
+                <span className="text-xl font-bold">TECHNIKA</span>
+              </div>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                className="p-2 hover:bg-slate-700 rounded-lg transition-colors"
+              >
+                <X className="h-6 w-6" />
+              </button>
+            </div>
+
+            {/* Navigation */}
+            <nav className="flex-1 px-6 py-8 space-y-2">
+              <Link
+                href="/"
+                className="block py-4 px-4 text-lg font-medium hover:bg-slate-700 rounded-lg transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+
+              {/* Services Dropdown */}
+              <div>
+                <button
+                  onClick={() => setIsServicesOpen(!isServicesOpen)}
+                  className="w-full flex items-center justify-between py-4 px-4 text-lg font-medium hover:bg-slate-700 rounded-lg transition-colors"
+                >
+                  <span>Services</span>
+                  <ChevronDown
+                    className={`h-5 w-5 transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                  />
+                </button>
+
+                {isServicesOpen && (
+                  <div className="mt-2 ml-4 space-y-1 animate-in slide-in-from-top duration-200">
+                    <Link
+                      href="/services/structural-analysis"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Structural Analysis
+                    </Link>
+                    <Link
+                      href="/services/building-inspections"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Building Inspections
+                    </Link>
+                    <Link
+                      href="/services/historic-preservation"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Historic Preservation
+                    </Link>
+                    <Link
+                      href="/services/commercial-buildings"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Commercial Buildings
+                    </Link>
+                    <Link
+                      href="/services/residential-projects"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Residential Projects
+                    </Link>
+                    <Link
+                      href="/services/foundation-design"
+                      className="block py-3 px-4 text-base text-gray-300 hover:text-yellow-400 hover:bg-slate-700/50 rounded-lg transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      Foundation Design
+                    </Link>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="/projects"
+                className="block py-4 px-4 text-lg font-medium hover:bg-slate-700 rounded-lg transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Projects
+              </Link>
+
+              <Link
+                href="/about"
+                className="block py-4 px-4 text-lg font-medium hover:bg-slate-700 rounded-lg transition-colors"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                About
+              </Link>
+            </nav>
+
+            {/* Contact Button */}
+            <div className="p-6 border-t border-slate-700">
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
+                <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 py-4 text-lg font-semibold">
+                  Contact Us
+                </Button>
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Hero Section */}
+      <section className="relative bg-slate-800 text-white py-20">
+        <Image
+          src="/placeholder.svg?height=600&width=1200"
+          alt="Engineering Office"
+          width={1200}
+          height={600}
+          className="absolute inset-0 w-full h-full object-cover opacity-20"
+        />
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">Get In Touch</h1>
+            <p className="text-xl text-gray-300 mb-8">
+              Ready to start your project? Contact our team of experienced structural engineers today.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Information */}
+            <div>
+              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+
+              <div className="space-y-6 mb-8">
+                <div className="flex items-start gap-4">
+                  <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Address</h3>
+                    <p className="text-gray-600">
+                      123 King Street
+                      <br />
+                      Charleston, SC 29401
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Phone className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Phone</h3>
+                    <p className="text-gray-600">843-580-3769</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Mail className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Email</h3>
+                    <p className="text-gray-600">chris@technika-design.com</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <Clock className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
+                  <div>
+                    <h3 className="font-semibold mb-1">Business Hours</h3>
+                    <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <Card className="bg-gradient-to-br from-slate-50 to-gray-100 border-slate-200 shadow-lg">
+              <CardContent className="p-8">
+                <h2 className="text-2xl font-bold mb-6 text-slate-800">Send Us a Message</h2>
+                <form className="space-y-6">
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <Label htmlFor="firstName" className="text-slate-700 font-medium">
+                        First Name *
+                      </Label>
+                      <Input
+                        id="firstName"
+                        required
+                        className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
+                      />
+                    </div>
+                    <div>
+                      <Label htmlFor="lastName" className="text-slate-700 font-medium">
+                        Last Name *
+                      </Label>
+                      <Input
+                        id="lastName"
+                        required
+                        className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <Label htmlFor="email" className="text-slate-700 font-medium">
+                      Email Address *
+                    </Label>
+                    <Input
+                      id="email"
+                      type="email"
+                      required
+                      className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="phone" className="text-slate-700 font-medium">
+                      Phone Number
+                    </Label>
+                    <Input
+                      id="phone"
+                      type="tel"
+                      className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="subject" className="text-slate-700 font-medium">
+                      Subject *
+                    </Label>
+                    <Input
+                      id="subject"
+                      required
+                      className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
+                    />
+                  </div>
+
+                  <div>
+                    <Label htmlFor="message" className="text-slate-700 font-medium">
+                      Message *
+                    </Label>
+                    <Textarea
+                      id="message"
+                      rows={6}
+                      required
+                      className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400 resize-none"
+                      placeholder="Please describe your project and any specific requirements..."
+                    />
+                  </div>
+
+                  <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 py-3 text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200">
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Office Image */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold mb-4">Visit Our Charleston Office</h2>
+            <p className="text-xl text-gray-600">Located in the heart of historic Charleston</p>
+          </div>
+
+          <div className="max-w-4xl mx-auto">
+            <Image
+              src="/placeholder.svg?height=500&width=800"
+              alt="Technika Engineering Office"
+              width={800}
+              height={500}
+              className="w-full h-96 object-cover rounded-lg shadow-lg"
+            />
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  )
+}
