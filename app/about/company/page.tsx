@@ -5,6 +5,7 @@ import { Building, History, Award, Target, Heart, Phone, Mail, TrendingUp, Users
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 export default function CompanyHistoryPage() {
   const milestones = [
@@ -57,25 +58,12 @@ export default function CompanyHistoryPage() {
   {/* Navigation provided by layout */}
 
       {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200&text=Technika+Company+History"
-          alt="Technika Company History"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <History className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Story</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Over a decade of engineering excellence in Charleston and the Southeast
-            </p>
-            {/* Buttons removed: Meet Our Team and Back to About (kept content focused on company history) */}
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Our Story"
+        subtitle="Over a decade of engineering excellence in Charleston and the Southeast"
+        icon={History}
+        imageSrc="/placeholder.svg?height=600&width=1200&text=Technika+Company+History"
+      />
 
       {/* Company Story */}
       <section className="py-20">

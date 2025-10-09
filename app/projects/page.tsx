@@ -3,8 +3,11 @@
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Building } from "lucide-react"
-import Map, { type Project } from "@/components/map"
+import dynamic from "next/dynamic"
+import type { Project } from "@/components/map"
+const Map = dynamic(() => import("@/components/map"), { ssr: false }) as any
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 const projects: Project[] = [
 	{
@@ -105,20 +108,12 @@ export default function ProjectsPage() {
 
 	return (
 		<div className="min-h-screen bg-white">
-			<section className="relative bg-slate-800 text-white py-20">
-				<div className="container mx-auto px-4">
-					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-6xl font-bold mb-6">Our Projects</h1>
-						<p className="text-xl text-gray-300 mb-8">
-							Explore our portfolio of structural engineering projects across
-							Charleston and the Lowcountry
-						</p>
-						<p className="text-lg text-yellow-400">
-							Click on map markers to view project details and photos
-						</p>
-					</div>
-				</div>
-			</section>
+				<Hero
+					title="Our Projects"
+					subtitle="Explore our portfolio of structural engineering projects across Charleston and the Lowcountry"
+					icon={Building}
+					imageSrc="/Projects.jpg"
+				/>
 
 			<div className="container mx-auto px-4 py-12">
 				<div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

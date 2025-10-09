@@ -10,6 +10,7 @@ import { Building, Phone, Mail, MapPin, Menu, Clock, X, ChevronDown } from "luci
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 /* Header moved to components/header.tsx */
 
@@ -140,24 +141,12 @@ export default function ContactPage() {
         </div>
       )}
 
-      {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200"
-          alt="Engineering Office"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Get In Touch</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Ready to start your project? Contact our team of experienced structural engineers today.
-            </p>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Contact Us"
+        subtitle="Ready to start your project? Contact our team of experienced structural engineers today."
+        icon={MapPin}
+  imageSrc="/Contact%20Us.JPG"
+      />
 
       {/* Contact Section */}
       <section className="py-20">

@@ -17,6 +17,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 export default function BuildingSciencePage() {
   // Layout provides the global Navbar; page-level nav state removed
@@ -85,26 +86,13 @@ export default function BuildingSciencePage() {
     <div className="min-h-screen bg-white">
   {/* Navigation (provided by layout) */}
 
-      {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200&text=Building+Science+Services"
-          alt="Building Science Services"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Microscope className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Building Science</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Building envelope and performance optimization through scientific analysis and testing
-            </p>
-            <Button className="bg-yellow-400 text-black hover:bg-yellow-500 px-8 py-3 text-lg">Get a Quote</Button>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Building Science"
+        subtitle="Building envelope and performance optimization through scientific analysis and testing"
+        icon={Microscope}
+        ctaText="Get a Quote"
+  imageSrc="/Building%20Science.jpg"
+      />
 
       {/* Services Overview */}
       <section className="py-20">

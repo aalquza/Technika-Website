@@ -17,6 +17,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 export default function EngineeringConsultingPage() {
   const services = [
@@ -76,39 +77,13 @@ export default function EngineeringConsultingPage() {
       {/* Navigation (provided by layout) */}
 
       {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200&text=Engineering+Consulting+Services"
-          alt="Engineering Consulting"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Search className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Engineering Consulting</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              Expert engineering consultation, peer reviews, and specialized technical services
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-                <Button className="bg-yellow-400 text-black hover:bg-yellow-500 px-8 py-3 text-lg">
-                  Request a Consultation
-                </Button>
-              </Link>
-              <Link href="/projects">
-                <Button
-                  variant="outline"
-                  className="border-white text-white hover:bg-white hover:text-slate-800 px-8 py-3 text-lg bg-transparent"
-                >
-                  View Related Projects
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Engineering Consulting"
+        subtitle="Practical engineering advice and project support across disciplines"
+        icon={Lightbulb}
+        ctaText="Contact Us"
+  imageSrc="/Engineering%20Consulting.jpg"
+      />
 
       {/* Services Overview */}
       <section className="py-20">

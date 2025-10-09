@@ -85,6 +85,8 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
     const applyTheme = () => {
       const map = mapRef.current;
       if (!map) return;
+      // Avoid calling getStyle before the style is fully loaded — Mapbox will throw.
+      if (!map.isStyleLoaded || !map.isStyleLoaded()) return;
       const style = map.getStyle();
       const layers = style?.layers || [];
 

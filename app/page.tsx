@@ -27,7 +27,9 @@ import {
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
-import Map, { Project } from "@/components/map"
+import dynamic from "next/dynamic"
+import type { Project } from "@/components/map"
+const Map = dynamic(() => import("@/components/map"), { ssr: false }) as any
 import Footer from "@/components/footer"
 
 export default function TechnikaHomepage() {
@@ -210,7 +212,7 @@ export default function TechnikaHomepage() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
             {services.map((service, index) => (
               <Link
                 key={index}
@@ -218,10 +220,17 @@ export default function TechnikaHomepage() {
                 aria-label={`Learn more about ${service.title}`}
                 className="block"
               >
-                <Card className="w-full sm:max-w-[48%] lg:max-w-[30%] hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer aspect-square flex flex-col rounded-2xl overflow-hidden group">
+                <Card className="w-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer h-full aspect-square flex flex-col rounded-2xl overflow-hidden group">
                   <div className="relative h-1/2 overflow-hidden min-h-[8rem] max-h-[14rem] md:min-h-[10rem] md:max-h-[16rem]">
                     <Image
-                      src={'/placeholder.svg?height=200&width=400&text=' + encodeURIComponent(service.title)}
+                      src={
+                        service.title === 'Structural Design' ? '/Structural%20Design.jpg' :
+                        service.title === 'Mechanical Design' ? '/Mechanical%20Design.jpg' :
+                        service.title === 'Electrical Design' ? '/Electrical%20Design.jpg' :
+                        service.title === 'Building Science' ? '/Building%20Science.jpg' :
+                        service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.jpg' :
+                        '/placeholder.svg?height=200&width=400&text=' + encodeURIComponent(service.title)
+                      }
                       alt={service.title}
                       width={400}
                       height={200}

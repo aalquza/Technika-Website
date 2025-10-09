@@ -17,6 +17,7 @@ import {
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 export default function MechanicalDesignPage() {
   // Layout provides the global Navbar; page-level nav state removed
@@ -85,26 +86,13 @@ export default function MechanicalDesignPage() {
     <div className="min-h-screen bg-white">
   {/* Navigation (provided by layout) */}
 
-      {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200&text=Mechanical+Design+Services"
-          alt="Mechanical Design Services"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Wind className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Mechanical Design</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              HVAC systems and mechanical engineering solutions optimized for Charleston's climate
-            </p>
-            <Button className="bg-yellow-400 text-black hover:bg-yellow-500 px-8 py-3 text-lg">Get a Quote</Button>
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Mechanical Design"
+        subtitle="HVAC systems and mechanical engineering solutions optimized for Charleston's climate"
+        icon={Wind}
+        ctaText="Get a Quote"
+  imageSrc="/Mechanical%20Design.jpg"
+      />
 
       {/* Services Overview */}
       <section className="py-20">

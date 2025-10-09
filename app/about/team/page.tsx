@@ -5,6 +5,7 @@ import { Building, Users, Phone, Mail, MapPin, GraduationCap, Award, Briefcase, 
 import Image from "next/image"
 import Link from "next/link"
 import Footer from "@/components/footer"
+import Hero from "@/components/hero"
 
 export default function TeamPage() {
   // Navigation provided by layout; remove per-page nav state
@@ -67,28 +68,14 @@ export default function TeamPage() {
 
   return (
     <div className="min-h-screen bg-white">
-  {/* Navigation provided by layout */}
+      {/* Navigation provided by layout */}
 
-      {/* Hero Section */}
-      <section className="relative bg-slate-800 text-white py-20">
-        <Image
-          src="/placeholder.svg?height=600&width=1200&text=Technika+Team"
-          alt="Technika Team"
-          width={1200}
-          height={600}
-          className="absolute inset-0 w-full h-full object-cover opacity-20"
-        />
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <Users className="h-16 w-16 text-yellow-400 mx-auto mb-6" />
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">Meet Our Team</h1>
-            <p className="text-xl text-gray-300 mb-8">
-              The dedicated professionals behind Technika's success and commitment to excellence
-            </p>
-            {/* hero CTAs removed per request */}
-          </div>
-        </div>
-      </section>
+      <Hero
+        title="Our Team"
+        subtitle="Meet the engineers and staff behind Technika"
+        icon={Users}
+        imageSrc="/placeholder.svg?height=600&width=1200&text=Technika+Team"
+      />
 
       {/* Founder Section */}
       <section className="py-20">
@@ -142,18 +129,6 @@ export default function TeamPage() {
                             </span>
                           ))}
                         </div>
-                      </div>
-
-                      <div>
-                        <h4 className="font-semibold mb-3">Key Achievements</h4>
-                        <ul className="space-y-2">
-                          {founder.achievements.map((achievement, idx) => (
-                            <li key={idx} className="flex items-start gap-2">
-                              <Award className="h-4 w-4 text-yellow-500 mt-1 flex-shrink-0" />
-                              <span className="text-gray-600 text-sm">{achievement}</span>
-                            </li>
-                          ))}
-                        </ul>
                       </div>
                     </div>
                   </div>
