@@ -2,17 +2,40 @@
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { ComponentType } from "react"
+import { Calculator, Wind, Zap, Microscope, Lightbulb, Building, MapPin, Users, History } from "lucide-react"
+
+type IconKey = "calculator" | "wind" | "zap" | "microscope" | "lightbulb" | "building" | "mappin" | "users" | "history"
 
 type HeroProps = {
   title: string
   subtitle?: string
-  icon?: ComponentType<any>
+  // allow either a client component or a serializable key
+  icon?: ComponentType<any> | IconKey
   ctaText?: string
   ctaHref?: string
   imageSrc?: string
 }
 
-export default function Hero({ title, subtitle, icon: IconComp, ctaText, ctaHref, imageSrc }: HeroProps) {
+const iconMap: Record<IconKey, ComponentType<any>> = {
+  calculator: Calculator,
+  wind: Wind,
+  zap: Zap,
+  microscope: Microscope,
+  lightbulb: Lightbulb,
+  building: Building,
+  mappin: MapPin,
+  users: Users,
+  history: History,
+}
+
+export default function Hero({ title, subtitle, icon, ctaText, ctaHref, imageSrc }: HeroProps) {
+  // Resolve icon prop (string key or component)
+  let IconComp: ComponentType<any> | undefined = undefined
+  if (typeof icon === "string") {
+    IconComp = iconMap[icon as IconKey]
+  } else if (icon) {
+    IconComp = icon as ComponentType<any>
+  }
   return (
     <section className="relative bg-slate-800 text-white py-20">
       {imageSrc && (

@@ -13,7 +13,7 @@ export default function TeamPage() {
   const founder = {
     name: "Chris Wigginton, PE",
     title: "Principal Engineer & Founder",
-    image: "/placeholder.svg?height=500&width=400&text=Chris+Wigginton",
+    image: "/team/Chris%202.JPG",
     bio: "Chris founded Technika in 2013 with a passion for historic buildings, quality service, and a personal approach. He personally manages each project from start to finish, ensuring the highest standards of engineering excellence. With over 11 years of experience in structural and MEP engineering, Chris has become Charleston's go-to engineer for complex historic preservation projects and innovative new construction.",
     education: "BS Civil Engineering, Clemson University",
     experience: "11+ years in structural and MEP engineering",
@@ -29,7 +29,7 @@ export default function TeamPage() {
   const lindsay = {
     name: "Lindsay Wigginton",
     title: "Operations Manager & Co-Owner",
-    image: "/placeholder.svg?height=500&width=400&text=Lindsay+Wigginton",
+    image: "/team/LINZ.JPG",
     bio: "Lindsay manages project coordination, client communications, and ensures smooth operations across all Technika projects. Her attention to detail and organizational skills keep projects on track and clients informed throughout the entire process. As Chris's wife and business partner, she brings a personal touch to every client interaction and ensures that Technika's commitment to quality service is maintained at every level.",
     education: "BS Business Administration, College of Charleston",
     experience: "8+ years in project management and operations",
@@ -44,25 +44,25 @@ export default function TeamPage() {
 
   const teamMembers = [
     {
-      name: "Sarah Mitchell, PE",
-      title: "Senior Structural Engineer",
-      image: "/placeholder.svg?height=400&width=300&text=Sarah+Mitchell",
-      bio: "Sarah brings over 8 years of experience in structural design and analysis, specializing in seismic design and building renovations.",
-      specialties: ["Seismic Design", "Steel Structures", "Building Renovations"],
+      name: "Gabbrielle",
+      title: "Team Member",
+      image: "/team/Gabrielle%201.JPG",
+      bio: "Part of our engineering team providing design and field support.",
+      specialties: ["Design Support", "Site Assessment"],
     },
     {
-      name: "Michael Chen, PE",
-      title: "Mechanical Engineer",
-      image: "/placeholder.svg?height=400&width=300&text=Michael+Chen",
-      bio: "Michael leads our mechanical design team with expertise in HVAC systems, energy efficiency, and building performance optimization.",
-      specialties: ["HVAC Design", "Energy Modeling", "Building Automation"],
+      name: "Justin",
+      title: "Team Member",
+      image: "/team/Justin%201.JPG",
+      bio: "Contributes to project delivery and technical coordination.",
+      specialties: ["Project Coordination", "Drafting"],
     },
     {
-      name: "Emily Rodriguez, EIT",
-      title: "Electrical Engineer",
-      image: "/placeholder.svg?height=400&width=300&text=Emily+Rodriguez",
-      bio: "Emily specializes in electrical system design, renewable energy integration, and smart building technologies.",
-      specialties: ["Electrical Design", "Solar Systems", "Smart Buildings"],
+      name: "Mike",
+      title: "Team Member",
+      image: "/team/Mike%207.JPG",
+      bio: "Provides field engineering and construction support.",
+      specialties: ["Field Engineering", "Inspections"],
     },
   ]
 
@@ -73,7 +73,7 @@ export default function TeamPage() {
       <Hero
         title="Our Team"
         subtitle="Meet the engineers and staff behind Technika"
-        icon={Users}
+        icon="users"
         imageSrc="/placeholder.svg?height=600&width=1200&text=Technika+Team"
       />
 
