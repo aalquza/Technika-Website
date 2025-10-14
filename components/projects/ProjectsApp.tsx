@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import Image from "next/image"
 import dynamic from "next/dynamic"
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Building } from "lucide-react"
 import type { Project } from "@/components/map"
@@ -68,11 +69,13 @@ export default function ProjectsApp({ projects, initialSelectedId }: Props) {
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Details</h2>
         {selectedProject ? (
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-            <div className="relative h-64 bg-gray-200">
-              <img
+              <div className="relative h-64 bg-gray-200">
+              <Image
                 src={selectedProject.images?.[currentImageIndex] ?? "/placeholder.svg"}
                 alt={`${selectedProject.name} - Image ${currentImageIndex + 1}`}
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
 
               {selectedProject.images && selectedProject.images.length > 1 && (

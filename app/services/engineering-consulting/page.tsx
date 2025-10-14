@@ -144,7 +144,7 @@ export default function EngineeringConsultingPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold">Independent Analysis</h3>
                     <p className="text-gray-600">
-                      Get unbiased reviews and recommendations to improve your project's success.
+                      Get unbiased reviews and recommendations to improve your project&apos;s success.
                     </p>
                   </div>
                 </div>

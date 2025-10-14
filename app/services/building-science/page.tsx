@@ -125,7 +125,7 @@ export default function BuildingSciencePage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Building Science?</h2>
               <p className="text-xl text-gray-600">
-                Our scientific approach to building performance in Charleston's challenging climate
+                Our scientific approach to building performance in Charleston&apos;s challenging climate
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export default function BuildingSciencePage() {
                   <div>
                     <h3 className="font-semibold mb-2">Climate-Specific Expertise</h3>
                     <p className="text-gray-600">
-                      Deep understanding of Charleston's hot, humid climate and its impact on building performance and
+                Deep understanding of Charleston&apos;s hot, humid climate and its impact on building performance and
                       durability.
                     </p>
                   </div>
@@ -240,7 +240,7 @@ export default function BuildingSciencePage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building's Performance?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building&apos;s Performance?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss your building science needs and discover how we can improve efficiency, comfort,
             and durability.

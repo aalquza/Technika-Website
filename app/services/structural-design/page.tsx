@@ -39,7 +39,7 @@ export default function StructuralDesignPage() {
     {
       icon: Building,
       title: "Historic Preservation",
-      description: "Specialized structural solutions for Charleston's historic buildings and landmarks.",
+      description: "Specialized structural solutions for Charleston&apos;s historic buildings and landmarks.",
     },
     {
       icon: Calculator,
@@ -104,7 +104,7 @@ export default function StructuralDesignPage() {
             <h2 className="text-3xl font-bold mb-4">Our Structural Design Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               From foundation to roof, we provide comprehensive structural engineering solutions tailored to
-              Charleston's unique conditions
+              Charleston&apos;s unique conditions
             </p>
           </div>
 
@@ -129,7 +129,7 @@ export default function StructuralDesignPage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Structural Design?</h2>
               <p className="text-xl text-gray-600">
-                Our expertise in Charleston's unique structural challenges sets us apart
+                Our expertise in Charleston&apos;s unique structural challenges sets us apart
               </p>
             </div>
 
@@ -140,7 +140,7 @@ export default function StructuralDesignPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Historic Preservation Expertise</h3>
                     <p className="text-gray-600">
-                      Specialized knowledge in preserving Charleston's architectural heritage while meeting modern
+                      Specialized knowledge in preserving Charleston&apos;s architectural heritage while meeting modern
                       safety standards.
                     </p>
                   </div>

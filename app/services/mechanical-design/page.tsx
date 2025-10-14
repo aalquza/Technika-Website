@@ -88,7 +88,7 @@ export default function MechanicalDesignPage() {
 
       <Hero
         title="Mechanical Design"
-        subtitle="HVAC systems and mechanical engineering solutions optimized for Charleston's climate"
+  subtitle="HVAC systems and mechanical engineering solutions optimized for Charleston&apos;s climate"
         icon={Wind}
         ctaText="Get a Quote"
   imageSrc="/Mechanical%20Design.jpg"
@@ -125,7 +125,7 @@ export default function MechanicalDesignPage() {
             <div className="text-center mb-16">
               <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Mechanical Design?</h2>
               <p className="text-xl text-gray-600">
-                Our expertise in Charleston's humid subtropical climate and energy efficiency
+                Our expertise in Charleston&apos;s humid subtropical climate and energy efficiency
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export default function MechanicalDesignPage() {
                   <div>
                     <h3 className="font-semibold mb-2">Climate-Optimized Design</h3>
                     <p className="text-gray-600">
-                      Systems specifically designed for Charleston's hot, humid summers and mild winters with optimal
+                      Systems specifically designed for Charleston&apos;s hot, humid summers and mild winters with optimal
                       dehumidification.
                     </p>
                   </div>
@@ -240,9 +240,9 @@ export default function MechanicalDesignPage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building's Mechanical Systems?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building&apos;s Mechanical Systems?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Contact us today to discuss your mechanical design needs and discover how we can improve your building's
+            Contact us today to discuss your mechanical design needs and discover how we can improve your building&apos;s
             efficiency and comfort.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

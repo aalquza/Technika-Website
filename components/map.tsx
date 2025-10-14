@@ -31,19 +31,7 @@ interface MapProps {
 const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerColor, markerInnerColor, highlightedId }) => {
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
-  // If no Mapbox token is provided, render a non-failing placeholder and skip initialization.
-  if (!token) {
-    return (
-      <div className="w-full h-full rounded-lg shadow-lg border border-gray-200 flex items-center justify-center p-4 text-center">
-        <div>
-          <p className="text-sm text-gray-500 mb-2">Mapbox token not found.</p>
-          <p className="text-xs text-gray-400">Set NEXT_PUBLIC_MAPBOX_TOKEN in your <code>.env.local</code> to enable the interactive map.</p>
-        </div>
-      </div>
-    )
-  }
-
-  mapboxgl.accessToken = token
+  mapboxgl.accessToken = token || undefined
   const mapContainer = useRef<HTMLDivElement>(null);
   const mapRef = useRef<mapboxgl.Map | null>(null);
   // keep a ref to the latest onSelectProject so handlers don't force effect re-run
@@ -53,7 +41,8 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
   }, [onSelectProject]);
 
   useEffect(() => {
-    if (!mapContainer.current || mapRef.current) return;
+    // Only attempt to initialize if we have a token and a container and map is not already created
+    if (!token || !mapContainer.current || mapRef.current) return;
     const DEFAULT_STYLE = "mapbox://styles/mapbox/streets-v11"
     mapRef.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -243,10 +232,10 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
     const onStyleData = () => applyTheme();
     const onIdle = () => applyTheme();
 
-  // Attach handlers
-  mapRef.current.on("load", onLoad);
-  mapRef.current.on("styledata", onStyleData);
-  mapRef.current.on("idle", onIdle);
+    // Attach handlers
+    mapRef.current.on("load", onLoad);
+    mapRef.current.on("styledata", onStyleData);
+    mapRef.current.on("idle", onIdle);
 
     // Also attempt to apply theme immediately (best-effort) and reapply after short delays
     try {
@@ -255,9 +244,9 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       // ignore
     }
 
-    const timeouts: number[] = [];
-    timeouts.push(window.setTimeout(() => applyTheme(), 150));
-    timeouts.push(window.setTimeout(() => applyTheme(), 600));
+  const timeouts: number[] = [];
+  timeouts.push(window.setTimeout(() => applyTheme(), 150));
+  timeouts.push(window.setTimeout(() => applyTheme(), 600));
 
     // Clean up
     return () => {
@@ -299,7 +288,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       }
       timeouts.forEach((t) => clearTimeout(t));
     };
-  }, [styleUrl, markerColor, markerInnerColor]);
+  }, [styleUrl, markerColor, markerInnerColor, token, projects]);
 
   // Update source data when projects change (if map already initialized)
   useEffect(() => {
@@ -433,7 +422,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
     };
 
     apply();
-  }, [highlightedId, markerColor, markerInnerColor]);
+  }, [highlightedId, markerColor, markerInnerColor, projects, token]);
 
   return (
     <div ref={mapContainer} className="relative w-full h-full rounded-lg shadow-lg border border-gray-200">

@@ -83,8 +83,8 @@ export default function CompanyHistoryPage() {
                 throughout the project lifecycle.
               </p>
               <p className="text-lg leading-relaxed mb-8">
-                What sets Technika apart is our deep understanding of Charleston's unique architectural heritage
-                combined with cutting-edge engineering solutions. We've worked on everything from 18th-century historic
+                What sets Technika apart is our deep understanding of Charleston&apos;s unique architectural heritage
+                combined with cutting-edge engineering solutions. We&apos;ve worked on everything from 18th-century historic
                 homes to modern commercial buildings, always bringing the same level of dedication, expertise, and
                 personal attention to every project. Our growth has been intentional and measured, allowing us to
                 maintain the personal relationships and quality standards that define our practice.
@@ -100,7 +100,7 @@ export default function CompanyHistoryPage() {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Key milestones in Technika's growth and development over the past decade
+              Key milestones in Technika&apos;s growth and development over the past decade
             </p>
           </div>
 
@@ -141,7 +141,7 @@ export default function CompanyHistoryPage() {
                   <Target className="h-12 w-12 text-yellow-500 mx-auto mb-6" />
                   <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    To provide exceptional engineering services that preserve Charleston's architectural heritage while
+                    To provide exceptional engineering services that preserve Charleston&apos;s architectural heritage while
                     embracing innovative solutions for modern challenges. We are committed to personal service,
                     technical excellence, and building lasting relationships with our clients and community.
                   </p>
@@ -153,7 +153,7 @@ export default function CompanyHistoryPage() {
                   <Heart className="h-12 w-12 text-yellow-500 mx-auto mb-6" />
                   <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
                   <p className="text-gray-600 leading-relaxed">
-                    To be the Southeast's premier engineering consultancy, known for our expertise in historic
+                    To be the Southeast&apos;s premier engineering consultancy, known for our expertise in historic
                     preservation, commitment to sustainability, and unwavering dedication to client success. We envision
                     a future where every project contributes to stronger, more resilient communities.
                   </p>

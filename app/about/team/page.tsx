@@ -313,8 +313,8 @@ export default function TeamPage() {
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Work with Our Team</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Experience the difference that comes from working with a dedicated team that cares about your project's
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+            Experience the difference that comes from working with a dedicated team that cares about your project&apos;s
             success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
