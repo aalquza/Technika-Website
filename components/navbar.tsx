@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Building, Menu, X, ChevronDown } from "lucide-react"
+import { Building, Menu, X, ChevronDown, Settings } from "lucide-react"
 import React from "react"
 
 export default function Navbar() {
@@ -28,8 +28,8 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <Building className="h-8 w-8 text-yellow-400" />
-            <span className="text-xl font-bold">TECHNIKA</span>
+            <Settings className="h-8 w-8 text-yellow-400" />
+            <span className="text-3xl font-black-ops-one leading-none translate-y-0.5">TECHNIKA</span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -115,11 +115,9 @@ export default function Navbar() {
               </div>
             </div>
 
-            <Button asChild>
-              <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-500 inline-flex items-center px-3 py-2 rounded-md">
-                Contact Us
-              </Link>
-            </Button>
+            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 inline-flex items-center px-4 py-2 rounded-md font-medium transition-colors">
+              Contact Us
+            </Link>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -266,11 +264,9 @@ export default function Navbar() {
 
             {/* Contact Button */}
             <div className="p-6 border-t border-slate-700">
-              <Button asChild className="w-full">
-                <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-500 py-4 text-lg font-semibold inline-flex items-center justify-center">
-                  Contact Us
-                </Link>
-              </Button>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 py-4 text-lg font-semibold inline-flex items-center justify-center rounded-md transition-colors">
+                Contact Us
+              </Link>
             </div>
           </div>
         </div>

@@ -203,10 +203,8 @@ export default function CompanyHistoryPage() {
             Join the hundreds of satisfied clients who have trusted Technika with their most important projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button className="bg-yellow-400 text-black hover:bg-yellow-500 px-8 py-3 text-lg">
-                Start Your Project
-              </Button>
+            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
+              Start Your Project
             </Link>
             <Link href="/projects">
               <Button

@@ -54,7 +54,7 @@ export default function Hero({ title, subtitle, icon, ctaText, ctaHref, imageSrc
           <h1 className="text-4xl md:text-6xl font-bold mb-6">{title}</h1>
           {subtitle && <p className="text-xl text-gray-300 mb-8">{subtitle}</p>}
           {ctaText && (
-            <Button className="bg-yellow-400 text-black hover:bg-yellow-500 px-8 py-3 text-lg" asChild>
+            <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors" asChild>
               {/* eslint-disable-next-line */}
               <a href={ctaHref || "#"}>{ctaText}</a>
             </Button>

@@ -87,6 +87,9 @@ const config: Config = {
   				}
   			}
   		},
+  		fontFamily: {
+  			'black-ops-one': ['var(--font-black-ops-one)', 'cursive'],
+  		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'

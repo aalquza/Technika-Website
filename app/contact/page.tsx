@@ -131,10 +131,8 @@ export default function ContactPage() {
 
             {/* Contact Button */}
             <div className="p-6 border-t border-slate-700">
-              <Link href="/contact" onClick={() => setIsMenuOpen(false)}>
-                <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 py-4 text-lg font-semibold">
-                  Contact Us
-                </Button>
+              <Link href="/contact" onClick={() => setIsMenuOpen(false)} className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 py-2 font-medium transition-colors rounded-md inline-flex items-center justify-center">
+                Contact Us
               </Link>
             </div>
           </div>
@@ -270,7 +268,7 @@ export default function ContactPage() {
                     />
                   </div>
 
-                  <Button className="w-full bg-yellow-400 text-black hover:bg-yellow-500 py-3 text-lg font-semibold shadow-md hover:shadow-lg transition-all duration-200">
+                  <Button className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 py-2 font-medium transition-colors">
                     Send Message
                   </Button>
                 </form>

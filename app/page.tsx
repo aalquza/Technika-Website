@@ -185,18 +185,13 @@ export default function TechnikaHomepage() {
             <p className="text-lg font-semibold text-yellow-400 mb-8">Precision • Innovation • Excellence</p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild>
-                <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-500 px-8 py-3 text-lg font-semibold">
-                  Start Your Project
-                </Link>
-              </Button>
-              <Button
-                variant="outline"
-                className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-black px-8 py-3 text-lg font-semibold flex items-center gap-2 bg-transparent"
-              >
+              <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
+                Start Your Project
+              </Link>
+              <a href="tel:843-580-3769" className="border-2 border-yellow-400 text-yellow-400 hover:bg-yellow-400 hover:text-slate-800 px-4 py-2 font-medium flex items-center gap-2 bg-transparent rounded-md transition-colors">
                 <Phone className="h-5 w-5" />
                 843-580-3769
-              </Button>
+              </a>
             </div>
           </div>
         </div>
@@ -290,11 +285,9 @@ export default function TechnikaHomepage() {
             </div>
             {/* Removed inline project info on homepage — marker clicks navigate to the Projects page */}
             <div className="text-center mt-8">
-              <Link href="/projects">
-                <Button className="bg-yellow-400 text-slate-900 hover:bg-yellow-500">
-                  View All Projects
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+              <Link href="/projects" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
+                View All Projects
+                <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </div>
           </div>
