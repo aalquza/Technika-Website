@@ -145,7 +145,7 @@ export default function ContactPage() {
         title="Contact Us"
         subtitle="Ready to start your project? Contact our team of experienced structural engineers today."
         icon={MapPin}
-  imageSrc="/Contact%20Us.JPG"
+  imageSrc="/Contact%20Us.webp"
       />
 
       {/* Contact Section */}

@@ -94,7 +94,8 @@ export default function StructuralDesignPage() {
         subtitle="Complete structural engineering services for new construction, renovations, and historic preservation"
         icon={Calculator}
         ctaText="Get a Quote"
-  imageSrc="/Structural%20Design.jpg"
+        ctaHref="/contact"
+  imageSrc="/Structural%20Design.webp"
       />
 
       {/* Services Overview */}

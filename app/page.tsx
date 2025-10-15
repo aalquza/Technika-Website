@@ -224,11 +224,11 @@ export default function TechnikaHomepage() {
                   <div className="relative h-1/2 overflow-hidden min-h-[8rem] max-h-[14rem] md:min-h-[10rem] md:max-h-[16rem]">
                     <Image
                       src={
-                        service.title === 'Structural Design' ? '/Structural%20Design.jpg' :
-                        service.title === 'Mechanical Design' ? '/Mechanical%20Design.jpg' :
-                        service.title === 'Electrical Design' ? '/Electrical%20Design.jpg' :
-                        service.title === 'Building Science' ? '/Building%20Science.jpg' :
-                        service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.jpg' :
+                        service.title === 'Structural Design' ? '/Structural%20Design.webp' :
+                        service.title === 'Mechanical Design' ? '/Mechanical%20Design.webp' :
+                        service.title === 'Electrical Design' ? '/Electrical%20Design.webp' :
+                        service.title === 'Building Science' ? '/Building%20Science.webp' :
+                        service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.webp' :
                         '/placeholder.svg?height=200&width=400&text=' + encodeURIComponent(service.title)
                       }
                       alt={service.title}

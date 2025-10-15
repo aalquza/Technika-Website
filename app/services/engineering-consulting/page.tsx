@@ -82,7 +82,8 @@ export default function EngineeringConsultingPage() {
         subtitle="Practical engineering advice and project support across disciplines"
         icon={Lightbulb}
         ctaText="Contact Us"
-  imageSrc="/Engineering%20Consulting.jpg"
+        ctaHref="/contact"
+  imageSrc="/Engineering%20Consulting.webp"
       />
 
       {/* Services Overview */}

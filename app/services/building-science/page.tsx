@@ -91,7 +91,8 @@ export default function BuildingSciencePage() {
         subtitle="Building envelope and performance optimization through scientific analysis and testing"
         icon={Microscope}
         ctaText="Get a Quote"
-  imageSrc="/Building%20Science.jpg"
+        ctaHref="/contact"
+  imageSrc="/Building%20Science.webp"
       />
 
       {/* Services Overview */}

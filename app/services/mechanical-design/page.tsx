@@ -91,7 +91,8 @@ export default function MechanicalDesignPage() {
   subtitle="HVAC systems and mechanical engineering solutions optimized for Charleston&apos;s climate"
         icon={Wind}
         ctaText="Get a Quote"
-  imageSrc="/Mechanical%20Design.jpg"
+        ctaHref="/contact"
+  imageSrc="/Mechanical%20Design.webp"
       />
 
       {/* Services Overview */}

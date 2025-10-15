@@ -64,7 +64,7 @@ export default function ProjectsPage(props: any) {
 				title="Our Projects"
 				subtitle="Explore our portfolio of structural engineering projects across Charleston and the Lowcountry"
 				icon="building"
-				imageSrc="/Projects.jpg"
+				imageSrc="/Projects.webp"
 			/>
 
 			<div className="container mx-auto px-4 py-12">

@@ -79,7 +79,8 @@ export default function ElectricalDesignPage() {
         subtitle="Electrical systems and power distribution designed for safety, efficiency, and future growth"
         icon={Zap}
         ctaText="Get a Quote"
-  imageSrc="/Electrical%20Design.jpg"
+        ctaHref="/contact"
+  imageSrc="/Electrical%20Design.webp"
       />
 
       {/* Services Overview */}
