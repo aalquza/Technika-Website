@@ -60,19 +60,19 @@ export default function EngineeringConsultingPage() {
       title: "Historic Building Assessment",
       location: "129 Tradd Street, Charleston, SC 29401",
       description: "Comprehensive structural evaluation of a 19th-century commercial building in downtown Charleston.",
-      image: "/gallery/projects/129 Tradd St.JPG",
+      image: "/gallery/projects/129 Tradd St.webp",
     },
     {
       title: "Peer Review for Mixed-Use Development",
       location: "220 Meeting Street, Charleston, SC 29401",
       description: "Independent review of structural designs for a 5-story mixed-use development in Savannah.",
-      image: "/gallery/projects/220 Meeting St.JPG",
+      image: "/gallery/projects/220 Meeting St.webp",
     },
     {
       title: "Expert Witness for Insurance Claim",
       location: "124 Rutledge Avenue, Charleston, SC 29401",
       description: "Provided expert testimony for hurricane damage assessment and insurance claim resolution.",
-      image: "/gallery/projects/124 Rutledge Ave.JPG",
+      image: "/gallery/projects/124 Rutledge Ave.webp",
     },
   ]
 
@@ -238,7 +238,20 @@ export default function EngineeringConsultingPage() {
         </div>
       </section>
 
-
+      {/* Technical Gallery */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Engineering Consulting Gallery</h2>
+            <p className="text-xl text-gray-600">
+              Engineering drawings and construction site consultations from our projects
+            </p>
+          </div>
+          <div className="text-center text-gray-500 italic">
+            <p>Additional project photos coming soon</p>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
@@ -257,3 +270,4 @@ export default function EngineeringConsultingPage() {
     </div>
   )
 }
+

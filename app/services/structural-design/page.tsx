@@ -65,7 +65,7 @@ export default function StructuralDesignPage() {
       location: "0 Gibbes Street, Charleston, SC 29401",
       description:
         "Complete structural restoration of an 1850s Charleston single house including foundation stabilization and seismic retrofitting.",
-      image: "/gallery/projects/0 Gibbes St.JPG",
+      image: "/gallery/projects/0 Gibbes St.webp",
       services: ["Historic Preservation", "Foundation Design"],
     },
     {
@@ -73,7 +73,7 @@ export default function StructuralDesignPage() {
       location: "104 Murray Boulevard, Charleston, SC 29401",
       description:
         "Contemporary addition to a traditional home with seamless structural integration and enhanced seismic performance.",
-      image: "/gallery/projects/104 Murray Blvd.JPG",
+      image: "/gallery/projects/104 Murray Blvd.webp",
       services: ["New Construction", "Seismic Analysis"],
     },
     {
@@ -81,7 +81,7 @@ export default function StructuralDesignPage() {
       location: "11 King Street, Charleston, SC 29401",
       description:
         "Five-story mixed-use building with retail ground floor and office spaces above, designed for coastal wind loads.",
-      image: "/gallery/projects/11 King St.JPG",
+      image: "/gallery/projects/11 King St.webp",
       services: ["Commercial Structures", "Foundation Design"],
     },
   ]
@@ -253,8 +253,8 @@ export default function StructuralDesignPage() {
           <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/structural/support-beam-layout.png"
-                alt="2nd Floor Support Beam Layout Construction"
+                src="/gallery/structural/support-beam-layout.webp"
+                alt="2nd Floor Support Beam Layout"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
@@ -290,3 +290,4 @@ export default function StructuralDesignPage() {
     </div>
   )
 }
+

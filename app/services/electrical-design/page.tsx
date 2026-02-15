@@ -50,7 +50,7 @@ export default function ElectricalDesignPage() {
       location: "32 Prioleau Street, Charleston, SC 29401",
       description:
         "Complete electrical system modernization for a historic inn while preserving architectural character and adding smart room controls.",
-      image: "/gallery/projects/32 Prioleau St.JPG",
+      image: "/gallery/projects/32 Prioleau St.webp",
       services: ["Power Distribution", "Smart Building Technology"],
     },
     {
@@ -58,7 +58,7 @@ export default function ElectricalDesignPage() {
       location: "41 Hasell Street, Charleston, SC 29401",
       description:
         "Comprehensive electrical design with 200kW solar array, battery storage, and advanced energy management systems.",
-      image: "/gallery/projects/41 Hasell St.JPG",
+      image: "/gallery/projects/41 Hasell St.webp",
       services: ["Solar & Renewable Energy", "Load Analysis & Planning"],
     },
     {
@@ -66,7 +66,7 @@ export default function ElectricalDesignPage() {
       location: "54 Hasell Street, Charleston, SC 29401",
       description:
         "High-end residential electrical system with whole-home automation, security integration, and backup power systems.",
-      image: "/gallery/projects/54 Hasell St.JPG",
+      image: "/gallery/projects/54 Hasell St.webp",
       services: ["Smart Building Technology", "Safety Systems"],
     },
   ]
@@ -238,7 +238,7 @@ export default function ElectricalDesignPage() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/electrical/electrical-panel-construction.jpg"
+                src="/gallery/electrical/electrical-panel-construction.webp"
                 alt="Electrical Panel Construction"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -246,7 +246,7 @@ export default function ElectricalDesignPage() {
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/electrical/electrical-panel-layout.jpg"
+                src="/gallery/electrical/electrical-panel-layout.webp"
                 alt="Electrical Panel Layout"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -254,7 +254,7 @@ export default function ElectricalDesignPage() {
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/electrical/electrical-panel-layout-2.jpg"
+                src="/gallery/electrical/electrical-panel-layout-2.webp"
                 alt="Electrical Panel Layout Design"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -262,7 +262,7 @@ export default function ElectricalDesignPage() {
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/electrical/electrical-wiring-layout.jpg"
+                src="/gallery/electrical/electrical-wiring-layout.webp"
                 alt="Electrical Wiring Layout"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -300,3 +300,4 @@ export default function ElectricalDesignPage() {
     </div>
   )
 }
+

@@ -25,7 +25,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Structural assessment and restoration of historic building in Charleston's French Quarter.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/0 Gibbes St.JPG"],
+    images: ["/gallery/projects/0 Gibbes St.webp"],
   },
   {
     id: 2,
@@ -36,7 +36,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Comprehensive structural evaluation of historic South of Broad residence.",
     services: ["Structural Analysis", "Building Inspections", "Historic Preservation"],
-    images: ["/gallery/projects/10 Tradd St.JPG"],
+    images: ["/gallery/projects/10 Tradd St.webp"],
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Structural engineering for waterfront property on The Battery.",
     services: ["Structural Analysis", "Foundation Design"],
-    images: ["/gallery/projects/104 Murray Blvd.JPG"],
+    images: ["/gallery/projects/104 Murray Blvd.webp"],
   },
   {
     id: 4,
@@ -58,7 +58,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic building structural assessment and renovation planning.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/108 Tradd St.JPG"],
+    images: ["/gallery/projects/108 Tradd St.webp"],
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial building structural evaluation on historic King Street.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/11 King St.JPG"],
+    images: ["/gallery/projects/11 King St.webp"],
   },
   {
     id: 6,
@@ -80,7 +80,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering services.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/112 Gordon St.JPG"],
+    images: ["/gallery/projects/112 Gordon St.webp"],
   },
   {
     id: 7,
@@ -91,7 +91,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic property structural assessment and restoration.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/124 Rutledge Ave.JPG"],
+    images: ["/gallery/projects/124 Rutledge Ave.webp"],
   },
   {
     id: 8,
@@ -102,7 +102,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic residence structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/129 Tradd St.JPG"],
+    images: ["/gallery/projects/129 Tradd St.webp"],
   },
   {
     id: 9,
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering and analysis.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/141 Beaufain St.JPG"],
+    images: ["/gallery/projects/141 Beaufain St.webp"],
   },
   {
     id: 10,
@@ -124,7 +124,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic downtown Charleston property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/15 Meeting St.JPG"],
+    images: ["/gallery/projects/15 Meeting St.webp"],
   },
   {
     id: 11,
@@ -135,7 +135,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential property structural engineering.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/161 Rutledge Ave.JPG"],
+    images: ["/gallery/projects/161 Rutledge Ave.webp"],
   },
   {
     id: 12,
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic building structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/162 Wentworth St.JPG"],
+    images: ["/gallery/projects/162 Wentworth St.webp"],
   },
   {
     id: 13,
@@ -157,7 +157,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering services.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/163 Rutledge Ave.JPG"],
+    images: ["/gallery/projects/163 Rutledge Ave.webp"],
   },
   {
     id: 14,
@@ -168,7 +168,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential property structural assessment.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/169 Wentworth.JPG"],
+    images: ["/gallery/projects/169 Wentworth.webp"],
   },
   {
     id: 15,
@@ -179,7 +179,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic South of Broad property structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/2 Lamboll St.JPG"],
+    images: ["/gallery/projects/2 Lamboll St.webp"],
   },
   {
     id: 16,
@@ -190,7 +190,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Iconic waterfront property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/2 Meeting St.JPG"],
+    images: ["/gallery/projects/2 Meeting St.webp"],
   },
   {
     id: 17,
@@ -201,7 +201,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic residential structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/20 Atlantic St.JPG"],
+    images: ["/gallery/projects/20 Atlantic St.webp"],
   },
   {
     id: 18,
@@ -212,7 +212,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering services.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/207 Rutledge Ave.JPG"],
+    images: ["/gallery/projects/207 Rutledge Ave.webp"],
   },
   {
     id: 19,
@@ -223,7 +223,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial property structural assessment on King Street.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/22 King St.JPG"],
+    images: ["/gallery/projects/22 King St.webp"],
   },
   {
     id: 20,
@@ -234,7 +234,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic South of Broad residence structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/23 Tradd St.JPG"],
+    images: ["/gallery/projects/23 Tradd St.webp"],
   },
   {
     id: 21,
@@ -245,7 +245,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential property structural assessment.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/237 Gordon St.JPG"],
+    images: ["/gallery/projects/237 Gordon St.webp"],
   },
   {
     id: 22,
@@ -256,7 +256,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic downtown property structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/25 Meeting St.JPG", "/gallery/25 Meeting St (2).JPG"],
+    images: ["/gallery/projects/25 Meeting St.webp", "/gallery/25 Meeting St (2).webp"],
   },
   {
     id: 23,
@@ -267,7 +267,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Church Street property structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/26 Church St.JPG"],
+    images: ["/gallery/projects/26 Church St.webp"],
   },
   {
     id: 24,
@@ -278,7 +278,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering services.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/28 Pitt St.JPG"],
+    images: ["/gallery/projects/28 Pitt St.webp"],
   },
   {
     id: 25,
@@ -289,7 +289,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "French Quarter historic property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/3 Gibbes St.jpg"],
+    images: ["/gallery/projects/3 Gibbes St.webp"],
   },
   {
     id: 26,
@@ -300,7 +300,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial building structural engineering on King Street.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/33 King St.JPG"],
+    images: ["/gallery/projects/33 King St.webp"],
   },
   {
     id: 27,
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Meeting Street property structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/34 Meeting St.JPG"],
+    images: ["/gallery/projects/34 Meeting St.webp"],
   },
   {
     id: 28,
@@ -322,7 +322,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic downtown property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/37 Meeting St.JPG"],
+    images: ["/gallery/projects/37 Meeting St.webp"],
   },
   {
     id: 29,
@@ -333,7 +333,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial property structural engineering.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/41 King St.JPG"],
+    images: ["/gallery/projects/41 King St.webp"],
   },
   {
     id: 30,
@@ -344,7 +344,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Meeting Street building structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/45 Meeting St.JPG"],
+    images: ["/gallery/projects/45 Meeting St.webp"],
   },
   {
     id: 31,
@@ -355,7 +355,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential property structural engineering.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/45 Pitt St.JPG"],
+    images: ["/gallery/projects/45 Pitt St.webp"],
   },
   {
     id: 32,
@@ -366,7 +366,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Waterfront property structural assessment.",
     services: ["Structural Analysis", "Foundation Design"],
-    images: ["/gallery/projects/48 Murray Blvd.JPG"],
+    images: ["/gallery/projects/48 Murray Blvd.webp"],
   },
   {
     id: 33,
@@ -377,7 +377,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic South of Broad residence structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/5 Tradd St.JPG"],
+    images: ["/gallery/projects/5 Tradd St.webp"],
   },
   {
     id: 34,
@@ -388,7 +388,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Church Street property structural evaluation.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/50 Church St.JPG"],
+    images: ["/gallery/projects/50 Church St.webp"],
   },
   {
     id: 35,
@@ -399,7 +399,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic residential property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/52 Legare St.JPG"],
+    images: ["/gallery/projects/52 Legare St.webp"],
   },
   {
     id: 36,
@@ -410,7 +410,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic South of Broad property structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/6 Legare St.JPG"],
+    images: ["/gallery/projects/6 Legare St.webp"],
   },
   {
     id: 37,
@@ -421,7 +421,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial building structural assessment.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/63 King St.JPG"],
+    images: ["/gallery/projects/63 King St.webp"],
   },
   {
     id: 38,
@@ -432,7 +432,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic downtown property structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/69 Meeting St.JPG"],
+    images: ["/gallery/projects/69 Meeting St.webp"],
   },
   {
     id: 39,
@@ -443,7 +443,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial property on King Street structural evaluation.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/70 King St.JPG"],
+    images: ["/gallery/projects/70 King St.webp"],
   },
   {
     id: 40,
@@ -454,7 +454,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Church Street building structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/71 Church St.JPG"],
+    images: ["/gallery/projects/71 Church St.webp"],
   },
   {
     id: 41,
@@ -465,7 +465,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial building structural engineering.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/71 King St.JPG"],
+    images: ["/gallery/projects/71 King St.webp"],
   },
   {
     id: 42,
@@ -476,7 +476,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential structural engineering services.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/73 Gordon St.JPG"],
+    images: ["/gallery/projects/73 Gordon St.webp"],
   },
   {
     id: 43,
@@ -487,7 +487,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Residential property structural assessment.",
     services: ["Structural Analysis"],
-    images: ["/gallery/projects/76 Pitt St.JPG"],
+    images: ["/gallery/projects/76 Pitt St.webp"],
   },
   {
     id: 44,
@@ -498,7 +498,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic Tradd Street residence structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/83 Tradd St.JPG"],
+    images: ["/gallery/projects/83 Tradd St.webp"],
   },
   {
     id: 45,
@@ -509,7 +509,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Commercial building on King Street structural evaluation.",
     services: ["Structural Analysis", "Commercial Buildings"],
-    images: ["/gallery/projects/84 King St.JPG"],
+    images: ["/gallery/projects/84 King St.webp"],
   },
   {
     id: 46,
@@ -520,7 +520,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic residential property structural assessment.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/94 Tradd St.JPG"],
+    images: ["/gallery/projects/94 Tradd St.webp"],
   },
   {
     id: 47,
@@ -602,23 +602,25 @@ export const projects: Project[] = [
 /**
  * Gallery images without full project data
  * Technical photos organized by category for service pages and general gallery
- * Note: HEIC format files are excluded as they don't render in web browsers
  */
 export const standaloneGalleryImages: string[] = [
   // Electrical Systems
-  "/gallery/electrical/electrical-panel-construction.jpg",
-  "/gallery/electrical/electrical-panel-layout.jpg",
-  "/gallery/electrical/electrical-panel-layout-2.jpg",
-  "/gallery/electrical/electrical-wiring-layout.jpg",
+  "/gallery/electrical/electrical-panel-construction.webp",
+  "/gallery/electrical/electrical-panel-layout.webp",
+  "/gallery/electrical/electrical-panel-layout-2.webp",
+  "/gallery/electrical/electrical-wiring-layout.webp",
   
   // Mechanical Systems
-  "/gallery/mechanical/hvac-installation.jpg",
+  "/gallery/mechanical/hvac-installation.webp",
   
   // Structural Engineering
-  "/gallery/structural/support-beam-layout.png",
+  "/gallery/structural/support-beam-layout.webp",
   
   // Building Science
-  "/gallery/building-science/rotting-wood-inspection.jpg",
+  "/gallery/building-science/rotting-wood-inspection.webp",
+  
+  // Construction & Consulting
+  // Note: HEIC files removed as they are not supported in web browsers
 ]
 
 /**
@@ -678,4 +680,5 @@ export function searchProjects(query: string): Project[] {
     p.location.toLowerCase().includes(lowerQuery)
   )
 }
+
 

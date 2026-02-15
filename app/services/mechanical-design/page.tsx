@@ -63,7 +63,7 @@ export default function MechanicalDesignPage() {
       location: "220 Calhoun Street, Charleston, SC 29401",
       description:
         "Complete HVAC system upgrade for a historic hotel while preserving architectural integrity and improving energy efficiency.",
-      image: "/gallery/projects/220 Calhoun St.JPG",
+      image: "/gallery/projects/220 Calhoun St.webp",
       services: ["HVAC System Design", "Energy Modeling"],
     },
     {
@@ -71,14 +71,14 @@ export default function MechanicalDesignPage() {
       location: "56 Smith Street, Charleston, SC 29401",
       description:
         "Comprehensive mechanical systems for a new 4-story office building with advanced building automation and energy recovery.",
-      image: "/gallery/projects/56 Smith St.JPG",
+      image: "/gallery/projects/56 Smith St.webp",
       services: ["HVAC System Design", "Building Automation"],
     },
     {
       title: "Residential Geothermal System",
       location: "69 Anson Street, Charleston, SC 29401",
       description: "High-efficiency geothermal HVAC system for luxury coastal home with smart controls and zoning.",
-      image: "/gallery/projects/69 Anson St.JPG",
+      image: "/gallery/projects/69 Anson St.webp",
       services: ["Sustainable Design", "Equipment Selection"],
     },
   ]
@@ -251,7 +251,7 @@ export default function MechanicalDesignPage() {
           <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/mechanical/hvac-installation.jpg"
+                src="/gallery/mechanical/hvac-installation.webp"
                 alt="Final HVAC Installation"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -289,3 +289,4 @@ export default function MechanicalDesignPage() {
     </div>
   )
 }
+

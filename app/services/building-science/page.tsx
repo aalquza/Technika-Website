@@ -62,7 +62,7 @@ export default function BuildingSciencePage() {
       location: "10 Tradd Street, Charleston, SC 29401",
       description:
         "Comprehensive building science analysis and retrofit of an 1890s Charleston single house to improve energy efficiency while preserving historic character.",
-      image: "/gallery/projects/10 Tradd St.JPG",
+      image: "/gallery/projects/10 Tradd St.webp",
       services: ["Energy Analysis", "Building Envelope Design"],
     },
     {
@@ -70,7 +70,7 @@ export default function BuildingSciencePage() {
       location: "162 Wentworth Street, Charleston, SC 29401",
       description:
         "Advanced moisture control design for beachfront home to prevent humidity issues and extend building lifespan in harsh coastal environment.",
-      image: "/gallery/projects/162 Wentworth St.JPG",
+      image: "/gallery/projects/162 Wentworth St.webp",
       services: ["Moisture Management", "Performance Testing"],
     },
     {
@@ -78,7 +78,7 @@ export default function BuildingSciencePage() {
       location: "36 Montagu Street, Charleston, SC 29401",
       description:
         "Building science analysis and improvements for office building to reduce energy costs by 30% and improve occupant comfort.",
-      image: "/gallery/projects/36 Montagu St.JPG",
+      image: "/gallery/projects/36 Montagu St.webp",
       services: ["Energy Analysis", "Indoor Air Quality"],
     },
   ]
@@ -251,7 +251,7 @@ export default function BuildingSciencePage() {
           <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/building-science/rotting-wood-inspection.jpg"
+                src="/gallery/building-science/rotting-wood-inspection.webp"
                 alt="Wood Rot Inspection and Assessment"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
@@ -289,3 +289,4 @@ export default function BuildingSciencePage() {
     </div>
   )
 }
+
