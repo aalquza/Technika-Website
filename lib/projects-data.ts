@@ -602,6 +602,7 @@ export const projects: Project[] = [
 /**
  * Gallery images without full project data
  * Technical photos organized by category for service pages and general gallery
+ * Note: HEIC format files are excluded as they don't render in web browsers
  */
 export const standaloneGalleryImages: string[] = [
   // Electrical Systems
@@ -615,16 +616,9 @@ export const standaloneGalleryImages: string[] = [
   
   // Structural Engineering
   "/gallery/structural/support-beam-layout.png",
-  "/gallery/structural/foundation-construction.heic",
-  "/gallery/structural/foundation-construction-2.heic",
-  "/gallery/structural/structural-components.heic",
-  "/gallery/structural/wall-support-construction.heic",
   
   // Building Science
   "/gallery/building-science/rotting-wood-inspection.jpg",
-  
-  // Construction & Consulting
-  "/gallery/construction/engineering-drawings-site.heic",
 ]
 
 /**

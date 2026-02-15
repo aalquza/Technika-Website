@@ -238,27 +238,7 @@ export default function EngineeringConsultingPage() {
         </div>
       </section>
 
-      {/* Technical Gallery */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Engineering Consulting Gallery</h2>
-            <p className="text-xl text-gray-600">
-              Engineering drawings and construction site consultations from our projects
-            </p>
-          </div>
-          <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
-            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/gallery/construction/engineering-drawings-site.heic"
-                alt="Engineering Drawings at Construction Site"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+
 
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">

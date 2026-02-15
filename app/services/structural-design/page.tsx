@@ -250,27 +250,11 @@ export default function StructuralDesignPage() {
               Foundation work, support beams, and structural components from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/support-beam-layout.png"
-                alt="2nd Floor Support Beam Layout"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/gallery/structural/foundation-construction.heic"
-                alt="Foundation Construction"
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
-              <Image
-                src="/gallery/structural/structural-components.heic"
-                alt="Structural Components"
+                alt="2nd Floor Support Beam Layout Construction"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
