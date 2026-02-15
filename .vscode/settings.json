@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^git add -A; git commit -m \"Fix gallery folder case for production deployment\"; git push origin main$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
