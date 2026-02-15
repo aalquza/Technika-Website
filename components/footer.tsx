@@ -2,7 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
-import { Phone, Mail } from "lucide-react"
+import { Phone, Mail, MapPin } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -15,11 +15,14 @@ export default function Footer() {
               Professional engineering services specializing in structural design, MEP systems, and building
               science throughout the Southeast.
             </p>
-            <p className="text-sm text-gray-400 mb-4">
-              4770 Hwy 165 Suites C and E<br />
-              Meggett, SC 29449
-            </p>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-start space-x-4 mb-2">
+              <MapPin className="h-5 w-5 text-yellow-400 mt-0.5" />
+              <span className="text-sm text-gray-400">
+                4770 Hwy 165 Suites C and E<br />
+                Meggett, SC 29449
+              </span>
+            </div>
+            <div className="flex items-center space-x-4 mt-2">
               <Phone className="h-5 w-5 text-yellow-400" />
               <span className="text-sm text-gray-400">843-580-3769</span>
             </div>
