@@ -6,10 +6,8 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { projects, standaloneGalleryImages } from "@/lib/projects-data"
 import { getPrivateAddress } from "@/lib/address-utils"
 
-// Combine project images and standalone gallery images
-const projectImages = projects.flatMap(project => 
-  project.images.map(img => img.replace('/gallery/', ''))
-)
+// Combine all gallery images (both have /gallery/ prefix already)
+const projectImages = projects.flatMap(project => project.images)
 const galleryImages = [...projectImages, ...standaloneGalleryImages].sort()
 
 export default function ProjectGallery() {
@@ -55,11 +53,46 @@ export default function ProjectGallery() {
     return () => window.removeEventListener("keydown", handleKeyDown)
   }, [selectedImageIndex])
 
-  const getImageTitle = (filename: string) => {
+  const getImageTitle = (imagePath: string) => {
+    // Extract just the filename from the full path
+    const filename = imagePath.split('/').pop() || ''
+    
     // Remove file extension
-    const nameWithoutExt = filename.replace(/\.(JPG|jpg)$/, "")
-    // Apply privacy filter to remove house numbers
-    return getPrivateAddress(nameWithoutExt)
+    const nameWithoutExt = filename.replace(/\.(JPG|jpg|webp|png|PNG|HEIC|heic)$/i, '')
+    
+    // Check if it's a street address (projects folder)
+    if (imagePath.includes('/projects/')) {
+      // Apply privacy filter to remove house numbers
+      return getPrivateAddress(nameWithoutExt)
+    }
+    
+    // Check if it's a featured project
+    if (imagePath.includes('/featured-projects/')) {
+      // Extract project name from folder and format nicely
+      const parts = imagePath.split('/')
+      const projectFolder = parts[parts.length - 2] // Get folder name
+      // Convert kebab-case to Title Case
+      return projectFolder
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    }
+    
+    // For technical photos (electrical, mechanical, etc.)
+    if (imagePath.includes('/electrical/') || 
+        imagePath.includes('/mechanical/') || 
+        imagePath.includes('/structural/') ||
+        imagePath.includes('/building-science/') ||
+        imagePath.includes('/construction/')) {
+      // Convert filename to readable format
+      return nameWithoutExt
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    }
+    
+    // Default: just clean up the filename
+    return nameWithoutExt
   }
 
   return (
@@ -83,7 +116,7 @@ export default function ProjectGallery() {
                 className="group relative aspect-square overflow-hidden rounded-lg bg-gray-200 hover:shadow-xl transition-all duration-300"
               >
                 <Image
-                  src={`/gallery/${image}`}
+                  src={image}
                   alt={getImageTitle(image)}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
@@ -133,7 +166,7 @@ export default function ProjectGallery() {
             <div className="relative max-w-7xl max-h-full w-full h-full flex flex-col items-center justify-center">
               <div className="relative w-full h-full">
                 <Image
-                  src={`/gallery/${galleryImages[selectedImageIndex]}`}
+                  src={galleryImages[selectedImageIndex]}
                   alt={getImageTitle(galleryImages[selectedImageIndex])}
                   fill
                   sizes="100vw"
