@@ -281,13 +281,13 @@ export default function ElectricalDesignPage() {
             smart electrical systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
+            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto">
               Get Started
             </Link>
-            <Link href="/projects">
+            <Link href="/projects" className="w-full sm:w-auto">
               <Button
                 variant="outline"
-                className="border-white text-white hover:bg-white hover:text-slate-800 px-8 py-3 text-lg bg-transparent"
+                className="border-white text-white hover:bg-white hover:text-slate-800 px-8 py-3 text-lg bg-transparent w-full"
               >
                 View All Projects
               </Button>

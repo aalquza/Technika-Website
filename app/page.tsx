@@ -88,7 +88,7 @@ export default function TechnikaHomepage() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section id="home" className="relative bg-slate-800 text-white py-20 md:py-32 overflow-hidden">
+      <section id="home" className="relative bg-slate-800 text-white py-12 sm:py-16 md:py-32 overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-800/60 via-slate-800/40 to-slate-800/30"></div>
         <video

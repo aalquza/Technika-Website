@@ -275,7 +275,7 @@ export default function EngineeringConsultingPage() {
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss how our consulting services can support your project
           </p>
-          <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
+          <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto max-w-md mx-auto">
             Schedule a Consultation
           </Link>
         </div>

@@ -37,7 +37,7 @@ export default function Hero({ title, subtitle, icon, ctaText, ctaHref, imageSrc
     IconComp = icon as ComponentType<any>
   }
   return (
-    <section className="relative bg-slate-800 text-white py-20">
+    <section className="relative bg-slate-800 text-white py-12 sm:py-16 md:py-20">
       {imageSrc && (
         <Image
           src={imageSrc}

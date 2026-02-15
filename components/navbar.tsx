@@ -151,7 +151,7 @@ export default function Navbar() {
             </div>
 
             {/* Navigation */}
-            <nav className="flex-1 px-6 py-8 space-y-2">
+            <nav className="flex-1 px-6 py-8 space-y-2 overflow-y-auto">
               <Link
                 href="/"
                 className="block py-4 px-4 text-lg font-medium text-yellow-400 bg-slate-700/50 rounded-lg"
