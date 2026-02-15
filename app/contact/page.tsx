@@ -17,6 +17,67 @@ import Hero from "@/components/hero"
 export default function ContactPage() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isServicesOpen, setIsServicesOpen] = useState(false)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    subject: '',
+    message: ''
+  })
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error', message: string } | null>(null)
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      if (response.ok) {
+        setSubmitStatus({
+          type: 'success',
+          message: 'Thank you! Your message has been sent successfully. We will get back to you soon.'
+        })
+        // Reset form
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          subject: '',
+          message: ''
+        })
+      } else {
+        setSubmitStatus({
+          type: 'error',
+          message: 'Sorry, there was an error sending your message. Please try again or email us directly at chris@technika-design.com'
+        })
+      }
+    } catch (error) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Sorry, there was an error sending your message. Please try again or email us directly at chris@technika-design.com'
+      })
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value
+    })
+  }
 
   return (
     <div className="min-h-screen bg-white">
@@ -160,9 +221,9 @@ export default function ContactPage() {
                   <div>
                     <h3 className="font-semibold mb-1">Address</h3>
                     <p className="text-gray-600">
-                      123 King Street
+                      4770 Hwy 165 Suites C and E
                       <br />
-                      Charleston, SC 29401
+                      Meggett, SC 29449
                     </p>
                   </div>
                 </div>
@@ -197,7 +258,7 @@ export default function ContactPage() {
             <Card className="bg-gradient-to-br from-slate-50 to-gray-100 border-slate-200 shadow-lg">
               <CardContent className="p-8">
                 <h2 className="text-2xl font-bold mb-6 text-slate-800">Send Us a Message</h2>
-                <form className="space-y-6">
+                <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
                       <Label htmlFor="firstName" className="text-slate-700 font-medium">
@@ -206,6 +267,8 @@ export default function ContactPage() {
                       <Input
                         id="firstName"
                         required
+                        value={formData.firstName}
+                        onChange={handleChange}
                         className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
                       />
                     </div>
@@ -216,6 +279,8 @@ export default function ContactPage() {
                       <Input
                         id="lastName"
                         required
+                        value={formData.lastName}
+                        onChange={handleChange}
                         className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
                       />
                     </div>
@@ -229,6 +294,8 @@ export default function ContactPage() {
                       id="email"
                       type="email"
                       required
+                      value={formData.email}
+                      onChange={handleChange}
                       className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
                     />
                   </div>
@@ -240,6 +307,8 @@ export default function ContactPage() {
                     <Input
                       id="phone"
                       type="tel"
+                      value={formData.phone}
+                      onChange={handleChange}
                       className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
                     />
                   </div>
@@ -251,6 +320,8 @@ export default function ContactPage() {
                     <Input
                       id="subject"
                       required
+                      value={formData.subject}
+                      onChange={handleChange}
                       className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400"
                     />
                   </div>
@@ -263,13 +334,30 @@ export default function ContactPage() {
                       id="message"
                       rows={6}
                       required
+                      value={formData.message}
+                      onChange={handleChange}
                       className="mt-1 border-slate-300 focus:border-yellow-400 focus:ring-yellow-400 resize-none"
                       placeholder="Please describe your project and any specific requirements..."
                     />
                   </div>
 
-                  <Button className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 py-2 font-medium transition-colors">
-                    Send Message
+                  {/* Status Message */}
+                  {submitStatus && (
+                    <div className={`p-4 rounded-md ${
+                      submitStatus.type === 'success' 
+                        ? 'bg-green-50 text-green-800 border border-green-200' 
+                        : 'bg-red-50 text-red-800 border border-red-200'
+                    }`}>
+                      {submitStatus.message}
+                    </div>
+                  )}
+
+                  <Button 
+                    type="submit" 
+                    disabled={isSubmitting}
+                    className="w-full bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 py-2 font-medium transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>
@@ -282,13 +370,13 @@ export default function ContactPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Visit Our Charleston Office</h2>
-            <p className="text-xl text-gray-600">Located in the heart of historic Charleston</p>
+            <h2 className="text-3xl font-bold mb-4">Visit Our Meggett Office</h2>
+            <p className="text-xl text-gray-600">Located in Meggett, South Carolina</p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <Image
-              src="/placeholder.svg?height=500&width=800"
+              src="/Megget Office.png"
               alt="Technika Engineering Office"
               width={800}
               height={500}

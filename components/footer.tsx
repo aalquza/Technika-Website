@@ -15,6 +15,10 @@ export default function Footer() {
               Professional engineering services specializing in structural design, MEP systems, and building
               science throughout the Southeast.
             </p>
+            <p className="text-sm text-gray-400 mb-4">
+              4770 Hwy 165 Suites C and E<br />
+              Meggett, SC 29449
+            </p>
             <div className="flex items-center space-x-4">
               <Phone className="h-5 w-5 text-yellow-400" />
               <span className="text-sm text-gray-400">843-580-3769</span>
@@ -58,7 +62,7 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4">Company</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-yellow-400">
+                <Link href="/about/team" className="text-gray-400 hover:text-yellow-400">
                   About Us
                 </Link>
               </li>

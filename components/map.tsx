@@ -52,11 +52,19 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       attributionControl: false, // we'll render a custom attribution inside the card
     });
 
-    // Requested colors
-    const LAND_COLOR = "#303841";
-    const ROAD_MAIN_COLOR = "#EEEEEE";
-    const ROAD_NEIGHBOR_COLOR = "#EEEEEE";
-    const WATER_COLOR = "#3A4750";
+    // Website color scheme - matching the site's blue, white, gray, and yellow theme
+    const WATER_COLOR = "#1e293b"; // Slate-800 - matching header menu color
+    const WATER_OUTLINE = "#0f172a"; // Slate-900 - darker blue for water outlines
+    const LAND_COLOR = "#f3f4f6"; // Gray-100 - light gray for land
+    const BACKGROUND_COLOR = "#e5e7eb"; // Gray-200 - slightly darker for background contrast
+    const ROAD_MAJOR = "#ffffff"; // White - major highways and main roads
+    const ROAD_MINOR = "#f9fafb"; // Gray-50 - minor streets
+    const ROAD_OUTLINE = "#d1d5db"; // Gray-300 - road outlines for definition
+    const BUILDING_COLOR = "#e5e7eb"; // Gray-200 - buildings
+    const BUILDING_OUTLINE = "#d1d5db"; // Gray-300 - building outlines
+    const PARK_COLOR = "#d1fae5"; // Emerald-100 - parks and green spaces
+    const TEXT_COLOR = "#374151"; // Gray-700 - labels and text
+    const TEXT_HALO_COLOR = "#ffffff"; // White - text halos for readability
 
     // Helper to set paint property safely
     const safeSetPaint = (layerId: string, paintProp: string, value: any) => {
@@ -64,6 +72,17 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         if (mapRef.current && mapRef.current.getLayer(layerId)) {
           // cast to any to avoid strict TypeScript paint property unions
           ;(mapRef.current as any).setPaintProperty(layerId, paintProp, value);
+        }
+      } catch (e) {
+        // ignore layers that can't be changed
+      }
+    };
+
+    // Helper to set layout property safely
+    const safeSetLayout = (layerId: string, layoutProp: string, value: any) => {
+      try {
+        if (mapRef.current && mapRef.current.getLayer(layerId)) {
+          ;(mapRef.current as any).setLayoutProperty(layerId, layoutProp, value);
         }
       } catch (e) {
         // ignore layers that can't be changed
@@ -83,39 +102,141 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         const id = (layer.id || "").toLowerCase();
         const type = (layer.type || "").toLowerCase();
 
-        // Water layers
-        if (id.includes("water") || id.includes("ocean") || id.includes("harbor")) {
-          if (type === "fill") safeSetPaint(layer.id, "fill-color", WATER_COLOR);
-          if (type === "line") safeSetPaint(layer.id, "line-color", WATER_COLOR);
+        // Hide driveway layers
+        if (id.includes("driveway")) {
+          safeSetLayout(layer.id, "visibility", "none");
+          return;
+        }
+
+        // Water layers - vibrant blue
+        if (id.includes("water") || id.includes("ocean") || id.includes("harbor") || id.includes("bay")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", WATER_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.7);
+          }
+          if (type === "line") {
+            safeSetPaint(layer.id, "line-color", WATER_OUTLINE);
+            safeSetPaint(layer.id, "line-width", 1);
+          }
           if (type === "background") safeSetPaint(layer.id, "background-color", WATER_COLOR);
         }
 
-        // Road layers: attempt to separate main vs neighborhood roads by layer id keywords
-        if (id.includes("road") || id.includes("street") || id.includes("bridge") || id.includes("motorway") || id.includes("highway")) {
-          const isMain = /motorway|trunk|primary|highway|major|link|motorway_link|primary_link/.test(id);
-          const isNeighborhood = /residential|service|local|street|unclassified|tertiary|minor|neighbour|neighborhood/.test(id);
-          const colorToUse = isMain ? ROAD_MAIN_COLOR : (isNeighborhood ? ROAD_NEIGHBOR_COLOR : ROAD_NEIGHBOR_COLOR);
+        // Building layers
+        if (id.includes("building")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", BUILDING_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.8);
+          }
+          if (type === "fill-extrusion") {
+            safeSetPaint(layer.id, "fill-extrusion-color", BUILDING_COLOR);
+            safeSetPaint(layer.id, "fill-extrusion-opacity", 0.8);
+          }
+          if (type === "line") {
+            safeSetPaint(layer.id, "line-color", BUILDING_OUTLINE);
+            safeSetPaint(layer.id, "line-width", 0.5);
+          }
+        }
 
-          if (type === "line") safeSetPaint(layer.id, "line-color", colorToUse);
-          if (type === "fill") safeSetPaint(layer.id, "fill-color", colorToUse);
-          if (type === "background") safeSetPaint(layer.id, "background-color", colorToUse);
+        // Park and green space layers
+        if (id.includes("park") || id.includes("landuse") && (id.includes("grass") || id.includes("park"))) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", PARK_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.6);
+          }
+        }
+
+        // Road layers - control visibility by type and zoom level
+        if (id.includes("road") || id.includes("street") || id.includes("bridge") || id.includes("motorway") || id.includes("highway") || id.includes("tunnel")) {
+          // Completely hide unwanted road types at all zoom levels
+          const isUnwantedRoad = /service|footway|pedestrian|track|steps|cycleway|path|alley/.test(id);
+          
+          if (isUnwantedRoad) {
+            safeSetLayout(layer.id, "visibility", "none");
+            return;
+          }
+
+          // Set max zoom for all road types - prevent small roads from appearing when zoomed in too close
+          const isMajor = /motorway|trunk|primary/.test(id);
+          const isMinor = /secondary|tertiary/.test(id);
+          const isResidential = /residential|local|unclassified/.test(id);
+          
+          // Residential and smaller roads: max zoom 15 (won't show beyond this)
+          if (isResidential) {
+            safeSetLayout(layer.id, "maxzoom", 15);
+          }
+          // Secondary/tertiary: max zoom 16
+          else if (isMinor) {
+            safeSetLayout(layer.id, "maxzoom", 16);
+          }
+          // Major roads: max zoom 17 (show at most zoom levels)
+          else if (isMajor) {
+            safeSetLayout(layer.id, "maxzoom", 17);
+          }
+          // Everything else: max zoom 15
+          else {
+            safeSetLayout(layer.id, "maxzoom", 15);
+          }
+          
+          if (type === "line") {
+            // Set color based on road type
+            if (isMajor) {
+              safeSetPaint(layer.id, "line-color", ROAD_MAJOR);
+              safeSetPaint(layer.id, "line-width", [
+                "interpolate", ["linear"], ["zoom"],
+                8, 2,
+                12, 3,
+                16, 6
+              ]);
+            } else if (isMinor || isResidential) {
+              safeSetPaint(layer.id, "line-color", ROAD_MINOR);
+              safeSetPaint(layer.id, "line-width", [
+                "interpolate", ["linear"], ["zoom"],
+                12, 1,
+                16, 3
+              ]);
+            }
+            // Add subtle outline for definition
+            if (id.includes("case") || id.includes("outline")) {
+              safeSetPaint(layer.id, "line-color", ROAD_OUTLINE);
+            }
+          }
         }
 
         // Land / background layers
-        if (id.includes("land") || id.includes("earth") || id.includes("landuse") || type === "background") {
+        if (id.includes("land") || id.includes("earth") || type === "background") {
           if (type === "fill") safeSetPaint(layer.id, "fill-color", LAND_COLOR);
-          if (type === "background") safeSetPaint(layer.id, "background-color", LAND_COLOR);
+          if (type === "background") safeSetPaint(layer.id, "background-color", BACKGROUND_COLOR);
+        }
+
+        // Text and label layers - improve readability
+        if (type === "symbol" && (id.includes("label") || id.includes("text") || id.includes("place"))) {
+          safeSetPaint(layer.id, "text-color", TEXT_COLOR);
+          safeSetPaint(layer.id, "text-halo-color", TEXT_HALO_COLOR);
+          safeSetPaint(layer.id, "text-halo-width", 1.5);
+          safeSetPaint(layer.id, "text-halo-blur", 0.5);
+          
+          // Adjust text size based on zoom for better readability
+          if (id.includes("place") || id.includes("city")) {
+            safeSetLayout(layer.id, "text-size", [
+              "interpolate", ["linear"], ["zoom"],
+              8, 12,
+              12, 14,
+              16, 18
+            ]);
+          }
         }
       });
     };
 
-    // Add project points as a GeoJSON source + circle layer (better scaling and performance)
+    // Add project points as a GeoJSON source with clustering enabled
     const addProjectLayer = () => {
       if (!mapRef.current) return;
       const map = mapRef.current;
       const sourceId = "projects";
-  const outerLayer = "project-point-outer";
-  const innerLayer = "project-point-inner";
+      const clusterLayer = "clusters";
+      const clusterCountLayer = "cluster-count";
+      const unclusteredOuterLayer = "unclustered-point-outer";
+      const unclusteredInnerLayer = "unclustered-point-inner";
 
       const geojson = {
         type: "FeatureCollection",
@@ -141,19 +262,74 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
           // ignore
         }
         // If layers are already added, we're done; otherwise add missing layers
-        if (map.getLayer(outerLayer)) return;
+        if (map.getLayer(clusterLayer)) return;
       } else {
+        // Add source with clustering enabled
         map.addSource(sourceId, {
           type: "geojson",
           data: geojson as any,
+          cluster: true,
+          clusterMaxZoom: 16, // Max zoom to cluster points on
+          clusterRadius: 50, // Radius of each cluster when clustering points (defaults to 50)
         });
       }
 
-      // Outer circle (marker background with white stroke) — reduced size (≈75%)
+      // Add cluster circle layer
       map.addLayer({
-        id: outerLayer,
+        id: clusterLayer,
         type: "circle",
         source: sourceId,
+        filter: ["has", "point_count"],
+        paint: {
+          // Use step expressions to implement three types of circles:
+          // * Small clusters (< 10 points): smaller circle
+          // * Medium clusters (10-30 points): medium circle  
+          // * Large clusters (30+ points): large circle
+          "circle-color": [
+            "step",
+            ["get", "point_count"],
+            markerColor || "#facc15", // Default yellow
+            10,
+            "#f59e0b", // Orange for 10-30
+            30,
+            "#d97706", // Darker orange for 30+
+          ],
+          "circle-radius": [
+            "step",
+            ["get", "point_count"],
+            15, // Default radius for small clusters
+            10,
+            20, // Radius for 10-30 points
+            30,
+            25, // Radius for 30+ points
+          ],
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 2,
+        },
+      });
+
+      // Add cluster count labels
+      map.addLayer({
+        id: clusterCountLayer,
+        type: "symbol",
+        source: sourceId,
+        filter: ["has", "point_count"],
+        layout: {
+          "text-field": "{point_count_abbreviated}",
+          "text-font": ["DIN Offc Pro Medium", "Arial Unicode MS Bold"],
+          "text-size": 12,
+        },
+        paint: {
+          "text-color": "#334155",
+        },
+      });
+
+      // Add unclustered point outer circle layer
+      map.addLayer({
+        id: unclusteredOuterLayer,
+        type: "circle",
+        source: sourceId,
+        filter: ["!", ["has", "point_count"]],
         paint: {
           "circle-color": markerColor || "#facc15",
           "circle-stroke-color": "#ffffff",
@@ -172,11 +348,12 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         },
       });
 
-      // Inner dot (reduced)
+      // Add unclustered point inner dot layer
       map.addLayer({
-        id: innerLayer,
+        id: unclusteredInnerLayer,
         type: "circle",
         source: sourceId,
+        filter: ["!", ["has", "point_count"]],
         paint: {
           "circle-color": markerInnerColor || "#334155",
           "circle-radius": [
@@ -193,10 +370,25 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         },
       });
 
-      // No separate highlight layer: we'll change outer circle color for the selected feature instead
+      // Click handler for clusters - zoom in
+      const onClusterClick = (e: mapboxgl.MapLayerMouseEvent) => {
+        const features = e.features;
+        if (!features || features.length === 0) return;
+        const clusterId = features[0].properties?.cluster_id;
+        const source = map.getSource(sourceId) as mapboxgl.GeoJSONSource;
+        
+        source.getClusterExpansionZoom(clusterId, (err, zoom) => {
+          if (err) return;
+          
+          map.easeTo({
+            center: (features[0].geometry as any).coordinates,
+            zoom: zoom || map.getZoom() + 2,
+          });
+        });
+      };
 
-      // Click handler
-      const onClick = (e: mapboxgl.MapLayerMouseEvent) => {
+      // Click handler for unclustered points
+      const onPointClick = (e: mapboxgl.MapLayerMouseEvent) => {
         const features = e.features;
         if (!features || features.length === 0) return;
         const feature = features[0];
@@ -213,15 +405,27 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         map.getCanvas().style.cursor = "";
       };
 
-  // Attach events to the outer layer (visual target)
-  map.on("click", outerLayer, onClick);
-  map.on("mouseenter", outerLayer, onMouseEnter);
-  map.on("mouseleave", outerLayer, onMouseLeave);
+      // Attach events to clusters
+      map.on("click", clusterLayer, onClusterClick);
+      map.on("mouseenter", clusterLayer, onMouseEnter);
+      map.on("mouseleave", clusterLayer, onMouseLeave);
 
-  // store handlers for cleanup
-  ;(map as any).__projectHandlers = { onClick, onMouseEnter, onMouseLeave, outerLayer, innerLayer };
+      // Attach events to unclustered points
+      map.on("click", unclusteredOuterLayer, onPointClick);
+      map.on("mouseenter", unclusteredOuterLayer, onMouseEnter);
+      map.on("mouseleave", unclusteredOuterLayer, onMouseLeave);
 
-      // Store handlers for cleanup by attaching them to the map object (we'll remove by name)
+      // Store handlers for cleanup
+      ;(map as any).__projectHandlers = {
+        onClusterClick,
+        onPointClick,
+        onMouseEnter,
+        onMouseLeave,
+        clusterLayer,
+        clusterCountLayer,
+        unclusteredOuterLayer,
+        unclusteredInnerLayer,
+      };
     };
 
     // Handlers
@@ -254,25 +458,45 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         try {
           // remove any attached project handlers
           const handlers = (mapRef.current as any).__projectHandlers;
-          if (handlers && handlers.outerLayer) {
+          if (handlers) {
             try {
-              mapRef.current.off("click", handlers.outerLayer, handlers.onClick);
-              mapRef.current.off("mouseenter", handlers.outerLayer, handlers.onMouseEnter);
-              mapRef.current.off("mouseleave", handlers.outerLayer, handlers.onMouseLeave);
+              // Remove cluster handlers
+              if (handlers.clusterLayer) {
+                mapRef.current.off("click", handlers.clusterLayer, handlers.onClusterClick);
+                mapRef.current.off("mouseenter", handlers.clusterLayer, handlers.onMouseEnter);
+                mapRef.current.off("mouseleave", handlers.clusterLayer, handlers.onMouseLeave);
+              }
+              // Remove unclustered point handlers
+              if (handlers.unclusteredOuterLayer) {
+                mapRef.current.off("click", handlers.unclusteredOuterLayer, handlers.onPointClick);
+                mapRef.current.off("mouseenter", handlers.unclusteredOuterLayer, handlers.onMouseEnter);
+                mapRef.current.off("mouseleave", handlers.unclusteredOuterLayer, handlers.onMouseLeave);
+              }
             } catch (e) {
               // ignore
             }
             delete (mapRef.current as any).__projectHandlers;
           }
 
-          // remove layer and source if present
-          if (mapRef.current.getLayer("project-point-outer")) {
-            mapRef.current.removeLayer("project-point-outer");
-          }
-          if (mapRef.current.getLayer("project-point-inner")) {
-            mapRef.current.removeLayer("project-point-inner");
-          }
-          // no separate highlight layer to remove
+          // remove layers if present
+          const layersToRemove = [
+            "unclustered-point-inner",
+            "unclustered-point-outer",
+            "cluster-count",
+            "clusters",
+          ];
+          
+          layersToRemove.forEach((layerId) => {
+            try {
+              if (mapRef.current && mapRef.current.getLayer(layerId)) {
+                mapRef.current.removeLayer(layerId);
+              }
+            } catch (e) {
+              // ignore
+            }
+          });
+
+          // remove source if present
           if (mapRef.current.getSource("projects")) {
             mapRef.current.removeSource("projects");
           }
@@ -315,8 +539,8 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
   useEffect(() => {
     if (!mapRef.current) return;
     const map = mapRef.current;
-    const outer = "project-point-outer";
-    const inner = "project-point-inner";
+    const outer = "unclustered-point-outer";
+    const inner = "unclustered-point-inner";
 
     let attempts = 0;
     const apply = () => {
@@ -413,7 +637,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
           const data = (src && src._data) || (src && src.serialize && src.serialize()) || null;
           const feat = data?.features?.find((f: any) => String(f.properties?.id) === String(highlightedId));
           if (feat && feat.geometry && feat.geometry.coordinates) {
-            map.flyTo({ center: feat.geometry.coordinates, zoom: Math.max(map.getZoom(), 13) });
+            map.flyTo({ center: feat.geometry.coordinates, zoom: Math.max(map.getZoom(), 15) });
           }
         } catch (e) {
           // ignore
@@ -426,8 +650,8 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
 
   return (
     <div ref={mapContainer} className="relative w-full h-full rounded-lg shadow-lg border border-gray-200">
-      <div className="absolute left-2 bottom-2 text-xs text-gray-200 bg-black/30 px-2 py-0.5 rounded">
-        © Mapbox © OpenStreetMap Improve this map
+      <div className="absolute left-2 bottom-2 text-xs text-gray-600 bg-white/90 px-2 py-0.5 rounded shadow-sm border border-gray-200">
+        © Mapbox © OpenStreetMap
       </div>
     </div>
   );

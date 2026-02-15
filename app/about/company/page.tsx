@@ -62,7 +62,7 @@ export default function CompanyHistoryPage() {
         title="Our Story"
         subtitle="Over a decade of engineering excellence in Charleston and the Southeast"
         icon="history"
-        imageSrc="/placeholder.svg?height=600&width=1200&text=Technika+Company+History"
+        imageSrc="/Meet the team.png"
       />
       <section className="py-20">
         <div className="container mx-auto px-4">

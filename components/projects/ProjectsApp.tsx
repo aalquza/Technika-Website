@@ -5,6 +5,7 @@ import Image from "next/image"
 import dynamic from "next/dynamic"
 import { ChevronLeft, ChevronRight, MapPin, Calendar, Building } from "lucide-react"
 import type { Project } from "@/components/map"
+import { getPrivateAddress } from "@/lib/address-utils"
 const Map = dynamic(() => import("@/components/map"), { ssr: false }) as any
 
 const serviceColors: { [key: string]: string } = {
@@ -72,7 +73,7 @@ export default function ProjectsApp({ projects, initialSelectedId }: Props) {
               <div className="relative h-64 bg-gray-200">
               <Image
                 src={selectedProject.images?.[currentImageIndex] ?? "/placeholder.svg"}
-                alt={`${selectedProject.name} - Image ${currentImageIndex + 1}`}
+                alt={`${getPrivateAddress(selectedProject.name)} - Image ${currentImageIndex + 1}`}
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
@@ -101,11 +102,11 @@ export default function ProjectsApp({ projects, initialSelectedId }: Props) {
             </div>
 
             <div className="p-6">
-              <h3 className="text-xl font-bold text-gray-900 mb-2">{selectedProject.name}</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">{getPrivateAddress(selectedProject.name)}</h3>
 
               <div className="flex items-center text-gray-600 mb-2">
                 <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-sm">{selectedProject.location}</span>
+                <span className="text-sm">{getPrivateAddress(selectedProject.location)}</span>
               </div>
 
               <div className="flex items-center text-gray-600 mb-2">

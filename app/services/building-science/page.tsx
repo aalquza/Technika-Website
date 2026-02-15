@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { getPrivateAddress } from "@/lib/address-utils"
 import {
   Building,
   Phone,
@@ -58,26 +59,26 @@ export default function BuildingSciencePage() {
   const projects = [
     {
       title: "Historic Charleston Home Energy Retrofit",
-      location: "Ansonborough, Charleston",
+      location: "10 Tradd Street, Charleston, SC 29401",
       description:
         "Comprehensive building science analysis and retrofit of an 1890s Charleston single house to improve energy efficiency while preserving historic character.",
-      image: "/placeholder.svg?height=300&width=400&text=Historic+Energy+Retrofit",
+      image: "/gallery/10 Tradd St.JPG",
       services: ["Energy Analysis", "Building Envelope Design"],
     },
     {
       title: "Coastal Moisture Management Study",
-      location: "Folly Beach, SC",
+      location: "162 Wentworth Street, Charleston, SC 29401",
       description:
         "Advanced moisture control design for beachfront home to prevent humidity issues and extend building lifespan in harsh coastal environment.",
-      image: "/placeholder.svg?height=300&width=400&text=Coastal+Moisture+Management",
+      image: "/gallery/162 Wentworth St.JPG",
       services: ["Moisture Management", "Performance Testing"],
     },
     {
       title: "Commercial Building Performance Optimization",
-      location: "West Ashley, Charleston",
+      location: "36 Montagu Street, Charleston, SC 29401",
       description:
         "Building science analysis and improvements for office building to reduce energy costs by 30% and improve occupant comfort.",
-      image: "/placeholder.svg?height=300&width=400&text=Commercial+Performance",
+      image: "/gallery/36 Montagu St.JPG",
       services: ["Energy Analysis", "Indoor Air Quality"],
     },
   ]
@@ -222,7 +223,7 @@ export default function BuildingSciencePage() {
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{project.location}</p>
+                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.services.map((service, serviceIndex) => (

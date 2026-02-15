@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { getPrivateAddress } from "@/lib/address-utils"
 import {
   Building,
   Phone,
@@ -59,25 +60,25 @@ export default function MechanicalDesignPage() {
   const projects = [
     {
       title: "Historic Hotel HVAC Retrofit",
-      location: "Downtown Charleston",
+      location: "220 Calhoun Street, Charleston, SC 29401",
       description:
         "Complete HVAC system upgrade for a historic hotel while preserving architectural integrity and improving energy efficiency.",
-      image: "/placeholder.svg?height=300&width=400&text=Hotel+HVAC+Retrofit",
+      image: "/gallery/220 Calhoun St.JPG",
       services: ["HVAC System Design", "Energy Modeling"],
     },
     {
       title: "Modern Office Building MEP",
-      location: "Mount Pleasant, SC",
+      location: "56 Smith Street, Charleston, SC 29401",
       description:
         "Comprehensive mechanical systems for a new 4-story office building with advanced building automation and energy recovery.",
-      image: "/placeholder.svg?height=300&width=400&text=Office+Building+MEP",
+      image: "/gallery/56 Smith St.JPG",
       services: ["HVAC System Design", "Building Automation"],
     },
     {
       title: "Residential Geothermal System",
-      location: "Kiawah Island, SC",
+      location: "69 Anson Street, Charleston, SC 29401",
       description: "High-efficiency geothermal HVAC system for luxury coastal home with smart controls and zoning.",
-      image: "/placeholder.svg?height=300&width=400&text=Geothermal+System",
+      image: "/gallery/69 Anson St.JPG",
       services: ["Sustainable Design", "Equipment Selection"],
     },
   ]
@@ -222,7 +223,7 @@ export default function MechanicalDesignPage() {
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{project.location}</p>
+                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.services.map((service, serviceIndex) => (

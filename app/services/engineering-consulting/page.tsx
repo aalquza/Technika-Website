@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { getPrivateAddress } from "@/lib/address-utils"
 import {
   Building,
   Phone,
@@ -57,18 +58,21 @@ export default function EngineeringConsultingPage() {
   const projects = [
     {
       title: "Historic Building Assessment",
+      location: "129 Tradd Street, Charleston, SC 29401",
       description: "Comprehensive structural evaluation of a 19th-century commercial building in downtown Charleston.",
-      image: "/placeholder.svg?height=300&width=400&text=Historic+Building+Assessment",
+      image: "/gallery/129 Tradd St.JPG",
     },
     {
       title: "Peer Review for Mixed-Use Development",
+      location: "220 Meeting Street, Charleston, SC 29401",
       description: "Independent review of structural designs for a 5-story mixed-use development in Savannah.",
-      image: "/placeholder.svg?height=300&width=400&text=Peer+Review+Project",
+      image: "/gallery/220 Meeting St.JPG",
     },
     {
       title: "Expert Witness for Insurance Claim",
+      location: "124 Rutledge Avenue, Charleston, SC 29401",
       description: "Provided expert testimony for hurricane damage assessment and insurance claim resolution.",
-      image: "/placeholder.svg?height=300&width=400&text=Expert+Witness+Case",
+      image: "/gallery/124 Rutledge Ave.JPG",
     },
   ]
 
@@ -211,6 +215,7 @@ export default function EngineeringConsultingPage() {
                 </div>
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <Link href="/projects" className="text-yellow-600 font-semibold flex items-center">
                     View Details <ArrowRight className="ml-2 h-4 w-4" />

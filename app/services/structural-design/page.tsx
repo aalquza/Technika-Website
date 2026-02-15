@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { getPrivateAddress } from "@/lib/address-utils"
 import {
   Building,
   Menu,
@@ -61,26 +62,26 @@ export default function StructuralDesignPage() {
   const projects = [
     {
       title: "Historic Charleston Single House Restoration",
-      location: "South of Broad, Charleston",
+      location: "0 Gibbes Street, Charleston, SC 29401",
       description:
         "Complete structural restoration of an 1850s Charleston single house including foundation stabilization and seismic retrofitting.",
-      image: "/placeholder.svg?height=300&width=400&text=Historic+House+Restoration",
+      image: "/gallery/0 Gibbes St.JPG",
       services: ["Historic Preservation", "Foundation Design"],
     },
     {
       title: "Modern Residential Addition",
-      location: "Mount Pleasant, SC",
+      location: "104 Murray Boulevard, Charleston, SC 29401",
       description:
         "Contemporary addition to a traditional home with seamless structural integration and enhanced seismic performance.",
-      image: "/placeholder.svg?height=300&width=400&text=Modern+Addition",
+      image: "/gallery/104 Murray Blvd.JPG",
       services: ["New Construction", "Seismic Analysis"],
     },
     {
       title: "Commercial Office Building",
-      location: "Downtown Charleston",
+      location: "11 King Street, Charleston, SC 29401",
       description:
         "Five-story mixed-use building with retail ground floor and office spaces above, designed for coastal wind loads.",
-      image: "/placeholder.svg?height=300&width=400&text=Office+Building",
+      image: "/gallery/11 King St.JPG",
       services: ["Commercial Structures", "Foundation Design"],
     },
   ]
@@ -224,7 +225,7 @@ export default function StructuralDesignPage() {
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{project.location}</p>
+                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.services.map((service, serviceIndex) => (

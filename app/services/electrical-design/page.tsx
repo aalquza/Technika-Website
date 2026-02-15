@@ -1,6 +1,7 @@
 "use client"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { getPrivateAddress } from "@/lib/address-utils"
 import { Building, Phone, Mail, MapPin, Zap, Lightbulb, Shield, Sun, Cpu, Power, CheckCircle } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -46,26 +47,26 @@ export default function ElectricalDesignPage() {
   const projects = [
     {
       title: "Historic Inn Electrical Upgrade",
-      location: "French Quarter, Charleston",
+      location: "32 Prioleau Street, Charleston, SC 29401",
       description:
         "Complete electrical system modernization for a historic inn while preserving architectural character and adding smart room controls.",
-      image: "/placeholder.svg?height=300&width=400&text=Historic+Inn+Electrical",
+      image: "/gallery/32 Prioleau St.JPG",
       services: ["Power Distribution", "Smart Building Technology"],
     },
     {
       title: "Solar-Powered Office Complex",
-      location: "North Charleston, SC",
+      location: "41 Hasell Street, Charleston, SC 29401",
       description:
         "Comprehensive electrical design with 200kW solar array, battery storage, and advanced energy management systems.",
-      image: "/placeholder.svg?height=300&width=400&text=Solar+Office+Complex",
+      image: "/gallery/41 Hasell St.JPG",
       services: ["Solar & Renewable Energy", "Load Analysis & Planning"],
     },
     {
       title: "Luxury Residential Automation",
-      location: "Daniel Island, SC",
+      location: "54 Hasell Street, Charleston, SC 29401",
       description:
         "High-end residential electrical system with whole-home automation, security integration, and backup power systems.",
-      image: "/placeholder.svg?height=300&width=400&text=Luxury+Home+Automation",
+      image: "/gallery/54 Hasell St.JPG",
       services: ["Smart Building Technology", "Safety Systems"],
     },
   ]
@@ -209,7 +210,7 @@ export default function ElectricalDesignPage() {
                 />
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{project.location}</p>
+                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
                   <p className="text-gray-600 mb-4">{project.description}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.services.map((service, serviceIndex) => (

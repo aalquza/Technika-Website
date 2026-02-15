@@ -27,19 +27,9 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-  --font-black-ops-one: ${blackOpsOne.variable};
-}
-        `}</style>
-      </head>
-      <body className={`${GeistSans.variable} ${GeistMono.variable} ${blackOpsOne.variable}`}>
-  <Navbar />
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${GeistSans.className} ${blackOpsOne.variable}`} suppressHydrationWarning>
+        <Navbar />
         {children}
       </body>
     </html>
