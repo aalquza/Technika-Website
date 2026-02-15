@@ -6,11 +6,24 @@ This guide explains how to add new projects to your Technika website. All projec
 
 **File to edit:** `lib/projects-data.ts`
 
+## Gallery Organization
+
+The gallery is organized into the following folders:
+- `/public/gallery/projects/` - Historic residential projects (street addresses)
+- `/public/gallery/featured-projects/` - Major featured projects with multiple photos
+- `/public/gallery/electrical/` - Electrical panel and wiring photos
+- `/public/gallery/mechanical/` - HVAC and mechanical system photos
+- `/public/gallery/structural/` - Foundation, beams, and structural components
+- `/public/gallery/building-science/` - Building envelope and assessment photos
+- `/public/gallery/construction/` - Engineering drawings and construction site photos
+
 ## Step-by-Step: Adding a Full Project (with Map Marker)
 
 ### 1. Prepare Your Photos
 - Take photos of the completed project
-- Save them to `/public/gallery/` folder
+- Save them to the appropriate gallery subfolder:
+  - For street address projects: `/public/gallery/projects/`
+  - For featured projects: `/public/gallery/featured-projects/project-name/`
 - Use descriptive filenames like `123 Main St.JPG`
 
 ### 2. Get the Coordinates
@@ -28,7 +41,7 @@ Open `lib/projects-data.ts` and add a new entry to the `projects` array:
 
 ```typescript
 {
-  id: 6, // Increment from the last project ID
+  id: 52, // Increment from the last project ID
   name: "123 Main Street Renovation",
   location: "123 Main St, Charleston, SC",
   coordinates: [-79.9311, 32.7765], // [longitude, latitude]
@@ -37,8 +50,8 @@ Open `lib/projects-data.ts` and add a new entry to the `projects` array:
   description: "Complete structural renovation including foundation repair and seismic retrofitting.",
   services: ["Structural Analysis", "Historic Preservation", "Foundation Design"],
   images: [
-    "/gallery/123 Main St.JPG",
-    "/gallery/123 Main St - Interior.JPG", // You can add multiple images
+    "/gallery/projects/123 Main St.JPG",
+    "/gallery/projects/123 Main St - Interior.JPG", // You can add multiple images
   ],
 },
 ```
@@ -54,18 +67,44 @@ The project will automatically appear:
 
 If you have photos but don't have time to add full project details yet:
 
-1. Add the photo to `/public/gallery/`
-2. Add just the filename to the `standaloneGalleryImages` array in `lib/projects-data.ts`:
+1. Add the photo to the appropriate `/public/gallery/` subfolder
+2. Add the full path to the `standaloneGalleryImages` array in `lib/projects-data.ts`:
 
 ```typescript
 export const standaloneGalleryImages = [
-  "123 Main St.JPG", // Add here
-  "108 Tradd St.JPG",
+  "/gallery/electrical/new-panel-install.jpg", // Add here with full path
+  "/gallery/structural/foundation-work.jpg",
   // ... other images
 ]
 ```
 
 The photo will appear in the gallery but won't have a map marker until you create a full project entry.
+
+## Adding Technical Photos
+
+For technical work photos (not tied to specific projects), organize by category:
+
+**Electrical Work:**
+- Save to: `/public/gallery/electrical/`
+- Example: `/gallery/electrical/panel-installation.jpg`
+
+**Mechanical Work:**
+- Save to: `/public/gallery/mechanical/`
+- Example: `/gallery/mechanical/hvac-unit.jpg`
+
+**Structural Work:**
+- Save to: `/public/gallery/structural/`
+- Example: `/gallery/structural/beam-install.jpg`
+
+**Building Science:**
+- Save to: `/public/gallery/building-science/`
+- Example: `/gallery/building-science/moisture-test.jpg`
+
+**Construction/Consulting:**
+- Save to: `/public/gallery/construction/`
+- Example: `/gallery/construction/site-plans.jpg`
+
+Then add to `standaloneGalleryImages` array in `lib/projects-data.ts`.
 
 ## Project Types
 
@@ -94,9 +133,17 @@ Common services to include:
 Add multiple photos to showcase different aspects:
 ```typescript
 images: [
-  "/gallery/project-exterior.JPG",
-  "/gallery/project-interior.JPG",
-  "/gallery/project-detail.JPG",
+  "/gallery/projects/project-exterior.JPG",
+  "/gallery/projects/project-interior.JPG",
+  "/gallery/projects/project-detail.JPG",
+],
+```
+
+For featured projects with many photos, create a subfolder:
+```typescript
+images: [
+  "/gallery/featured-projects/my-project/photo-1.webp",
+  "/gallery/featured-projects/my-project/photo-2.webp",
 ],
 ```
 
@@ -114,7 +161,7 @@ images: [
 
 ```typescript
 {
-  id: 10,
+  id: 52,
   name: "Historic Battery Mansion Restoration",
   location: "5 East Battery, Charleston, SC 29401",
   coordinates: [-79.9254, 32.7703],
@@ -128,9 +175,9 @@ images: [
     "Seismic Retrofitting"
   ],
   images: [
-    "/gallery/5 East Battery - Exterior.JPG",
-    "/gallery/5 East Battery - Foundation.JPG",
-    "/gallery/5 East Battery - Interior Detail.JPG",
+    "/gallery/projects/5 East Battery - Exterior.JPG",
+    "/gallery/projects/5 East Battery - Foundation.JPG",
+    "/gallery/projects/5 East Battery - Interior Detail.JPG",
   ],
 },
 ```
@@ -143,8 +190,11 @@ images: [
 - Latitude should be positive (around 32.xx)
 
 **Photos not appearing?**
-- Verify images are in `/public/gallery/` folder
-- Check filename matches exactly (case-sensitive)
+- Verify images are in the appropriate `/public/gallery/` subfolder
+- For projects: `/public/gallery/projects/`
+- For featured projects: `/public/gallery/featured-projects/project-name/`
+- For technical photos: `/public/gallery/electrical/`, `/mechanical/`, `/structural/`, etc.
+- Check filename matches exactly (case-sensitive - use lowercase folder names!)
 - Make sure path starts with `/gallery/`
 
 **Changes not showing?**

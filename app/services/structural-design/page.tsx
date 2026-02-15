@@ -65,7 +65,7 @@ export default function StructuralDesignPage() {
       location: "0 Gibbes Street, Charleston, SC 29401",
       description:
         "Complete structural restoration of an 1850s Charleston single house including foundation stabilization and seismic retrofitting.",
-      image: "/gallery/0 Gibbes St.JPG",
+      image: "/gallery/projects/0 Gibbes St.JPG",
       services: ["Historic Preservation", "Foundation Design"],
     },
     {
@@ -73,7 +73,7 @@ export default function StructuralDesignPage() {
       location: "104 Murray Boulevard, Charleston, SC 29401",
       description:
         "Contemporary addition to a traditional home with seamless structural integration and enhanced seismic performance.",
-      image: "/gallery/104 Murray Blvd.JPG",
+      image: "/gallery/projects/104 Murray Blvd.JPG",
       services: ["New Construction", "Seismic Analysis"],
     },
     {
@@ -81,7 +81,7 @@ export default function StructuralDesignPage() {
       location: "11 King Street, Charleston, SC 29401",
       description:
         "Five-story mixed-use building with retail ground floor and office spaces above, designed for coastal wind loads.",
-      image: "/gallery/11 King St.JPG",
+      image: "/gallery/projects/11 King St.JPG",
       services: ["Commercial Structures", "Foundation Design"],
     },
   ]
@@ -237,6 +237,44 @@ export default function StructuralDesignPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Gallery */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Structural Engineering Gallery</h2>
+            <p className="text-xl text-gray-600">
+              Foundation work, support beams, and structural components from our projects
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/support-beam-layout.png"
+                alt="2nd Floor Support Beam Layout"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/foundation-construction.heic"
+                alt="Foundation Construction"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/structural-components.heic"
+                alt="Structural Components"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>

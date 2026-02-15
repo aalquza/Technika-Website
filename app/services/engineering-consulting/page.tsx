@@ -60,19 +60,19 @@ export default function EngineeringConsultingPage() {
       title: "Historic Building Assessment",
       location: "129 Tradd Street, Charleston, SC 29401",
       description: "Comprehensive structural evaluation of a 19th-century commercial building in downtown Charleston.",
-      image: "/gallery/129 Tradd St.JPG",
+      image: "/gallery/projects/129 Tradd St.JPG",
     },
     {
       title: "Peer Review for Mixed-Use Development",
       location: "220 Meeting Street, Charleston, SC 29401",
       description: "Independent review of structural designs for a 5-story mixed-use development in Savannah.",
-      image: "/gallery/220 Meeting St.JPG",
+      image: "/gallery/projects/220 Meeting St.JPG",
     },
     {
       title: "Expert Witness for Insurance Claim",
       location: "124 Rutledge Avenue, Charleston, SC 29401",
       description: "Provided expert testimony for hurricane damage assessment and insurance claim resolution.",
-      image: "/gallery/124 Rutledge Ave.JPG",
+      image: "/gallery/projects/124 Rutledge Ave.JPG",
     },
   ]
 
@@ -234,6 +234,28 @@ export default function EngineeringConsultingPage() {
                 View All Projects
               </Button>
             </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Technical Gallery */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4">Engineering Consulting Gallery</h2>
+            <p className="text-xl text-gray-600">
+              Engineering drawings and construction site consultations from our projects
+            </p>
+          </div>
+          <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/construction/engineering-drawings-site.heic"
+                alt="Engineering Drawings at Construction Site"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
