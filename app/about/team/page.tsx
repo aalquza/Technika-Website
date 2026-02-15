@@ -13,7 +13,7 @@ export default function TeamPage() {
   const founder = {
     name: "Chris Wigginton, PE",
     title: "Principal Engineer & Founder",
-  image: "/Team/chris.jpg",
+  image: "/Team/chris.webp",
     bio: "Chris founded Technika in 2013 with a passion for historic buildings, quality service, and a personal approach. He personally manages each project from start to finish, ensuring the highest standards of engineering excellence. With over 11 years of experience in structural and MEP engineering, Chris has become Charleston's go-to engineer for complex historic preservation projects and innovative new construction.",
     education: "BS Civil Engineering, Georgia Tech",
     experience: "11+ years in structural and MEP engineering",
@@ -29,7 +29,7 @@ export default function TeamPage() {
   const lindsay = {
     name: "Lindsay Wigginton",
     title: "Operations Manager & Co-Owner",
-  image: "/Team/LINZ.jpg",
+  image: "/Team/LINZ.webp",
     bio: "Lindsay manages project coordination, client communications, and ensures smooth operations across all Technika projects. Her attention to detail and organizational skills keep projects on track and clients informed throughout the entire process. As Chris's wife and business partner, she brings a personal touch to every client interaction and ensures that Technika's commitment to quality service is maintained at every level.",
     education: "BS Business Administration, College of Charleston",
     experience: "8+ years in project management and operations",

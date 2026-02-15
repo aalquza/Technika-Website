@@ -74,11 +74,11 @@ export default function BuildingSciencePage() {
       services: ["Moisture Management", "Performance Testing"],
     },
     {
-      title: "Commercial Building Performance Optimization",
-      location: "36 Montagu Street, Charleston, SC 29401",
+      title: "Historic Building Performance Analysis",
+      location: "129 Tradd Street, Charleston, SC 29401",
       description:
-        "Building science analysis and improvements for office building to reduce energy costs by 30% and improve occupant comfort.",
-      image: "/gallery/projects/36 Montagu St.webp",
+        "Building science analysis and improvements for historic building to improve energy efficiency and indoor air quality while preserving character.",
+      image: "/gallery/projects/129 Tradd St.webp",
       services: ["Energy Analysis", "Indoor Air Quality"],
     },
   ]

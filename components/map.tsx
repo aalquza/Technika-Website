@@ -62,7 +62,14 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
     const ROAD_OUTLINE = "#d1d5db"; // Gray-300 - road outlines for definition
     const BUILDING_COLOR = "#e5e7eb"; // Gray-200 - buildings
     const BUILDING_OUTLINE = "#d1d5db"; // Gray-300 - building outlines
-    const PARK_COLOR = "#d1fae5"; // Emerald-100 - parks and green spaces
+    const PARK_COLOR = "#a7f3d0"; // Emerald-200 - parks and green spaces (richer green)
+    const PARK_OUTLINE = "#6ee7b7"; // Emerald-300 - park outlines
+    const RECREATION_COLOR = "#bfdbfe"; // Blue-200 - recreation areas, playgrounds
+    const BEACH_COLOR = "#fde68a"; // Amber-200 - beaches and sand
+    const LANDMARK_COLOR = "#fed7aa"; // Orange-200 - landmarks and historic sites
+    const POI_COLOR = "#fde047"; // Yellow-300 - points of interest
+    const CEMETERY_COLOR = "#d1d5db"; // Gray-300 - cemeteries
+    const WOOD_COLOR = "#d9f99d"; // Lime-200 - wooded areas
     const TEXT_COLOR = "#374151"; // Gray-700 - labels and text
     const TEXT_HALO_COLOR = "#ffffff"; // White - text halos for readability
 
@@ -138,43 +145,102 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         }
 
         // Park and green space layers
-        if (id.includes("park") || id.includes("landuse") && (id.includes("grass") || id.includes("park"))) {
+        if (id.includes("park") || (id.includes("landuse") && (id.includes("grass") || id.includes("park")))) {
           if (type === "fill") {
             safeSetPaint(layer.id, "fill-color", PARK_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.7);
+          }
+          if (type === "line") {
+            safeSetPaint(layer.id, "line-color", PARK_OUTLINE);
+            safeSetPaint(layer.id, "line-width", 1);
+          }
+        }
+
+        // Recreation areas and playgrounds
+        if (id.includes("recreation") || id.includes("playground") || id.includes("pitch") || id.includes("sports")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", RECREATION_COLOR);
             safeSetPaint(layer.id, "fill-opacity", 0.6);
           }
+        }
+
+        // Beaches and sand
+        if (id.includes("beach") || id.includes("sand")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", BEACH_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.7);
+          }
+        }
+
+        // Wooded areas and natural features
+        if (id.includes("wood") || id.includes("forest") || id.includes("scrub") || id.includes("wetland")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", WOOD_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.5);
+          }
+        }
+
+        // Cemeteries
+        if (id.includes("cemetery")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", CEMETERY_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.4);
+          }
+        }
+
+        // Landmarks and historic sites
+        if (id.includes("landmark") || id.includes("monument") || id.includes("historic") || id.includes("memorial")) {
+          if (type === "fill") {
+            safeSetPaint(layer.id, "fill-color", LANDMARK_COLOR);
+            safeSetPaint(layer.id, "fill-opacity", 0.8);
+          }
+          if (type === "circle") {
+            safeSetPaint(layer.id, "circle-color", LANDMARK_COLOR);
+            safeSetPaint(layer.id, "circle-stroke-color", "#f97316"); // Orange-500
+            safeSetPaint(layer.id, "circle-stroke-width", 1);
+          }
+        }
+
+        // Points of interest (POI markers)
+        if (id.includes("poi") && type === "circle") {
+          safeSetPaint(layer.id, "circle-color", POI_COLOR);
+          safeSetPaint(layer.id, "circle-stroke-color", "#eab308"); // Yellow-500
+          safeSetPaint(layer.id, "circle-stroke-width", 1);
         }
 
         // Road layers - control visibility by type and zoom level
         if (id.includes("road") || id.includes("street") || id.includes("bridge") || id.includes("motorway") || id.includes("highway") || id.includes("tunnel")) {
           // Completely hide unwanted road types at all zoom levels
-          const isUnwantedRoad = /service|footway|pedestrian|track|steps|cycleway|path|alley/.test(id);
+          // Expanded list to catch more service roads, alleys, and minor paths
+          const isUnwantedRoad = /service|footway|pedestrian|track|steps|cycleway|path|alley|parking|ferry|construction|piste|link-case|link-[\d]|minor/.test(id);
           
           if (isUnwantedRoad) {
             safeSetLayout(layer.id, "visibility", "none");
             return;
           }
 
-          // Set max zoom for all road types - prevent small roads from appearing when zoomed in too close
+          // Identify road categories
           const isMajor = /motorway|trunk|primary/.test(id);
           const isMinor = /secondary|tertiary/.test(id);
           const isResidential = /residential|local|unclassified/.test(id);
           
-          // Residential and smaller roads: max zoom 15 (won't show beyond this)
+          // Only show major roads (motorways, trunks, primary, secondary) at all zoom levels
+          // Hide residential and other minor streets completely by setting maxzoom very low
           if (isResidential) {
-            safeSetLayout(layer.id, "maxzoom", 15);
+            // Hide residential streets at zoom levels above 14
+            safeSetLayout(layer.id, "maxzoom", 14.5);
           }
-          // Secondary/tertiary: max zoom 16
           else if (isMinor) {
+            // Secondary/tertiary roads: visible up to zoom 16
             safeSetLayout(layer.id, "maxzoom", 16);
           }
-          // Major roads: max zoom 17 (show at most zoom levels)
           else if (isMajor) {
-            safeSetLayout(layer.id, "maxzoom", 17);
+            // Major roads: visible at all zoom levels
+            // No maxzoom restriction
           }
-          // Everything else: max zoom 15
           else {
-            safeSetLayout(layer.id, "maxzoom", 15);
+            // Everything else (catch-all): hide at zoom levels above 14
+            safeSetLayout(layer.id, "maxzoom", 14.5);
           }
           
           if (type === "line") {

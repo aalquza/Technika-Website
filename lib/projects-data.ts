@@ -256,7 +256,7 @@ export const projects: Project[] = [
     year: "2023",
     description: "Historic downtown property structural engineering.",
     services: ["Structural Analysis", "Historic Preservation"],
-    images: ["/gallery/projects/25 Meeting St.webp", "/gallery/25 Meeting St (2).webp"],
+    images: ["/gallery/projects/25 Meeting St.webp"],
   },
   {
     id: 23,
@@ -532,9 +532,9 @@ export const projects: Project[] = [
     description: "Residential addition project featuring modern design and structural enhancements.",
     services: ["Structural Design", "Architectural Coordination"],
     images: [
-      "/gallery/featured-projects/crescent-addition/Crescent Addition 1.webp",
-      "/gallery/featured-projects/crescent-addition/Crescent Addition 2.webp",
-      "/gallery/featured-projects/crescent-addition/Crescent Addition 3.webp",
+      "/gallery/featured-projects/crescent-addition/crescent-addition-exterior.webp",
+      "/gallery/featured-projects/crescent-addition/crescent-addition-interior.webp",
+      "/gallery/featured-projects/crescent-addition/crescent-addition-detail.webp",
     ],
   },
   {
@@ -547,9 +547,9 @@ export const projects: Project[] = [
     description: "Boardwalk design and structural engineering for coastal environment.",
     services: ["Structural Design", "Coastal Engineering"],
     images: [
-      "/gallery/featured-projects/edisto-boardwalk/Edisto Boardwalk.webp",
-      "/gallery/featured-projects/edisto-boardwalk/Edisto Boardwalk 2.webp",
-      "/gallery/featured-projects/edisto-boardwalk/Edisto Boardwalk 3.webp",
+      "/gallery/featured-projects/edisto-boardwalk/edisto-boardwalk-main.webp",
+      "/gallery/featured-projects/edisto-boardwalk/edisto-boardwalk-view.webp",
+      "/gallery/featured-projects/edisto-boardwalk/edisto-boardwalk-structure.webp",
     ],
   },
   {
@@ -562,7 +562,7 @@ export const projects: Project[] = [
     description: "Comprehensive building envelope assessment and restoration.",
     services: ["Building Science", "Building Envelope Assessment"],
     images: [
-      "/gallery/featured-projects/gibbes-street-building-envelope/Gibbes Street Building Envelope 1.webp",
+      "/gallery/featured-projects/gibbes-street-building-envelope/gibbes-street-building-envelope.webp",
     ],
   },
   {
@@ -575,9 +575,9 @@ export const projects: Project[] = [
     description: "Comprehensive structural and MEP engineering for residential development.",
     services: ["Structural Design", "MEP Engineering"],
     images: [
-      "/gallery/featured-projects/kings-grant/Kings Grant 1.webp",
-      "/gallery/featured-projects/kings-grant/Kings Grant 2.webp",
-      "/gallery/featured-projects/kings-grant/Kings Grant 3.webp",
+      "/gallery/featured-projects/kings-grant/kings-grant-exterior.webp",
+      "/gallery/featured-projects/kings-grant/kings-grant-interior.webp",
+      "/gallery/featured-projects/kings-grant/kings-grant-detail.webp",
     ],
   },
   {
@@ -590,11 +590,11 @@ export const projects: Project[] = [
     description: "Historic residence structural renovation and preservation.",
     services: ["Structural Design", "Historic Preservation"],
     images: [
-      "/gallery/featured-projects/meeting-st-residence/Meeting Str 1.webp",
-      "/gallery/featured-projects/meeting-st-residence/Meeting Str 2.webp",
-      "/gallery/featured-projects/meeting-st-residence/Meeting Str 3.webp",
-      "/gallery/featured-projects/meeting-st-residence/Meeting Str 4.webp",
-      "/gallery/featured-projects/meeting-st-residence/Meeting Str 5.webp",
+      "/gallery/featured-projects/meeting-st-residence/meeting-st-residence-exterior.webp",
+      "/gallery/featured-projects/meeting-st-residence/meeting-st-residence-interior.webp",
+      "/gallery/featured-projects/meeting-st-residence/meeting-st-residence-detail.webp",
+      "/gallery/featured-projects/meeting-st-residence/meeting-st-residence-view.webp",
+      "/gallery/featured-projects/meeting-st-residence/meeting-st-residence-structure.webp",
     ],
   },
 ]
@@ -607,7 +607,7 @@ export const standaloneGalleryImages: string[] = [
   // Electrical Systems
   "/gallery/electrical/electrical-panel-construction.webp",
   "/gallery/electrical/electrical-panel-layout.webp",
-  "/gallery/electrical/electrical-panel-layout-2.webp",
+  "/gallery/electrical/electrical-panel-layout-alternate.webp",
   "/gallery/electrical/electrical-wiring-layout.webp",
   
   // Mechanical Systems
@@ -615,12 +615,17 @@ export const standaloneGalleryImages: string[] = [
   
   // Structural Engineering
   "/gallery/structural/support-beam-layout.webp",
+  "/gallery/structural/foundation-construction.webp",
+  "/gallery/structural/foundation-construction-alternate.webp",
+  "/gallery/structural/structural-components.webp",
+  "/gallery/structural/wall-support-construction.webp",
   
   // Building Science
   "/gallery/building-science/rotting-wood-inspection.webp",
   
   // Construction & Consulting
-  // Note: HEIC files removed as they are not supported in web browsers
+  "/gallery/construction/engineering-drawings-site.webp",
+  "/gallery/construction/foundation-construction.webp",
 ]
 
 /**

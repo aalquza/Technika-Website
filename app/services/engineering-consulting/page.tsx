@@ -63,10 +63,10 @@ export default function EngineeringConsultingPage() {
       image: "/gallery/projects/129 Tradd St.webp",
     },
     {
-      title: "Peer Review for Mixed-Use Development",
-      location: "220 Meeting Street, Charleston, SC 29401",
-      description: "Independent review of structural designs for a 5-story mixed-use development in Savannah.",
-      image: "/gallery/projects/220 Meeting St.webp",
+      title: "Commercial Building Peer Review",
+      location: "15 Meeting Street, Charleston, SC 29401",
+      description: "Independent review of structural and MEP designs for commercial building renovation in downtown Charleston.",
+      image: "/gallery/projects/15 Meeting St.webp",
     },
     {
       title: "Expert Witness for Insurance Claim",
@@ -186,11 +186,11 @@ export default function EngineeringConsultingPage() {
 
             <div className="relative">
               <Image
-                src="/placeholder.svg?height=600&width=800&text=Engineering+Consultation"
-                alt="Engineering Consultation"
+                src="/gallery/featured-projects/allstar-pediatrics/allstar-pediatrics-main.webp"
+                alt="All Starr Pediatrics - Engineering Consulting Project"
                 width={800}
                 height={600}
-                className="rounded-lg shadow-lg"
+                className="rounded-lg shadow-lg object-cover"
               />
             </div>
           </div>
@@ -247,8 +247,23 @@ export default function EngineeringConsultingPage() {
               Engineering drawings and construction site consultations from our projects
             </p>
           </div>
-          <div className="text-center text-gray-500 italic">
-            <p>Additional project photos coming soon</p>
+          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/construction/engineering-drawings-site.webp"
+                alt="Engineering Drawings at Construction Site"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/construction/foundation-construction.webp"
+                alt="Foundation Construction Planning"
+                fill
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>

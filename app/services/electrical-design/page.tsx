@@ -46,28 +46,28 @@ export default function ElectricalDesignPage() {
 
   const projects = [
     {
-      title: "Historic Inn Electrical Upgrade",
-      location: "32 Prioleau Street, Charleston, SC 29401",
+      title: "Historic Building Electrical Upgrade",
+      location: "11 King Street, Charleston, SC 29401",
       description:
-        "Complete electrical system modernization for a historic inn while preserving architectural character and adding smart room controls.",
-      image: "/gallery/projects/32 Prioleau St.webp",
+        "Complete electrical system modernization for a historic commercial building while preserving architectural character and adding modern safety systems.",
+      image: "/gallery/projects/11 King St.webp",
+      services: ["Power Distribution", "Safety Systems"],
+    },
+    {
+      title: "Residential Electrical Design",
+      location: "15 Meeting Street, Charleston, SC 29401",
+      description:
+        "Comprehensive electrical design for downtown residence including advanced lighting controls and energy-efficient systems.",
+      image: "/gallery/projects/15 Meeting St.webp",
+      services: ["Lighting Design", "Load Analysis & Planning"],
+    },
+    {
+      title: "Commercial Building Systems",
+      location: "22 King Street, Charleston, SC 29401",
+      description:
+        "Modern electrical infrastructure for commercial building with backup power and smart building integration.",
+      image: "/gallery/projects/22 King St.webp",
       services: ["Power Distribution", "Smart Building Technology"],
-    },
-    {
-      title: "Solar-Powered Office Complex",
-      location: "41 Hasell Street, Charleston, SC 29401",
-      description:
-        "Comprehensive electrical design with 200kW solar array, battery storage, and advanced energy management systems.",
-      image: "/gallery/projects/41 Hasell St.webp",
-      services: ["Solar & Renewable Energy", "Load Analysis & Planning"],
-    },
-    {
-      title: "Luxury Residential Automation",
-      location: "54 Hasell Street, Charleston, SC 29401",
-      description:
-        "High-end residential electrical system with whole-home automation, security integration, and backup power systems.",
-      image: "/gallery/projects/54 Hasell St.webp",
-      services: ["Smart Building Technology", "Safety Systems"],
     },
   ]
 
@@ -254,7 +254,7 @@ export default function ElectricalDesignPage() {
             </div>
             <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/gallery/electrical/electrical-panel-layout-2.webp"
+                src="/gallery/electrical/electrical-panel-layout-alternate.webp"
                 alt="Electrical Panel Layout Design"
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"

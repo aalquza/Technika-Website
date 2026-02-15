@@ -59,27 +59,27 @@ export default function MechanicalDesignPage() {
 
   const projects = [
     {
-      title: "Historic Hotel HVAC Retrofit",
-      location: "220 Calhoun Street, Charleston, SC 29401",
+      title: "Historic Building HVAC Retrofit",
+      location: "108 Tradd Street, Charleston, SC 29401",
       description:
-        "Complete HVAC system upgrade for a historic hotel while preserving architectural integrity and improving energy efficiency.",
-      image: "/gallery/projects/220 Calhoun St.webp",
+        "Complete HVAC system upgrade for a historic building while preserving architectural integrity and improving energy efficiency.",
+      image: "/gallery/projects/108 Tradd St.webp",
       services: ["HVAC System Design", "Energy Modeling"],
     },
     {
-      title: "Modern Office Building MEP",
-      location: "56 Smith Street, Charleston, SC 29401",
+      title: "Residential Mechanical Systems",
+      location: "104 Murray Boulevard, Charleston, SC 29401",
       description:
-        "Comprehensive mechanical systems for a new 4-story office building with advanced building automation and energy recovery.",
-      image: "/gallery/projects/56 Smith St.webp",
-      services: ["HVAC System Design", "Building Automation"],
+        "Comprehensive mechanical systems for waterfront residence with advanced climate control and humidity management for coastal environment.",
+      image: "/gallery/projects/104 Murray Blvd.webp",
+      services: ["HVAC System Design", "Equipment Selection"],
     },
     {
-      title: "Residential Geothermal System",
-      location: "69 Anson Street, Charleston, SC 29401",
-      description: "High-efficiency geothermal HVAC system for luxury coastal home with smart controls and zoning.",
-      image: "/gallery/projects/69 Anson St.webp",
-      services: ["Sustainable Design", "Equipment Selection"],
+      title: "Commercial Building MEP",
+      location: "124 Rutledge Avenue, Charleston, SC 29401",
+      description: "Modern mechanical systems for commercial property with energy-efficient HVAC and smart building controls.",
+      image: "/gallery/projects/124 Rutledge Ave.webp",
+      services: ["HVAC System Design", "Building Automation"],
     },
   ]
 

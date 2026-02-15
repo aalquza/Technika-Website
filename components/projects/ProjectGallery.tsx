@@ -6,9 +6,20 @@ import { X, ChevronLeft, ChevronRight } from "lucide-react"
 import { projects, standaloneGalleryImages } from "@/lib/projects-data"
 import { getPrivateAddress } from "@/lib/address-utils"
 
+// Shuffle function to randomize array order
+const shuffleArray = <T,>(array: T[]): T[] => {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 // Combine all gallery images (both have /gallery/ prefix already)
 const projectImages = projects.flatMap(project => project.images)
-const galleryImages = [...projectImages, ...standaloneGalleryImages].sort()
+const allImages = [...projectImages, ...standaloneGalleryImages]
+const galleryImages = shuffleArray(allImages)
 
 export default function ProjectGallery() {
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
@@ -120,6 +131,7 @@ export default function ProjectGallery() {
                   alt={getImageTitle(image)}
                   fill
                   sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, (max-width: 1024px) 25vw, 20vw"
+                  quality={90}
                   className="object-cover transition-transform duration-300 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
