@@ -190,6 +190,7 @@ export default function MechanicalDesignPage() {
                 src="/gallery/mechanical/hvac-installation.webp"
                 alt="Final HVAC Installation"
                 fill
+                sizes="(max-width: 768px) 100vw, 600px"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

@@ -191,6 +191,7 @@ export default function StructuralDesignPage() {
                 src="/gallery/structural/support-beam-layout.webp"
                 alt="2nd Floor Support Beam Layout"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -199,6 +200,7 @@ export default function StructuralDesignPage() {
                 src="/gallery/structural/foundation-construction.webp"
                 alt="Foundation Construction"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -207,6 +209,7 @@ export default function StructuralDesignPage() {
                 src="/gallery/structural/foundation-construction-alternate.webp"
                 alt="Foundation Construction Detail"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -215,6 +218,7 @@ export default function StructuralDesignPage() {
                 src="/gallery/structural/structural-components.webp"
                 alt="Structural Components"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -223,6 +227,7 @@ export default function StructuralDesignPage() {
                 src="/gallery/structural/wall-support-construction.webp"
                 alt="Wall and Support Construction"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

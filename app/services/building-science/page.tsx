@@ -189,6 +189,7 @@ export default function BuildingSciencePage() {
                 src="/gallery/building-science/rotting-wood-inspection.webp"
                 alt="Wood Rot Inspection and Assessment"
                 fill
+                sizes="(max-width: 768px) 100vw, 600px"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

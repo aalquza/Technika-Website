@@ -176,6 +176,7 @@ export default function ElectricalDesignPage() {
                 src="/gallery/electrical/electrical-panel-construction.webp"
                 alt="Electrical Panel Construction"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -184,6 +185,7 @@ export default function ElectricalDesignPage() {
                 src="/gallery/electrical/electrical-panel-layout.webp"
                 alt="Electrical Panel Layout"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -192,6 +194,7 @@ export default function ElectricalDesignPage() {
                 src="/gallery/electrical/electrical-panel-layout-alternate.webp"
                 alt="Electrical Panel Layout Design"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -200,6 +203,7 @@ export default function ElectricalDesignPage() {
                 src="/gallery/electrical/electrical-wiring-layout.webp"
                 alt="Electrical Wiring Layout"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>

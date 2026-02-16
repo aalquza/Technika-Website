@@ -191,6 +191,7 @@ export default function EngineeringConsultingPage() {
                 src="/gallery/construction/engineering-drawings-site.webp"
                 alt="Engineering Drawings at Construction Site"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -199,6 +200,7 @@ export default function EngineeringConsultingPage() {
                 src="/gallery/construction/foundation-construction.webp"
                 alt="Foundation Construction Planning"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
