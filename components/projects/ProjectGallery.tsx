@@ -19,10 +19,16 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 // Combine all gallery images (both have /gallery/ prefix already)
 const projectImages = projects.flatMap(project => project.images)
 const allImages = [...projectImages, ...standaloneGalleryImages]
-const galleryImages = shuffleArray(allImages)
 
 export default function ProjectGallery() {
+  // Initialize with non-shuffled images to match server render, then shuffle on client
+  const [galleryImages, setGalleryImages] = useState(allImages)
   const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null)
+
+  // Shuffle images only on client-side after mount to avoid hydration mismatch
+  useEffect(() => {
+    setGalleryImages(shuffleArray(allImages))
+  }, [])
 
   const openLightbox = (index: number) => {
     setSelectedImageIndex(index)

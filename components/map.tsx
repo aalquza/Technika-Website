@@ -23,12 +23,9 @@ interface MapProps {
   highlightedId?: number | null;
   // Optional: mapbox style url (e.g. 'mapbox://styles/mapbox/dark-v10' or a custom style)
   styleUrl?: string;
-  // Optional marker styling
-  markerColor?: string; // background of marker
-  markerInnerColor?: string; // inner dot color
 }
 
-const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerColor, markerInnerColor, highlightedId }) => {
+const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, highlightedId }) => {
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN
 
   mapboxgl.accessToken = token || undefined
@@ -108,6 +105,14 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       layers.forEach((layer) => {
         const id = (layer.id || "").toLowerCase();
         const type = (layer.type || "").toLowerCase();
+
+        // Skip our custom project marker layers - don't let theme override them
+        if (id === "unclustered-point-outer" || 
+            id === "unclustered-point-inner" || 
+            id === "clusters" || 
+            id === "cluster-count") {
+          return;
+        }
 
         // Hide driveway layers
         if (id.includes("driveway")) {
@@ -354,7 +359,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
           "circle-color": [
             "step",
             ["get", "point_count"],
-            markerColor || "#facc15", // Default yellow
+            "#facc15", // Default yellow
             10,
             "#f59e0b", // Orange for 10-30
             30,
@@ -390,16 +395,16 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         },
       });
 
-      // Add unclustered point outer circle layer
+      // Add unclustered point outer circle layer (yellow background with blue outline)
       map.addLayer({
         id: unclusteredOuterLayer,
         type: "circle",
         source: sourceId,
         filter: ["!", ["has", "point_count"]],
         paint: {
-          "circle-color": markerColor || "#facc15",
-          "circle-stroke-color": "#ffffff",
-          "circle-stroke-width": 2,
+          "circle-color": "#facc15", // yellow background
+          "circle-stroke-color": "#1e293b", // slate-800 to match navbar - blue outline
+          "circle-stroke-width": 2, // visible blue outline by default
           "circle-radius": [
             "interpolate",
             ["linear"],
@@ -421,7 +426,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         source: sourceId,
         filter: ["!", ["has", "point_count"]],
         paint: {
-          "circle-color": markerInnerColor || "#334155",
+          "circle-color": "#1e293b", // slate-800 to match navbar - dark blue dot
           "circle-radius": [
             "interpolate",
             ["linear"],
@@ -461,6 +466,15 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         const idProp = feature.properties && (feature.properties as any).id;
         const id = typeof idProp === "string" ? parseInt(idProp, 10) : idProp;
         const match = projects.find((p) => p.id === id);
+        
+        // Always fly to the clicked marker's location
+        if (feature.geometry && (feature.geometry as any).coordinates) {
+          map.flyTo({ 
+            center: (feature.geometry as any).coordinates, 
+            zoom: Math.max(map.getZoom(), 15) 
+          });
+        }
+        
         if (match && onSelectRef.current) onSelectRef.current(match);
       };
 
@@ -476,10 +490,14 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       map.on("mouseenter", clusterLayer, onMouseEnter);
       map.on("mouseleave", clusterLayer, onMouseLeave);
 
-      // Attach events to unclustered points
+      // Attach events to unclustered points (both outer and inner layers)
       map.on("click", unclusteredOuterLayer, onPointClick);
       map.on("mouseenter", unclusteredOuterLayer, onMouseEnter);
       map.on("mouseleave", unclusteredOuterLayer, onMouseLeave);
+      
+      map.on("click", unclusteredInnerLayer, onPointClick);
+      map.on("mouseenter", unclusteredInnerLayer, onMouseEnter);
+      map.on("mouseleave", unclusteredInnerLayer, onMouseLeave);
 
       // Store handlers for cleanup
       ;(map as any).__projectHandlers = {
@@ -532,11 +550,17 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
                 mapRef.current.off("mouseenter", handlers.clusterLayer, handlers.onMouseEnter);
                 mapRef.current.off("mouseleave", handlers.clusterLayer, handlers.onMouseLeave);
               }
-              // Remove unclustered point handlers
+              // Remove unclustered point handlers (outer layer)
               if (handlers.unclusteredOuterLayer) {
                 mapRef.current.off("click", handlers.unclusteredOuterLayer, handlers.onPointClick);
                 mapRef.current.off("mouseenter", handlers.unclusteredOuterLayer, handlers.onMouseEnter);
                 mapRef.current.off("mouseleave", handlers.unclusteredOuterLayer, handlers.onMouseLeave);
+              }
+              // Remove unclustered point handlers (inner layer)
+              if (handlers.unclusteredInnerLayer) {
+                mapRef.current.off("click", handlers.unclusteredInnerLayer, handlers.onPointClick);
+                mapRef.current.off("mouseenter", handlers.unclusteredInnerLayer, handlers.onMouseEnter);
+                mapRef.current.off("mouseleave", handlers.unclusteredInnerLayer, handlers.onMouseLeave);
               }
             } catch (e) {
               // ignore
@@ -578,7 +602,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
       }
       timeouts.forEach((t) => clearTimeout(t));
     };
-  }, [styleUrl, markerColor, markerInnerColor, token, projects]);
+  }, [styleUrl, token, projects]);
 
   // Update source data when projects change (if map already initialized)
   useEffect(() => {
@@ -687,14 +711,24 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
         ],
       ];
 
+      // Create stroke width expression for selection state (thicker outline when selected)
+      const strokeWidthExpr: any = [
+        "case",
+        ["==", ["to-string", ["get", "id"]], highlightedStr],
+        4, // selected: thicker blue outline
+        2, // default: standard blue outline
+      ];
+
       try {
         ;(map as any).setPaintProperty(outer, "circle-radius", outerExpr);
         ;(map as any).setPaintProperty(inner, "circle-radius", innerExpr);
-        // Ensure inner color remains the configured color (clear any previous selection color)
-        ;(map as any).setPaintProperty(inner, "circle-color", markerInnerColor || "#334155");
+        ;(map as any).setPaintProperty(outer, "circle-stroke-width", strokeWidthExpr);
+        // Ensure inner dot remains dark blue (slate-800) always
+        ;(map as any).setPaintProperty(inner, "circle-color", "#1e293b");
       } catch (e) {
         // ignore
       }
+
 
       // Optionally fly to the highlighted feature
       if (highlightedId != null) {
@@ -712,7 +746,7 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, markerCo
     };
 
     apply();
-  }, [highlightedId, markerColor, markerInnerColor, projects, token]);
+  }, [highlightedId]);
 
   return (
     <div ref={mapContainer} className="relative w-full h-full rounded-lg shadow-lg border border-gray-200">
