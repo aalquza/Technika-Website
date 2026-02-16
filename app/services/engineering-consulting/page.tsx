@@ -55,27 +55,6 @@ export default function EngineeringConsultingPage() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Historic Building Assessment",
-      location: "129 Tradd Street, Charleston, SC 29401",
-      description: "Comprehensive structural evaluation of a 19th-century commercial building in downtown Charleston.",
-      image: "/gallery/projects/129 Tradd St.webp",
-    },
-    {
-      title: "Commercial Building Peer Review",
-      location: "15 Meeting Street, Charleston, SC 29401",
-      description: "Independent review of structural and MEP designs for commercial building renovation in downtown Charleston.",
-      image: "/gallery/projects/15 Meeting St.webp",
-    },
-    {
-      title: "Expert Witness for Insurance Claim",
-      location: "124 Rutledge Avenue, Charleston, SC 29401",
-      description: "Provided expert testimony for hurricane damage assessment and insurance claim resolution.",
-      image: "/gallery/projects/124 Rutledge Ave.webp",
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation (provided by layout) */}
@@ -197,47 +176,6 @@ export default function EngineeringConsultingPage() {
         </div>
       </section>
 
-      {/* Recent Projects */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Recent Consulting Projects</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Examples of our engineering consulting services in action
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="h-48 relative">
-                  <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <Link href="/projects" className="text-yellow-600 font-semibold flex items-center">
-                    View Details <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <Link href="/projects">
-              <Button
-                variant="outline"
-                className="border-slate-800 text-slate-800 hover:bg-slate-800 hover:text-white px-8 py-3 text-lg bg-transparent"
-              >
-                View All Projects
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
-
       {/* Technical Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -247,7 +185,7 @@ export default function EngineeringConsultingPage() {
               Engineering drawings and construction site consultations from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/construction/engineering-drawings-site.webp"

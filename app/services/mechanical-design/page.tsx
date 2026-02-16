@@ -57,32 +57,6 @@ export default function MechanicalDesignPage() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Historic Building HVAC Retrofit",
-      location: "108 Tradd Street, Charleston, SC 29401",
-      description:
-        "Complete HVAC system upgrade for a historic building while preserving architectural integrity and improving energy efficiency.",
-      image: "/gallery/projects/108 Tradd St.webp",
-      services: ["HVAC System Design", "Energy Modeling"],
-    },
-    {
-      title: "Residential Mechanical Systems",
-      location: "104 Murray Boulevard, Charleston, SC 29401",
-      description:
-        "Comprehensive mechanical systems for waterfront residence with advanced climate control and humidity management for coastal environment.",
-      image: "/gallery/projects/104 Murray Blvd.webp",
-      services: ["HVAC System Design", "Equipment Selection"],
-    },
-    {
-      title: "Commercial Building MEP",
-      location: "124 Rutledge Avenue, Charleston, SC 29401",
-      description: "Modern mechanical systems for commercial property with energy-efficient HVAC and smart building controls.",
-      image: "/gallery/projects/124 Rutledge Ave.webp",
-      services: ["HVAC System Design", "Building Automation"],
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-white">
   {/* Navigation (provided by layout) */}
@@ -93,7 +67,7 @@ export default function MechanicalDesignPage() {
         icon={Wind}
         ctaText="Get a Quote"
         ctaHref="/contact"
-  imageSrc="/Mechanical%20Design.webp"
+  imageSrc="/gallery/mechanical/Mechanical%20Ductwork.webp"
       />
 
       {/* Services Overview */}
@@ -201,44 +175,6 @@ export default function MechanicalDesignPage() {
         </div>
       </section>
 
-      {/* Recent Projects */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Recent Mechanical Design Projects</h2>
-            <p className="text-xl text-gray-600">
-              Examples of our mechanical engineering work across different building types
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                />
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.services.map((service, serviceIndex) => (
-                      <span key={serviceIndex} className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technical Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -248,7 +184,7 @@ export default function MechanicalDesignPage() {
               Professional HVAC installations and mechanical systems from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-1 gap-6 max-w-2xl mx-auto">
+          <div className="grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/mechanical/hvac-installation.webp"

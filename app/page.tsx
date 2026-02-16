@@ -170,7 +170,7 @@ export default function TechnikaHomepage() {
                     <Image
                       src={
                         service.title === 'Structural Design' ? '/Structural%20Design.webp' :
-                        service.title === 'Mechanical Design' ? '/Mechanical%20Design.webp' :
+                        service.title === 'Mechanical Design' ? '/gallery/mechanical/Mechanical%20Ductwork.webp' :
                         service.title === 'Electrical Design' ? '/Electrical%20Design.webp' :
                         service.title === 'Building Science' ? '/Building%20Science.webp' :
                         service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.webp' :

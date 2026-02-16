@@ -44,33 +44,6 @@ export default function ElectricalDesignPage() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Historic Building Electrical Upgrade",
-      location: "11 King Street, Charleston, SC 29401",
-      description:
-        "Complete electrical system modernization for a historic commercial building while preserving architectural character and adding modern safety systems.",
-      image: "/gallery/projects/11 King St.webp",
-      services: ["Power Distribution", "Safety Systems"],
-    },
-    {
-      title: "Residential Electrical Design",
-      location: "15 Meeting Street, Charleston, SC 29401",
-      description:
-        "Comprehensive electrical design for downtown residence including advanced lighting controls and energy-efficient systems.",
-      image: "/gallery/projects/15 Meeting St.webp",
-      services: ["Lighting Design", "Load Analysis & Planning"],
-    },
-    {
-      title: "Commercial Building Systems",
-      location: "22 King Street, Charleston, SC 29401",
-      description:
-        "Modern electrical infrastructure for commercial building with backup power and smart building integration.",
-      image: "/gallery/projects/22 King St.webp",
-      services: ["Power Distribution", "Smart Building Technology"],
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-white">
   {/* Navigation (provided by layout) */}
@@ -188,44 +161,6 @@ export default function ElectricalDesignPage() {
         </div>
       </section>
 
-      {/* Recent Projects */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Recent Electrical Design Projects</h2>
-            <p className="text-xl text-gray-600">
-              Examples of our electrical engineering work across different applications
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                />
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.services.map((service, serviceIndex) => (
-                      <span key={serviceIndex} className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technical Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -235,8 +170,8 @@ export default function ElectricalDesignPage() {
               Professional electrical installations and panel layouts from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/electrical/electrical-panel-construction.webp"
                 alt="Electrical Panel Construction"
@@ -244,7 +179,7 @@ export default function ElectricalDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/electrical/electrical-panel-layout.webp"
                 alt="Electrical Panel Layout"
@@ -252,7 +187,7 @@ export default function ElectricalDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/electrical/electrical-panel-layout-alternate.webp"
                 alt="Electrical Panel Layout Design"
@@ -260,7 +195,7 @@ export default function ElectricalDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/electrical/electrical-wiring-layout.webp"
                 alt="Electrical Wiring Layout"

@@ -59,33 +59,6 @@ export default function StructuralDesignPage() {
     },
   ]
 
-  const projects = [
-    {
-      title: "Historic Charleston Single House Restoration",
-      location: "0 Gibbes Street, Charleston, SC 29401",
-      description:
-        "Complete structural restoration of an 1850s Charleston single house including foundation stabilization and seismic retrofitting.",
-      image: "/gallery/projects/0 Gibbes St.webp",
-      services: ["Historic Preservation", "Foundation Design"],
-    },
-    {
-      title: "Modern Residential Addition",
-      location: "104 Murray Boulevard, Charleston, SC 29401",
-      description:
-        "Contemporary addition to a traditional home with seamless structural integration and enhanced seismic performance.",
-      image: "/gallery/projects/104 Murray Blvd.webp",
-      services: ["New Construction", "Seismic Analysis"],
-    },
-    {
-      title: "Commercial Office Building",
-      location: "11 King Street, Charleston, SC 29401",
-      description:
-        "Five-story mixed-use building with retail ground floor and office spaces above, designed for coastal wind loads.",
-      image: "/gallery/projects/11 King St.webp",
-      services: ["Commercial Structures", "Foundation Design"],
-    },
-  ]
-
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation (provided by layout) */}
@@ -203,44 +176,6 @@ export default function StructuralDesignPage() {
         </div>
       </section>
 
-      {/* Recent Projects */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Recent Structural Design Projects</h2>
-            <p className="text-xl text-gray-600">
-              Examples of our structural engineering work across different project types
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <Card key={index} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-48 object-cover"
-                />
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                  <p className="text-yellow-600 font-medium mb-3">{getPrivateAddress(project.location)}</p>
-                  <p className="text-gray-600 mb-4">{project.description}</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.services.map((service, serviceIndex) => (
-                      <span key={serviceIndex} className="px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">
-                        {service}
-                      </span>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Technical Gallery */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
@@ -250,8 +185,8 @@ export default function StructuralDesignPage() {
               Foundation work, support beams, and structural components from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/support-beam-layout.webp"
                 alt="2nd Floor Support Beam Layout"
@@ -259,7 +194,7 @@ export default function StructuralDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/foundation-construction.webp"
                 alt="Foundation Construction"
@@ -267,7 +202,7 @@ export default function StructuralDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/foundation-construction-alternate.webp"
                 alt="Foundation Construction Detail"
@@ -275,7 +210,7 @@ export default function StructuralDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/structural-components.webp"
                 alt="Structural Components"
@@ -283,7 +218,7 @@ export default function StructuralDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
-            <div className="relative aspect-square rounded-lg overflow-hidden shadow-lg">
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/structural/wall-support-construction.webp"
                 alt="Wall and Support Construction"

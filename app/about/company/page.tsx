@@ -89,6 +89,9 @@ export default function CompanyHistoryPage() {
                 personal attention to every project. Our growth has been intentional and measured, allowing us to
                 maintain the personal relationships and quality standards that define our practice.
               </p>
+              <p className="text-lg leading-relaxed mb-8">
+                People often ask about the name of the company, and everyone struggles with the pronunciation. Technika (pronounced TEHK-nee-kah) is the Czech word for engineering. Chris&apos;s grandfather on his mother&apos;s side was a Czech immigrant who built founded and ran a sheetmetal fabrication company in the Northeast in the 1940s and 1950s. He worked on a variety of notable projects, and is certainly a contributing factor to Chris&apos;s engineering passion.
+              </p>
             </div>
           </div>
         </div>

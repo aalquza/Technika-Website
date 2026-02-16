@@ -14,16 +14,11 @@ export default function TeamPage() {
     name: "Chris Wigginton, PE",
     title: "Principal Engineer & Founder",
   image: "/Team/chris.webp",
-    bio: "Chris founded Technika in 2013 with a passion for historic buildings, quality service, and a personal approach. He personally manages each project from start to finish, ensuring the highest standards of engineering excellence. With over 11 years of experience in structural and MEP engineering, Chris has become Charleston's go-to engineer for complex historic preservation projects and innovative new construction.",
-    education: "BS Civil Engineering, Georgia Tech",
-    experience: "11+ years in structural and MEP engineering",
-    specialties: ["Historic Preservation", "Structural Design", "Project Management", "Seismic Analysis"],
-    achievements: [
-      "Licensed Professional Engineer in SC, NC, GA, FL",
-      "200+ successful projects completed",
-      "Specialist in Charleston's historic architecture",
-      "Expert in seismic retrofitting and coastal construction",
-    ],
+    bio: "Chris founded Technika in 2013 upon returning to Charleston after co-owning a successful multi-disciplinary consulting engineering firm in Atlanta since 2006. Chris's background and experience with all aspects of residential and light commercial construction and design, with a continued focus on complex residential engineering designs, gives him a unique perspective on the necessary engineering principles for these projects. Chris founded Technika in Charleston with a focus on historic structures, working side by side with some of Charleston's premier architects to create award-winning designs. Chris personally manages each project and serves as the primary point of contact for the company as it continues to grow, now completing projects all over the Southeast.",
+    education: "",
+    experience: "",
+    specialties: ["Structural Design", "Mechanical Design", "Electrical Design", "Historic Structures", "Building Science"],
+    achievements: [],
   }
 
   const lindsay = {
@@ -31,7 +26,7 @@ export default function TeamPage() {
     title: "Operations Manager & Co-Owner",
   image: "/Team/LINZ.webp",
     bio: "Lindsay manages project coordination, client communications, and ensures smooth operations across all Technika projects. Her attention to detail and organizational skills keep projects on track and clients informed throughout the entire process. As Chris's wife and business partner, she brings a personal touch to every client interaction and ensures that Technika's commitment to quality service is maintained at every level.",
-    education: "BS Business Administration, College of Charleston",
+    education: "B.S in Education from GA State, 2006",
     experience: "8+ years in project management and operations",
     specialties: ["Project Coordination", "Client Relations", "Quality Assurance", "Business Operations"],
     achievements: [
@@ -101,24 +96,30 @@ export default function TeamPage() {
                   <div className="p-8 md:p-12">
                     <h3 className="text-3xl font-bold mb-2">{founder.name}</h3>
                     <p className="text-yellow-600 font-semibold text-lg mb-6">{founder.title}</p>
-                    <p className="text-gray-600 mb-8 leading-relaxed">{founder.bio}</p>
+                    <p className="text-gray-600 mb-8 leading-relaxed">
+                      Chris founded Technika in 2013 upon returning to Charleston after co-owning a successful multi-disciplinary consulting engineering firm in Atlanta since 2006. Chris&apos;s background and experience with all aspects of residential and light commercial construction and design, with a continued focus on complex residential engineering designs, gives him a unique perspective on the necessary engineering principles for these projects. Chris founded Technika in Charleston with a focus on historic structures, working side by side with some of Charleston&apos;s premier architects to create award-winning designs. Chris <strong className="font-semibold text-slate-800">personally manages each project</strong> and serves as the <strong className="font-semibold text-slate-800">primary point of contact for the company</strong> as it continues to grow, now completing projects all over the Southeast.
+                    </p>
 
                     <div className="space-y-6">
-                      <div className="flex items-start gap-3">
-                        <GraduationCap className="h-5 w-5 text-yellow-500 mt-1" />
-                        <div>
-                          <h4 className="font-semibold mb-1">Education</h4>
-                          <p className="text-gray-600">{founder.education}</p>
+                      {founder.education && (
+                        <div className="flex items-start gap-3">
+                          <GraduationCap className="h-5 w-5 text-yellow-500 mt-1" />
+                          <div>
+                            <h4 className="font-semibold mb-1">Education</h4>
+                            <p className="text-gray-600">{founder.education}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
-                      <div className="flex items-start gap-3">
-                        <Briefcase className="h-5 w-5 text-yellow-500 mt-1" />
-                        <div>
-                          <h4 className="font-semibold mb-1">Experience</h4>
-                          <p className="text-gray-600">{founder.experience}</p>
+                      {founder.experience && (
+                        <div className="flex items-start gap-3">
+                          <Briefcase className="h-5 w-5 text-yellow-500 mt-1" />
+                          <div>
+                            <h4 className="font-semibold mb-1">Experience</h4>
+                            <p className="text-gray-600">{founder.experience}</p>
+                          </div>
                         </div>
-                      </div>
+                      )}
 
                       <div>
                         <h4 className="font-semibold mb-3">Specialties</h4>
