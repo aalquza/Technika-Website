@@ -61,16 +61,17 @@ export default function ProjectsApp({ projects, initialSelectedId }: Props) {
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Locations</h2>
         <p className="text-gray-600 mb-6">Click on any marker to view project details and photos</p>
-        <div className="h-96">
+        <div className="h-[600px] rounded-lg overflow-hidden">
           <Map projects={projects} onSelectProject={handleProjectSelect} highlightedId={selectedProject?.id} />
         </div>
       </div>
 
       <div>
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Project Details</h2>
+        <p className="text-gray-600 mb-6">View photos and information for selected projects</p>
         {selectedProject ? (
           <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-              <div className="relative h-64 bg-gray-200">
+              <div className="relative h-96 bg-gray-200">
               <Image
                 src={selectedProject.images?.[currentImageIndex] ?? "/placeholder.svg"}
                 alt={`${getPrivateAddress(selectedProject.name)} - Image ${currentImageIndex + 1}`}
@@ -104,19 +105,19 @@ export default function ProjectsApp({ projects, initialSelectedId }: Props) {
             <div className="p-6">
               <h3 className="text-xl font-bold text-gray-900 mb-2">{getPrivateAddress(selectedProject.name)}</h3>
 
-              <div className="flex items-center text-gray-600 mb-2">
-                <MapPin className="w-4 h-4 mr-2" />
-                <span className="text-sm">{getPrivateAddress(selectedProject.location)}</span>
-              </div>
-
-              <div className="flex items-center text-gray-600 mb-2">
-                <Building className="w-4 h-4 mr-2" />
-                <span className="text-sm">{selectedProject.type}</span>
-              </div>
-
-              <div className="flex items-center text-gray-600 mb-4">
-                <Calendar className="w-4 h-4 mr-2" />
-                <span className="text-sm">{selectedProject.year}</span>
+              <div className="flex items-center gap-4 text-gray-600 mb-4 flex-wrap">
+                <div className="flex items-center">
+                  <MapPin className="w-4 h-4 mr-2" />
+                  <span className="text-sm">{getPrivateAddress(selectedProject.location)}</span>
+                </div>
+                <div className="flex items-center">
+                  <Building className="w-4 h-4 mr-2" />
+                  <span className="text-sm">{selectedProject.type}</span>
+                </div>
+                <div className="flex items-center">
+                  <Calendar className="w-4 h-4 mr-2" />
+                  <span className="text-sm">{selectedProject.year}</span>
+                </div>
               </div>
 
               <div className="mb-4">

@@ -62,7 +62,7 @@ export default function EngineeringConsultingPage() {
       {/* Hero Section */}
       <Hero
         title="Engineering Consulting"
-        subtitle="Practical engineering advice and project support across disciplines"
+        subtitle="Practical Engineering Advice and Project Support Across Disciplines"
         icon={Lightbulb}
         ctaText="Contact Us"
         ctaHref="/contact"
@@ -73,7 +73,7 @@ export default function EngineeringConsultingPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Consulting Services</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Consulting Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive engineering consultation to support your project at every stage
             </p>
@@ -84,7 +84,7 @@ export default function EngineeringConsultingPage() {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8">
                   <service.icon className="h-12 w-12 text-yellow-500 mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-black-ops-one mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
@@ -98,7 +98,7 @@ export default function EngineeringConsultingPage() {
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold mb-6">Why Choose Our Consulting Services</h2>
+              <h2 className="text-3xl font-black-ops-one mb-6">Why Choose Our Consulting Services</h2>
               <p className="text-lg text-gray-600 mb-6">
                 With over a decade of experience in the Southeast, our engineering consulting services provide expert
                 guidance, independent reviews, and specialized technical support for your most challenging projects.
@@ -112,7 +112,7 @@ export default function EngineeringConsultingPage() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Experienced Perspective</h3>
+                    <h3 className="text-lg font-black-ops-one">Experienced Perspective</h3>
                     <p className="text-gray-600">
                       Benefit from our extensive experience across residential, commercial, and historic projects.
                     </p>
@@ -126,7 +126,7 @@ export default function EngineeringConsultingPage() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Independent Analysis</h3>
+                    <h3 className="text-lg font-black-ops-one">Independent Analysis</h3>
                     <p className="text-gray-600">
                       Get unbiased reviews and recommendations to improve your project&apos;s success.
                     </p>
@@ -140,7 +140,7 @@ export default function EngineeringConsultingPage() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Problem-Solving Expertise</h3>
+                    <h3 className="text-lg font-black-ops-one">Problem-Solving Expertise</h3>
                     <p className="text-gray-600">
                       We specialize in finding solutions to complex engineering challenges and unique situations.
                     </p>
@@ -154,7 +154,7 @@ export default function EngineeringConsultingPage() {
                     </div>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold">Clear Communication</h3>
+                    <h3 className="text-lg font-black-ops-one">Clear Communication</h3>
                     <p className="text-gray-600">
                       We translate complex engineering concepts into understandable recommendations.
                     </p>
@@ -180,7 +180,7 @@ export default function EngineeringConsultingPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Engineering Consulting Gallery</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Engineering Consulting Gallery</h2>
             <p className="text-xl text-gray-600">
               Engineering drawings and construction site consultations from our projects
             </p>
@@ -211,7 +211,7 @@ export default function EngineeringConsultingPage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Need Engineering Consultation?</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Need Engineering Consultation?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss how our consulting services can support your project
           </p>

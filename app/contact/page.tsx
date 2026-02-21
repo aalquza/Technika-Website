@@ -202,7 +202,7 @@ export default function ContactPage() {
 
       <Hero
         title="Contact Us"
-        subtitle="Ready to start your project? Contact our team of experienced structural engineers today."
+        subtitle="Ready to Start Your Project? Contact Our Team of Experienced Structural Engineers Today."
         icon={MapPin}
   imageSrc="/Contact%20Us.webp"
       />
@@ -213,13 +213,13 @@ export default function ContactPage() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold mb-8">Contact Information</h2>
+              <h2 className="text-3xl font-black-ops-one mb-8">Contact Information</h2>
 
               <div className="space-y-6 mb-8">
                 <div className="flex items-start gap-4">
                   <MapPin className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-1">Address</h3>
+                    <h3 className="font-black-ops-one mb-1">Address</h3>
                     <p className="text-gray-600">
                       4770 Hwy 165 Suites C and E
                       <br />
@@ -231,7 +231,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4">
                   <Phone className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
+                    <h3 className="font-black-ops-one mb-1">Phone</h3>
                     <p className="text-gray-600">843-580-3769</p>
                   </div>
                 </div>
@@ -239,7 +239,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4">
                   <Mail className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-1">Email</h3>
+                    <h3 className="font-black-ops-one mb-1">Email</h3>
                     <p className="text-gray-600">chris@technika-design.com</p>
                   </div>
                 </div>
@@ -247,7 +247,7 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4">
                   <Clock className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-1">Business Hours</h3>
+                    <h3 className="font-black-ops-one mb-1">Business Hours</h3>
                     <p className="text-gray-600">Monday - Friday: 8:00 AM - 6:00 PM</p>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ export default function ContactPage() {
             {/* Contact Form */}
             <Card className="bg-gradient-to-br from-slate-50 to-gray-100 border-slate-200 shadow-lg">
               <CardContent className="p-8">
-                <h2 className="text-2xl font-bold mb-6 text-slate-800">Send Us a Message</h2>
+                <h2 className="text-2xl font-black-ops-one mb-6 text-slate-800">Send Us a Message</h2>
                 <form className="space-y-6" onSubmit={handleSubmit}>
                   <div className="grid md:grid-cols-2 gap-4">
                     <div>
@@ -370,7 +370,7 @@ export default function ContactPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Visit Our Meggett Office</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Visit Our Meggett Office</h2>
             <p className="text-xl text-gray-600">Located in Meggett, South Carolina</p>
           </div>
 

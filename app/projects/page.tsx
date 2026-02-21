@@ -16,7 +16,7 @@ export default async function ProjectsPage(props: any) {
 		<div className="min-h-screen bg-white">
 			<Hero
 				title="Our Projects"
-				subtitle="Explore our portfolio of structural engineering projects across Charleston and the Lowcountry"
+				subtitle="Explore Our Portfolio of Structural Engineering Projects Across Charleston and the Lowcountry"
 				icon="building"
 				imageSrc="/Projects.webp"
 			/>

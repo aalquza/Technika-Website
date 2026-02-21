@@ -4,7 +4,7 @@ import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { Building, Menu, X, ChevronDown, Settings } from "lucide-react"
+import { Menu, X, ChevronDown, Settings } from "lucide-react"
 import React from "react"
 
 export default function Navbar() {
@@ -138,8 +138,8 @@ export default function Navbar() {
             {/* Header */}
             <div className="flex items-center justify-between p-6 border-b border-slate-700">
               <div className="flex items-center gap-2">
-                <Building className="h-8 w-8 text-yellow-400" />
-                <span className="text-xl font-bold">TECHNIKA</span>
+                <Settings className="h-8 w-8 text-yellow-400" />
+                <span className="text-3xl font-black-ops-one leading-none translate-y-0.5">TECHNIKA</span>
               </div>
               <button
                 onClick={() => setIsMenuOpen(false)}

@@ -50,18 +50,18 @@ export default function ElectricalDesignPage() {
 
       <Hero
         title="Electrical Design"
-        subtitle="Electrical systems and power distribution designed for safety, efficiency, and future growth"
+        subtitle="Electrical Systems and Power Distribution Designed for Safety, Efficiency, and Future Growth"
         icon={Zap}
         ctaText="Get a Quote"
         ctaHref="/contact"
-  imageSrc="/Electrical%20Design.webp"
+  imageSrc="/gallery/electrical/electrical-wiring-layout.webp"
       />
 
       {/* Services Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Electrical Design Services</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Electrical Design Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive electrical engineering solutions from power distribution to smart building technology
             </p>
@@ -72,7 +72,7 @@ export default function ElectricalDesignPage() {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
                   <service.icon className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-black-ops-one mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
@@ -86,7 +86,7 @@ export default function ElectricalDesignPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Electrical Design?</h2>
+              <h2 className="text-3xl font-black-ops-one mb-4">Why Choose Technika for Electrical Design?</h2>
               <p className="text-xl text-gray-600">
                 Our expertise in modern electrical systems and sustainable energy solutions
               </p>
@@ -97,7 +97,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Code Compliance Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Code Compliance Expertise</h3>
                     <p className="text-gray-600">
                       Thorough knowledge of NEC, local codes, and utility requirements ensuring safe, compliant
                       electrical systems.
@@ -107,7 +107,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Energy Efficiency Focus</h3>
+                    <h3 className="font-black-ops-one mb-2">Energy Efficiency Focus</h3>
                     <p className="text-gray-600">
                       Advanced lighting controls, power management, and renewable energy integration to minimize
                       operating costs.
@@ -117,7 +117,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Smart Technology Integration</h3>
+                    <h3 className="font-black-ops-one mb-2">Smart Technology Integration</h3>
                     <p className="text-gray-600">
                       Cutting-edge building automation, IoT devices, and intelligent electrical systems for enhanced
                       functionality.
@@ -129,7 +129,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Future-Ready Design</h3>
+                    <h3 className="font-black-ops-one mb-2">Future-Ready Design</h3>
                     <p className="text-gray-600">
                       Electrical systems designed with expansion capacity and emerging technology compatibility in mind.
                     </p>
@@ -138,7 +138,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Safety System Specialization</h3>
+                    <h3 className="font-black-ops-one mb-2">Safety System Specialization</h3>
                     <p className="text-gray-600">
                       Comprehensive fire alarm, security, and emergency power systems designed to protect life and
                       property.
@@ -148,7 +148,7 @@ export default function ElectricalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Solar & Storage Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Solar & Storage Expertise</h3>
                     <p className="text-gray-600">
                       Complete solar photovoltaic and battery storage system design for energy independence and
                       resilience.
@@ -165,7 +165,7 @@ export default function ElectricalDesignPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Electrical Systems Gallery</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Electrical Systems Gallery</h2>
             <p className="text-xl text-gray-600">
               Professional electrical installations and panel layouts from our projects
             </p>
@@ -214,14 +214,16 @@ export default function ElectricalDesignPage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Power Your Project?</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Ready to Power Your Project?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss your electrical design needs and discover how we can create efficient, safe, and
             smart electrical systems.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto">
-              Get Started
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 text-lg w-full">
+                Get Started
+              </Button>
             </Link>
             <Link href="/projects" className="w-full sm:w-auto">
               <Button

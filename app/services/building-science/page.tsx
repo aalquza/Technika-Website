@@ -62,7 +62,7 @@ export default function BuildingSciencePage() {
 
       <Hero
         title="Building Science"
-        subtitle="Building envelope and performance optimization through scientific analysis and testing"
+        subtitle="Building Envelope and Performance Optimization Through Scientific Analysis and Testing"
         icon={Microscope}
         ctaText="Get a Quote"
         ctaHref="/contact"
@@ -73,7 +73,7 @@ export default function BuildingSciencePage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Building Science Services</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Building Science Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Scientific approach to building performance, energy efficiency, and occupant comfort
             </p>
@@ -84,7 +84,7 @@ export default function BuildingSciencePage() {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
                   <service.icon className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-black-ops-one mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
@@ -98,7 +98,7 @@ export default function BuildingSciencePage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Building Science?</h2>
+              <h2 className="text-3xl font-black-ops-one mb-4">Why Choose Technika for Building Science?</h2>
               <p className="text-xl text-gray-600">
                 Our scientific approach to building performance in Charleston&apos;s challenging climate
               </p>
@@ -109,7 +109,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Climate-Specific Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Climate-Specific Expertise</h3>
                     <p className="text-gray-600">
                 Deep understanding of Charleston&apos;s hot, humid climate and its impact on building performance and
                       durability.
@@ -119,7 +119,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Advanced Testing Equipment</h3>
+                    <h3 className="font-black-ops-one mb-2">Advanced Testing Equipment</h3>
                     <p className="text-gray-600">
                       State-of-the-art diagnostic tools including thermal imaging, blower door testing, and moisture
                       meters.
@@ -129,7 +129,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Historic Building Specialization</h3>
+                    <h3 className="font-black-ops-one mb-2">Historic Building Specialization</h3>
                     <p className="text-gray-600">
                       Expertise in improving performance of historic buildings while preserving architectural integrity
                       and character.
@@ -141,7 +141,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Energy Modeling Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Energy Modeling Expertise</h3>
                     <p className="text-gray-600">
                       Advanced computer modeling to predict and optimize building energy performance before
                       construction.
@@ -151,7 +151,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Moisture Control Mastery</h3>
+                    <h3 className="font-black-ops-one mb-2">Moisture Control Mastery</h3>
                     <p className="text-gray-600">
                       Comprehensive moisture management strategies to prevent mold, rot, and structural damage in humid
                       conditions.
@@ -161,7 +161,7 @@ export default function BuildingSciencePage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Holistic Approach</h3>
+                    <h3 className="font-black-ops-one mb-2">Holistic Approach</h3>
                     <p className="text-gray-600">
                       Integration of building science principles with structural, mechanical, and electrical systems for
                       optimal performance.
@@ -178,7 +178,7 @@ export default function BuildingSciencePage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Building Science Gallery</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Building Science Gallery</h2>
             <p className="text-xl text-gray-600">
               Building envelope assessments and diagnostic work from our projects
             </p>
@@ -200,14 +200,16 @@ export default function BuildingSciencePage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building&apos;s Performance?</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Ready to Optimize Your Building&apos;s Performance?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss your building science needs and discover how we can improve efficiency, comfort,
             and durability.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto">
-              Get Started
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 text-lg w-full">
+                Get Started
+              </Button>
             </Link>
             <Link href="/projects" className="w-full sm:w-auto">
               <Button

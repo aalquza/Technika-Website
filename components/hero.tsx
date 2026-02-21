@@ -51,7 +51,7 @@ export default function Hero({ title, subtitle, icon, ctaText, ctaHref, imageSrc
       <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           {IconComp && <IconComp className="h-16 w-16 text-yellow-400 mx-auto mb-6" />}
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">{title}</h1>
+          <h1 className="text-4xl md:text-6xl font-black-ops-one mb-6">{title}</h1>
           {subtitle && <p className="text-xl text-gray-300 mb-8">{subtitle}</p>}
           {ctaText && (
             <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors" asChild>

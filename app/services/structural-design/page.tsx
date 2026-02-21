@@ -65,7 +65,7 @@ export default function StructuralDesignPage() {
 
       <Hero
         title="Structural Design"
-        subtitle="Complete structural engineering services for new construction, renovations, and historic preservation"
+        subtitle="Complete Structural Engineering Services for New Construction, Renovations, and Historic Preservation"
         icon={Calculator}
         ctaText="Get a Quote"
         ctaHref="/contact"
@@ -76,7 +76,7 @@ export default function StructuralDesignPage() {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Structural Design Services</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Structural Design Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               From foundation to roof, we provide comprehensive structural engineering solutions tailored to
               Charleston&apos;s unique conditions
@@ -88,7 +88,7 @@ export default function StructuralDesignPage() {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
                   <service.icon className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-black-ops-one mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
@@ -102,7 +102,7 @@ export default function StructuralDesignPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Structural Design?</h2>
+              <h2 className="text-3xl font-black-ops-one mb-4">Why Choose Technika for Structural Design?</h2>
               <p className="text-xl text-gray-600">
                 Our expertise in Charleston&apos;s unique structural challenges sets us apart
               </p>
@@ -113,7 +113,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Historic Preservation Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Historic Preservation Expertise</h3>
                     <p className="text-gray-600">
                       Specialized knowledge in preserving Charleston&apos;s architectural heritage while meeting modern
                       safety standards.
@@ -123,7 +123,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Coastal Engineering Experience</h3>
+                    <h3 className="font-black-ops-one mb-2">Coastal Engineering Experience</h3>
                     <p className="text-gray-600">
                       Deep understanding of coastal wind loads, flood requirements, and soil conditions specific to the
                       Lowcountry.
@@ -133,7 +133,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Seismic Design Specialization</h3>
+                    <h3 className="font-black-ops-one mb-2">Seismic Design Specialization</h3>
                     <p className="text-gray-600">
                       Advanced expertise in earthquake-resistant design and retrofitting for enhanced structural safety.
                     </p>
@@ -144,7 +144,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Personal Project Management</h3>
+                    <h3 className="font-black-ops-one mb-2">Personal Project Management</h3>
                     <p className="text-gray-600">
                       Direct involvement from our principal engineer throughout the entire project lifecycle.
                     </p>
@@ -153,7 +153,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Advanced Analysis Tools</h3>
+                    <h3 className="font-black-ops-one mb-2">Advanced Analysis Tools</h3>
                     <p className="text-gray-600">
                       State-of-the-art structural analysis software and modeling techniques for optimal design
                       solutions.
@@ -163,7 +163,7 @@ export default function StructuralDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Code Compliance Assurance</h3>
+                    <h3 className="font-black-ops-one mb-2">Code Compliance Assurance</h3>
                     <p className="text-gray-600">
                       Thorough knowledge of local building codes and permitting processes to ensure smooth project
                       approval.
@@ -180,7 +180,7 @@ export default function StructuralDesignPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Structural Engineering Gallery</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Structural Engineering Gallery</h2>
             <p className="text-xl text-gray-600">
               Foundation work, support beams, and structural components from our projects
             </p>
@@ -231,6 +231,33 @@ export default function StructuralDesignPage() {
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/structural-1.webp"
+                alt="Structural Engineering Detail"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/structural-2.webp"
+                alt="Structural Design Implementation"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-[4/3] rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/structural/structural-3.webp"
+                alt="Structural Project Work"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -238,13 +265,15 @@ export default function StructuralDesignPage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Start Your Structural Design Project?</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Ready to Start Your Structural Design Project?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss your structural engineering needs and get a personalized quote.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto">
-              Get Started
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 text-lg w-full">
+                Get Started
+              </Button>
             </Link>
             <Link href="/projects" className="w-full sm:w-auto">
               <Button

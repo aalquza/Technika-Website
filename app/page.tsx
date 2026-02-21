@@ -56,31 +56,31 @@ export default function TechnikaHomepage() {
   const services = [
     {
       title: "Structural Design",
-      description: "Complete structural engineering services for new construction, renovations, and additions.",
+      description: "Complete Structural Engineering Services For New Construction, Renovations, And Additions.",
       icon: Calculator,
       href: "/services/structural-design",
     },
     {
       title: "Mechanical Design",
-      description: "HVAC system design, energy efficiency solutions, and mechanical engineering services.",
+      description: "HVAC System Design, Energy Efficiency Solutions, And Mechanical Engineering Services.",
       icon: Wind,
       href: "/services/mechanical-design",
     },
     {
       title: "Electrical Design",
-      description: "Electrical system design, power distribution, and lighting design for all project types.",
+      description: "Electrical System Design, Power Distribution, And Lighting Design For All Project Types.",
       icon: Zap,
       href: "/services/electrical-design",
     },
     {
       title: "Building Science",
-      description: "Building envelope consulting, energy analysis, and performance optimization.",
+      description: "Building Envelope Consulting, Energy Analysis, And Performance Optimization.",
       icon: Microscope,
       href: "/services/building-science",
     },
     {
       title: "Engineering Consulting",
-      description: "Expert engineering consultation for complex projects and specialized requirements.",
+      description: "Expert Engineering Consultation For Complex Projects And Specialized Requirements.",
       icon: Lightbulb,
       href: "/services/engineering-consulting",
     },
@@ -107,14 +107,14 @@ export default function TechnikaHomepage() {
         />
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold mb-4 sm:mb-6 leading-tight">
+          <div className="max-w-6xl mx-auto text-center">
+            <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-black-ops-one mb-4 sm:mb-6 leading-tight">
               Engineering Excellence in <span className="text-yellow-400">Charleston</span>
             </h1>
 
             <p className="text-lg sm:text-xl md:text-2xl mb-6 sm:mb-8 text-gray-300 max-w-3xl mx-auto px-2">
-              Premier structural engineering and design firm specializing in historic preservation, commercial
-              buildings, and residential projects throughout South Carolina.
+              Premier Structural Engineering and Design Firm Specializing in Historic Preservation, Commercial
+              Buildings, and Residential Projects Throughout South Carolina.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-8 sm:mb-12">
@@ -151,27 +151,27 @@ export default function TechnikaHomepage() {
       <section id="services" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Our Services</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black-ops-one mb-3 sm:mb-4">Our Services</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
-              Comprehensive structural engineering solutions for residential, commercial, and historic properties
+              Comprehensive Structural Engineering Solutions for Residential, Commercial, and Historic Properties
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-wrap justify-center gap-6 sm:gap-8 max-w-6xl mx-auto">
             {services.map((service, index) => (
               <Link
                 key={index}
                 href={service.href}
                 aria-label={`Learn more about ${service.title}`}
-                className="block w-full"
+                className="block w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)]"
               >
                 <Card className="w-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer h-full flex flex-col rounded-2xl overflow-hidden group">
                   <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                     <Image
                       src={
                         service.title === 'Structural Design' ? '/Structural%20Design.webp' :
-                        service.title === 'Mechanical Design' ? '/gallery/mechanical/Mechanical%20Ductwork.webp' :
-                        service.title === 'Electrical Design' ? '/Electrical%20Design.webp' :
+                        service.title === 'Mechanical Design' ? '/gallery/mechanical/hvac-installation.webp' :
+                        service.title === 'Electrical Design' ? '/gallery/electrical/electrical-wiring-layout.webp' :
                         service.title === 'Building Science' ? '/Building%20Science.webp' :
                         service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.webp' :
                         '/placeholder.svg?height=200&width=400&text=' + encodeURIComponent(service.title)
@@ -186,7 +186,7 @@ export default function TechnikaHomepage() {
                     <div className="absolute inset-0 bg-gradient-to-b from-transparent to-slate-800/20"></div>
                   </div>
                   <CardContent className="p-4 sm:p-6 md:p-8 text-center flex-1 flex flex-col justify-center">
-                    <h3 className="text-xl sm:text-2xl font-semibold text-slate-900 mb-2 sm:mb-3 line-clamp-2">
+                    <h3 className="text-xl sm:text-2xl font-black-ops-one text-slate-900 mb-2 sm:mb-3 line-clamp-2">
                       {service.title}
                     </h3>
                     <p className="text-sm sm:text-base text-slate-600 line-clamp-3">
@@ -204,7 +204,7 @@ export default function TechnikaHomepage() {
       <section id="projects" className="py-12 sm:py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">Our Projects Across the Southeast</h2>
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black-ops-one text-slate-900 mb-3 sm:mb-4">Our Projects Across the Southeast</h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Explore our engineering projects from Charleston to Atlanta and throughout the region
             </p>
@@ -233,7 +233,7 @@ export default function TechnikaHomepage() {
       <section id="about" className="py-12 sm:py-16 md:py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-4">Why Choose Technika</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black-ops-one mb-3 sm:mb-4">Why Choose Technika</h2>
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-2">
               Our team brings decades of experience and specialized knowledge to every project
             </p>
@@ -259,7 +259,7 @@ export default function TechnikaHomepage() {
               },
             ].map((item, index) => (
               <Card key={index} className="text-center p-6 sm:p-8">
-                <h3 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">{item.title}</h3>
+                <h3 className="text-lg sm:text-xl font-black-ops-one mb-3 sm:mb-4">{item.title}</h3>
                 <p className="text-sm sm:text-base text-gray-600">{item.description}</p>
               </Card>
             ))}

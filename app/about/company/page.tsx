@@ -60,15 +60,30 @@ export default function CompanyHistoryPage() {
       {/* Hero Section */}
       <Hero
         title="Our Story"
-        subtitle="Over a decade of engineering excellence in Charleston and the Southeast"
+        subtitle="Over a Decade of Engineering Excellence in Charleston and the Southeast"
         icon="history"
         imageSrc="/Meet the team.png"
       />
+
+      {/* Company Name Origin */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="prose prose-lg mx-auto text-gray-600">
-              <h2 className="text-3xl font-bold text-slate-900 text-center mb-12">The Technika Story</h2>
+              <h2 className="text-3xl font-black-ops-one text-slate-900 text-center mb-12">About The Name</h2>
+              <p className="text-lg leading-relaxed mb-8">
+                People often ask about the name of the company, and everyone struggles with the pronunciation. Technika (pronounced TEHK-nee-kah) is the Czech word for engineering. Chris&apos;s grandfather on his mother&apos;s side was a Czech immigrant who built founded and ran a sheetmetal fabrication company in the Northeast in the 1940s and 1950s. He worked on a variety of notable projects, and is certainly a contributing factor to Chris&apos;s engineering passion.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto">
+            <div className="prose prose-lg mx-auto text-gray-600">
+              <h2 className="text-3xl font-black-ops-one text-slate-900 text-center mb-12">The Technika Story</h2>
               <p className="text-lg leading-relaxed mb-6">
                 Established in 2013 by Chris Wigginton, Technika arose out of a need for a dedicated engineering
                 consultant in Charleston with a passion for historic buildings, quality service, and a personal
@@ -89,19 +104,16 @@ export default function CompanyHistoryPage() {
                 personal attention to every project. Our growth has been intentional and measured, allowing us to
                 maintain the personal relationships and quality standards that define our practice.
               </p>
-              <p className="text-lg leading-relaxed mb-8">
-                People often ask about the name of the company, and everyone struggles with the pronunciation. Technika (pronounced TEHK-nee-kah) is the Czech word for engineering. Chris&apos;s grandfather on his mother&apos;s side was a Czech immigrant who built founded and ran a sheetmetal fabrication company in the Northeast in the 1940s and 1950s. He worked on a variety of notable projects, and is certainly a contributing factor to Chris&apos;s engineering passion.
-              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* Timeline */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Journey</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Journey</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Key milestones in Technika&apos;s growth and development over the past decade
             </p>
@@ -121,7 +133,7 @@ export default function CompanyHistoryPage() {
                       <div className="flex-1">
                         <div className="flex flex-col md:flex-row md:items-center gap-2 mb-3">
                           <span className="text-2xl font-bold text-yellow-600">{milestone.year}</span>
-                          <h3 className="text-xl font-bold text-slate-900">{milestone.title}</h3>
+                          <h3 className="text-xl font-black-ops-one text-slate-900">{milestone.title}</h3>
                         </div>
                         <p className="text-gray-600 leading-relaxed">{milestone.description}</p>
                       </div>
@@ -135,14 +147,14 @@ export default function CompanyHistoryPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20">
+      <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid md:grid-cols-2 gap-12">
               <Card className="text-center">
                 <CardContent className="p-8">
                   <Target className="h-12 w-12 text-yellow-500 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold mb-4">Our Mission</h3>
+                  <h3 className="text-2xl font-black-ops-one mb-4">Our Mission</h3>
                   <p className="text-gray-600 leading-relaxed">
                     To provide exceptional engineering services that preserve Charleston&apos;s architectural heritage while
                     embracing innovative solutions for modern challenges. We are committed to personal service,
@@ -154,7 +166,7 @@ export default function CompanyHistoryPage() {
               <Card className="text-center">
                 <CardContent className="p-8">
                   <Heart className="h-12 w-12 text-yellow-500 mx-auto mb-6" />
-                  <h3 className="text-2xl font-bold mb-4">Our Vision</h3>
+                  <h3 className="text-2xl font-black-ops-one mb-4">Our Vision</h3>
                   <p className="text-gray-600 leading-relaxed">
                     To be the Southeast&apos;s premier engineering consultancy, known for our expertise in historic
                     preservation, commitment to sustainability, and unwavering dedication to client success. We envision
@@ -171,7 +183,7 @@ export default function CompanyHistoryPage() {
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Impact</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Impact</h2>
             <p className="text-xl text-gray-300">
               Measuring our success through client satisfaction and project outcomes
             </p>
@@ -201,13 +213,15 @@ export default function CompanyHistoryPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Be Part of Our Story</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Be Part of Our Story</h2>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             Join the hundreds of satisfied clients who have trusted Technika with their most important projects.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-4 py-2 font-medium transition-colors rounded-md inline-flex items-center">
-              Start Your Project
+            <Link href="/contact">
+              <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 text-lg">
+                Start Your Project
+              </Button>
             </Link>
             <Link href="/projects">
               <Button

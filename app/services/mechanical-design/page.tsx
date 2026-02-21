@@ -63,18 +63,18 @@ export default function MechanicalDesignPage() {
 
       <Hero
         title="Mechanical Design"
-  subtitle="HVAC systems and mechanical engineering solutions optimized for Charleston&apos;s climate"
+  subtitle="HVAC Systems and Mechanical Engineering Solutions Optimized for Charleston's Climate"
         icon={Wind}
         ctaText="Get a Quote"
         ctaHref="/contact"
-  imageSrc="/gallery/mechanical/Mechanical%20Ductwork.webp"
+  imageSrc="/gallery/mechanical/hvac-installation.webp"
       />
 
       {/* Services Overview */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Our Mechanical Design Services</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Our Mechanical Design Services</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Comprehensive mechanical engineering solutions designed for efficiency, comfort, and sustainability
             </p>
@@ -85,7 +85,7 @@ export default function MechanicalDesignPage() {
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-8 text-center">
                   <service.icon className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-                  <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+                  <h3 className="text-xl font-black-ops-one mb-3">{service.title}</h3>
                   <p className="text-gray-600">{service.description}</p>
                 </CardContent>
               </Card>
@@ -99,7 +99,7 @@ export default function MechanicalDesignPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold mb-4">Why Choose Technika for Mechanical Design?</h2>
+              <h2 className="text-3xl font-black-ops-one mb-4">Why Choose Technika for Mechanical Design?</h2>
               <p className="text-xl text-gray-600">
                 Our expertise in Charleston&apos;s humid subtropical climate and energy efficiency
               </p>
@@ -110,7 +110,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Climate-Optimized Design</h3>
+                    <h3 className="font-black-ops-one mb-2">Climate-Optimized Design</h3>
                     <p className="text-gray-600">
                       Systems specifically designed for Charleston&apos;s hot, humid summers and mild winters with optimal
                       dehumidification.
@@ -120,7 +120,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Energy Efficiency Focus</h3>
+                    <h3 className="font-black-ops-one mb-2">Energy Efficiency Focus</h3>
                     <p className="text-gray-600">
                       Advanced energy modeling and high-efficiency equipment selection to minimize operating costs and
                       environmental impact.
@@ -130,7 +130,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Historic Building Expertise</h3>
+                    <h3 className="font-black-ops-one mb-2">Historic Building Expertise</h3>
                     <p className="text-gray-600">
                       Specialized solutions for integrating modern HVAC systems into historic buildings without
                       compromising architectural integrity.
@@ -142,7 +142,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Smart Building Integration</h3>
+                    <h3 className="font-black-ops-one mb-2">Smart Building Integration</h3>
                     <p className="text-gray-600">
                       Advanced building automation and control systems for optimal comfort, efficiency, and remote
                       monitoring capabilities.
@@ -152,7 +152,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Sustainable Solutions</h3>
+                    <h3 className="font-black-ops-one mb-2">Sustainable Solutions</h3>
                     <p className="text-gray-600">
                       Green building technologies including geothermal systems, energy recovery, and renewable energy
                       integration.
@@ -162,7 +162,7 @@ export default function MechanicalDesignPage() {
                 <div className="flex items-start gap-4">
                   <CheckCircle className="h-6 w-6 text-yellow-500 mt-1 flex-shrink-0" />
                   <div>
-                    <h3 className="font-semibold mb-2">Comprehensive Analysis</h3>
+                    <h3 className="font-black-ops-one mb-2">Comprehensive Analysis</h3>
                     <p className="text-gray-600">
                       Detailed load calculations, energy modeling, and system optimization to ensure peak performance
                       and efficiency.
@@ -179,18 +179,63 @@ export default function MechanicalDesignPage() {
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">Mechanical Systems Gallery</h2>
+            <h2 className="text-3xl font-black-ops-one mb-4">Mechanical Systems Gallery</h2>
             <p className="text-xl text-gray-600">
               Professional HVAC installations and mechanical systems from our projects
             </p>
           </div>
-          <div className="grid md:grid-cols-1 gap-6 max-w-xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
               <Image
                 src="/gallery/mechanical/hvac-installation.webp"
                 alt="Final HVAC Installation"
                 fill
-                sizes="(max-width: 768px) 100vw, 600px"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/mechanical/mechanical-plans-1.webp"
+                alt="Mechanical Plans - Design Layout 1"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/mechanical/mechanical-plans-2.webp"
+                alt="Mechanical Plans - Design Layout 2"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/mechanical/Mechanical%20Ductwork.webp"
+                alt="Mechanical Ductwork Installation"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/mechanical/mechanical-1.webp"
+                alt="Mechanical System Implementation"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div className="relative aspect-video rounded-lg overflow-hidden shadow-lg">
+              <Image
+                src="/gallery/mechanical/mechanical-2.webp"
+                alt="Mechanical Engineering Detail"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover hover:scale-105 transition-transform duration-300"
               />
             </div>
@@ -201,14 +246,16 @@ export default function MechanicalDesignPage() {
       {/* CTA Section */}
       <section className="py-20 bg-slate-800 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Optimize Your Building&apos;s Mechanical Systems?</h2>
+          <h2 className="text-3xl font-black-ops-one mb-4">Ready to Optimize Your Building&apos;s Mechanical Systems?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
             Contact us today to discuss your mechanical design needs and discover how we can improve your building&apos;s
             efficiency and comfort.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 font-medium transition-colors rounded-md inline-flex items-center justify-center w-full sm:w-auto">
-              Get Started
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button className="bg-yellow-400 text-slate-800 hover:bg-yellow-400/90 px-8 py-3 text-lg w-full">
+                Get Started
+              </Button>
             </Link>
             <Link href="/projects" className="w-full sm:w-auto">
               <Button

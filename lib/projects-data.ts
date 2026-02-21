@@ -612,6 +612,10 @@ export const standaloneGalleryImages: string[] = [
   
   // Mechanical Systems
   "/gallery/mechanical/hvac-installation.webp",
+  "/gallery/mechanical/mechanical-1.webp",
+  "/gallery/mechanical/mechanical-2.webp",
+  "/gallery/mechanical/mechanical-plans-1.webp",
+  "/gallery/mechanical/mechanical-plans-2.webp",
   
   // Structural Engineering
   "/gallery/structural/support-beam-layout.webp",
@@ -619,6 +623,9 @@ export const standaloneGalleryImages: string[] = [
   "/gallery/structural/foundation-construction-alternate.webp",
   "/gallery/structural/structural-components.webp",
   "/gallery/structural/wall-support-construction.webp",
+  "/gallery/structural/structural-1.webp",
+  "/gallery/structural/structural-2.webp",
+  "/gallery/structural/structural-3.webp",
   
   // Building Science
   "/gallery/building-science/rotting-wood-inspection.webp",
