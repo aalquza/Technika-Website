@@ -34,10 +34,147 @@ import Footer from "@/components/footer"
 import HeroBackgroundVideo from "@/components/hero-background-video"
 import { projects } from "@/lib/projects-data"
 
+const services = [
+  {
+    title: "Structural Design",
+    description: "Complete Structural Engineering Services For New Construction, Renovations, And Additions.",
+    icon: Calculator,
+    href: "/services/structural-design",
+    imageSrc: "/Structural%20Design.webp",
+  },
+  {
+    title: "Mechanical Design",
+    description: "HVAC System Design, Energy Efficiency Solutions, And Mechanical Engineering Services.",
+    icon: Wind,
+    href: "/services/mechanical-design",
+    imageSrc: "/gallery/mechanical/hvac-installation.webp",
+  },
+  {
+    title: "Electrical Design",
+    description: "Electrical System Design, Power Distribution, And Lighting Design For All Project Types.",
+    icon: Zap,
+    href: "/services/electrical-design",
+    imageSrc: "/gallery/electrical/electrical-wiring-layout.webp",
+  },
+  {
+    title: "Building Science",
+    description: "Building Envelope Consulting, Energy Analysis, And Performance Optimization.",
+    icon: Microscope,
+    href: "/services/building-science",
+    imageSrc: "/Building%20Science.webp",
+  },
+  {
+    title: "Engineering Consulting",
+    description: "Expert Engineering Consultation For Complex Projects And Specialized Requirements.",
+    icon: Lightbulb,
+    href: "/services/engineering-consulting",
+    imageSrc: "/Engineering%20Consulting.webp",
+  },
+]
+
+const warmupRoutes = [
+  "/projects",
+  "/contact",
+  "/about/team",
+  "/about/company",
+  "/services/structural-design",
+  "/services/mechanical-design",
+  "/services/electrical-design",
+  "/services/building-science",
+  "/services/engineering-consulting",
+]
+
+const allWarmupImages = Array.from(
+  new Set([
+    ...services.map((service) => service.imageSrc),
+    ...projects.flatMap((project) => project.images || []),
+    "/video/hero-poster.webp",
+    "/Megget Office.png",
+  ]),
+)
+
 export default function TechnikaHomepage() {
   const router = useRouter()
   const projectsSectionRef = React.useRef<HTMLDivElement | null>(null)
   const [shouldLoadMap, setShouldLoadMap] = React.useState(false)
+
+  React.useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
+    let idleId: number | null = null
+    let canceled = false
+
+    let imageIndex = 0
+
+    const preloadImage = (src: string) => {
+      const img = new window.Image()
+      img.loading = "eager"
+      img.decoding = "async"
+      img.src = src
+    }
+
+    const scheduleIdleWork = () => {
+      if (canceled) return
+
+      if (typeof window !== "undefined" && "requestIdleCallback" in window) {
+        idleId = (
+          window as Window & {
+            requestIdleCallback: (
+              cb: (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void,
+              opts?: { timeout: number },
+            ) => number
+          }
+        ).requestIdleCallback(
+          (deadline) => {
+            while (
+              imageIndex < allWarmupImages.length &&
+              (deadline.timeRemaining() > 4 || deadline.didTimeout)
+            ) {
+              preloadImage(allWarmupImages[imageIndex])
+              imageIndex += 1
+            }
+
+            if (imageIndex < allWarmupImages.length) {
+              scheduleIdleWork()
+            }
+          },
+          { timeout: 8000 },
+        )
+        return
+      }
+
+      timeoutId = setTimeout(() => {
+        const endAt = Date.now() + 30
+        while (imageIndex < allWarmupImages.length && Date.now() < endAt) {
+          preloadImage(allWarmupImages[imageIndex])
+          imageIndex += 1
+        }
+
+        if (imageIndex < allWarmupImages.length) {
+          scheduleIdleWork()
+        }
+      }, 250)
+    }
+
+    for (const route of warmupRoutes) {
+      router.prefetch(route)
+    }
+
+    void import("@/components/map").then(() => {
+      if (!canceled) {
+        setShouldLoadMap(true)
+      }
+    })
+
+    scheduleIdleWork()
+
+    return () => {
+      canceled = true
+      if (timeoutId) clearTimeout(timeoutId)
+      if (idleId && "cancelIdleCallback" in globalThis) {
+        ;(globalThis as typeof globalThis & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
+    }
+  }, [router])
 
   React.useEffect(() => {
     if (shouldLoadMap) return
@@ -53,7 +190,7 @@ export default function TechnikaHomepage() {
           observer.disconnect()
         }
       },
-      { rootMargin: "300px 0px" },
+      { rootMargin: "1200px 0px" },
     )
 
     observer.observe(section)
@@ -61,38 +198,6 @@ export default function TechnikaHomepage() {
     return () => observer.disconnect()
   }, [shouldLoadMap])
 
-  const services = [
-    {
-      title: "Structural Design",
-      description: "Complete Structural Engineering Services For New Construction, Renovations, And Additions.",
-      icon: Calculator,
-      href: "/services/structural-design",
-    },
-    {
-      title: "Mechanical Design",
-      description: "HVAC System Design, Energy Efficiency Solutions, And Mechanical Engineering Services.",
-      icon: Wind,
-      href: "/services/mechanical-design",
-    },
-    {
-      title: "Electrical Design",
-      description: "Electrical System Design, Power Distribution, And Lighting Design For All Project Types.",
-      icon: Zap,
-      href: "/services/electrical-design",
-    },
-    {
-      title: "Building Science",
-      description: "Building Envelope Consulting, Energy Analysis, And Performance Optimization.",
-      icon: Microscope,
-      href: "/services/building-science",
-    },
-    {
-      title: "Engineering Consulting",
-      description: "Expert Engineering Consultation For Complex Projects And Specialized Requirements.",
-      icon: Lightbulb,
-      href: "/services/engineering-consulting",
-    },
-  ]
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -163,14 +268,7 @@ export default function TechnikaHomepage() {
                 <Card className="w-full hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 cursor-pointer h-full flex flex-col rounded-2xl overflow-hidden group">
                   <div className="relative h-48 sm:h-56 md:h-64 overflow-hidden">
                     <Image
-                      src={
-                        service.title === 'Structural Design' ? '/Structural%20Design.webp' :
-                        service.title === 'Mechanical Design' ? '/gallery/mechanical/hvac-installation.webp' :
-                        service.title === 'Electrical Design' ? '/gallery/electrical/electrical-wiring-layout.webp' :
-                        service.title === 'Building Science' ? '/Building%20Science.webp' :
-                        service.title === 'Engineering Consulting' ? '/Engineering%20Consulting.webp' :
-                        '/placeholder.svg?height=200&width=400&text=' + encodeURIComponent(service.title)
-                      }
+                      src={service.imageSrc}
                       alt={service.title}
                       width={400}
                       height={300}
