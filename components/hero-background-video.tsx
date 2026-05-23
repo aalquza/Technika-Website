@@ -2,8 +2,9 @@
 
 import { useEffect, useRef, useState } from "react"
 
-const DESKTOP_VIDEO_SRC = "/Technika Intro Page Video.mp4"
+const DESKTOP_VIDEO_SRC = "/video/hero-desktop-optimized.mp4"
 const MOBILE_HLS_SRC = "/video/hls/mobile-master.m3u8"
+const HERO_POSTER_SRC = "/video/hero-poster.webp"
 
 export default function HeroBackgroundVideo() {
   const videoRef = useRef<HTMLVideoElement | null>(null)
@@ -93,6 +94,7 @@ export default function HeroBackgroundVideo() {
     <video
       ref={videoRef}
       className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
+      poster={HERO_POSTER_SRC}
       autoPlay
       muted
       loop

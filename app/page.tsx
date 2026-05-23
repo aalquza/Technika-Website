@@ -36,6 +36,30 @@ import { projects } from "@/lib/projects-data"
 
 export default function TechnikaHomepage() {
   const router = useRouter()
+  const projectsSectionRef = React.useRef<HTMLDivElement | null>(null)
+  const [shouldLoadMap, setShouldLoadMap] = React.useState(false)
+
+  React.useEffect(() => {
+    if (shouldLoadMap) return
+
+    const section = projectsSectionRef.current
+    if (!section) return
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0]
+        if (entry?.isIntersecting) {
+          setShouldLoadMap(true)
+          observer.disconnect()
+        }
+      },
+      { rootMargin: "300px 0px" },
+    )
+
+    observer.observe(section)
+
+    return () => observer.disconnect()
+  }, [shouldLoadMap])
 
   const services = [
     {
@@ -181,13 +205,19 @@ export default function TechnikaHomepage() {
             </p>
           </div>
           <div className="bg-gray-50 rounded-lg p-4 sm:p-6 md:p-8">
-            <div className="h-64 sm:h-80 md:h-96 mb-4 sm:mb-6">
-              <Map
-                projects={projects as Project[]}
-                onSelectProject={(project: Project) => {
-                  router.push(`/projects?selected=${project.id}`)
-                }}
-              />
+            <div ref={projectsSectionRef} className="h-64 sm:h-80 md:h-96 mb-4 sm:mb-6">
+              {shouldLoadMap ? (
+                <Map
+                  projects={projects as Project[]}
+                  onSelectProject={(project: Project) => {
+                    router.push(`/projects?selected=${project.id}`)
+                  }}
+                />
+              ) : (
+                <div className="h-full w-full rounded-md bg-slate-200/70 flex items-center justify-center text-slate-700 font-medium">
+                  Loading interactive map...
+                </div>
+              )}
             </div>
             {/* Removed inline project info on homepage — marker clicks navigate to the Projects page */}
             <div className="text-center mt-6 sm:mt-8">
