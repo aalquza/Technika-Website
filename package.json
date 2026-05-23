@@ -5,6 +5,7 @@
   "scripts": {
     "build": "next build",
     "dev": "next dev",
+    "generate:hls:mobile": "powershell -NoProfile -Command \"$ErrorActionPreference = 'Stop'; Remove-Item -Recurse -Force './public/video/hls' -ErrorAction SilentlyContinue; New-Item -ItemType Directory -Force -Path './public/video/hls/mobile_480p' | Out-Null; New-Item -ItemType Directory -Force -Path './public/video/hls/mobile_720p' | Out-Null; ffmpeg -y -i './public/Technika Intro Page Video.mp4' -filter_complex '[0:v]split=2[v480][v720];[v480]scale=w=854:h=480:force_original_aspect_ratio=decrease,pad=854:480:(ow-iw)/2:(oh-ih)/2[v480out];[v720]scale=w=1280:h=720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2[v720out]' -map '[v480out]' -c:v:0 libx264 -preset veryfast -profile:v:0 main -b:v:0 1200k -maxrate:v:0 1400k -bufsize:v:0 2400k -g 48 -keyint_min 48 -sc_threshold 0 -map '[v720out]' -c:v:1 libx264 -preset veryfast -profile:v:1 high -b:v:1 2600k -maxrate:v:1 3200k -bufsize:v:1 5200k -g 48 -keyint_min 48 -sc_threshold 0 -an -f hls -hls_time 4 -hls_playlist_type vod -hls_flags independent_segments -hls_segment_type fmp4 -hls_fmp4_init_filename 'init.mp4' -master_pl_name 'mobile-master.m3u8' -var_stream_map 'v:0,name:480p v:1,name:720p' -hls_segment_filename './public/video/hls/mobile_%v/segment_%03d.m4s' './public/video/hls/mobile_%v/prog.m3u8'\"",
     "lint": "next lint",
     "start": "next start"
   },
@@ -44,6 +45,7 @@
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.5.1",
     "geist": "^1.3.1",
+    "hls.js": "^1.6.16",
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "mapbox-gl": "3.14.0",

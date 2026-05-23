@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useRef, useEffect } from "react"
+import React from "react"
 import { useRouter } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -31,27 +31,11 @@ import dynamic from "next/dynamic"
 import type { Project } from "@/components/map"
 const Map = dynamic(() => import("@/components/map"), { ssr: false }) as any
 import Footer from "@/components/footer"
+import HeroBackgroundVideo from "@/components/hero-background-video"
 import { projects } from "@/lib/projects-data"
 
 export default function TechnikaHomepage() {
   const router = useRouter()
-
-  // Set a gentle slow-down to 0.85x for the intro video to reduce perceived speed without choppiness
-  const videoRef = useRef<HTMLVideoElement | null>(null);
-  useEffect(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onMeta = () => {
-      try {
-        v.playbackRate = 0.85;
-      } catch (e) {
-        // ignore
-      }
-    };
-    v.addEventListener('loadedmetadata', onMeta);
-    onMeta();
-    return () => v.removeEventListener('loadedmetadata', onMeta);
-  }, []);
 
   const services = [
     {
@@ -91,20 +75,7 @@ export default function TechnikaHomepage() {
       <section id="home" className="relative bg-slate-800 text-white py-12 sm:py-16 md:py-32 overflow-hidden">
 
         <div className="absolute inset-0 bg-gradient-to-r from-slate-800/60 via-slate-800/40 to-slate-800/30"></div>
-        <video
-          ref={videoRef}
-          className="absolute inset-0 w-full h-full object-cover opacity-60 pointer-events-none"
-          src="/Technika Intro Page Video.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          controls={false}
-          disablePictureInPicture
-          controlsList="nodownload nofullscreen noremoteplayback"
-          aria-hidden="true"
-        />
+        <HeroBackgroundVideo />
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-6xl mx-auto text-center">
