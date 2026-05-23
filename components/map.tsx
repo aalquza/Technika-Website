@@ -273,6 +273,15 @@ const Map: React.FC<MapProps> = ({ projects, onSelectProject, styleUrl, highligh
           }
         }
 
+        // Hide route shield/reference symbol layers that can appear as boxed placeholders.
+        if (
+          type === "symbol" &&
+          (id.includes("shield") || id.includes("road-number") || id.includes("road_ref") || id.includes("junction"))
+        ) {
+          safeSetLayout(layer.id, "visibility", "none");
+          return;
+        }
+
         // Land / background layers
         if (id.includes("land") || id.includes("earth") || type === "background") {
           if (type === "fill") safeSetPaint(layer.id, "fill-color", LAND_COLOR);
