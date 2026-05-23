@@ -1,8 +1,10 @@
 "use client"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { ComponentType } from "react"
+import { usePathname } from "next/navigation"
+import { ComponentType, useEffect } from "react"
 import { Calculator, Wind, Zap, Microscope, Lightbulb, Building, MapPin, Users, History } from "lucide-react"
+import { getRouteWarmupImages } from "@/lib/image-preload-config"
 
 type IconKey = "calculator" | "wind" | "zap" | "microscope" | "lightbulb" | "building" | "mappin" | "users" | "history"
 
@@ -29,6 +31,74 @@ const iconMap: Record<IconKey, ComponentType<any>> = {
 }
 
 export default function Hero({ title, subtitle, icon, ctaText, ctaHref, imageSrc }: HeroProps) {
+  const pathname = usePathname() || "/"
+
+  useEffect(() => {
+    const warmupImages = getRouteWarmupImages(pathname, imageSrc)
+    if (warmupImages.length === 0) return
+
+    let timeoutId: ReturnType<typeof setTimeout> | null = null
+    let idleId: number | null = null
+    let canceled = false
+    let imageIndex = 0
+
+    const preloadImage = (src: string) => {
+      const img = new window.Image()
+      img.decoding = "async"
+      img.src = src
+    }
+
+    const scheduleIdleWork = () => {
+      if (canceled) return
+
+      if ("requestIdleCallback" in window) {
+        idleId = (
+          window as Window & {
+            requestIdleCallback: (
+              cb: (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void,
+              opts?: { timeout: number },
+            ) => number
+          }
+        ).requestIdleCallback(
+          (deadline) => {
+            while (imageIndex < warmupImages.length && (deadline.timeRemaining() > 4 || deadline.didTimeout)) {
+              preloadImage(warmupImages[imageIndex])
+              imageIndex += 1
+            }
+
+            if (imageIndex < warmupImages.length) {
+              scheduleIdleWork()
+            }
+          },
+          { timeout: 6000 },
+        )
+        return
+      }
+
+      timeoutId = setTimeout(() => {
+        const endAt = Date.now() + 24
+        while (imageIndex < warmupImages.length && Date.now() < endAt) {
+          preloadImage(warmupImages[imageIndex])
+          imageIndex += 1
+        }
+
+        if (imageIndex < warmupImages.length) {
+          scheduleIdleWork()
+        }
+      }, 300)
+    }
+
+    scheduleIdleWork()
+
+    return () => {
+      canceled = true
+      if (timeoutId) clearTimeout(timeoutId)
+      if (idleId && "cancelIdleCallback" in globalThis) {
+        ;(globalThis as typeof globalThis & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
+      }
+    }
+  }, [pathname, imageSrc])
+
   // Resolve icon prop (string key or component)
   let IconComp: ComponentType<any> | undefined = undefined
   if (typeof icon === "string") {

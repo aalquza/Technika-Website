@@ -33,6 +33,7 @@ const Map = dynamic(() => import("@/components/map"), { ssr: false }) as any
 import Footer from "@/components/footer"
 import HeroBackgroundVideo from "@/components/hero-background-video"
 import { projects } from "@/lib/projects-data"
+import { homepageHeaderWarmupImages } from "@/lib/image-preload-config"
 
 const services = [
   {
@@ -72,24 +73,10 @@ const services = [
   },
 ]
 
-const warmupRoutes = [
-  "/projects",
-  "/contact",
-  "/about/team",
-  "/about/company",
-  "/services/structural-design",
-  "/services/mechanical-design",
-  "/services/electrical-design",
-  "/services/building-science",
-  "/services/engineering-consulting",
-]
-
-const allWarmupImages = Array.from(
+const allHeaderWarmupImages = Array.from(
   new Set([
+    ...homepageHeaderWarmupImages,
     ...services.map((service) => service.imageSrc),
-    ...projects.flatMap((project) => project.images || []),
-    "/video/hero-poster.webp",
-    "/Megget Office.png",
   ]),
 )
 
@@ -125,15 +112,12 @@ export default function TechnikaHomepage() {
           }
         ).requestIdleCallback(
           (deadline) => {
-            while (
-              imageIndex < allWarmupImages.length &&
-              (deadline.timeRemaining() > 4 || deadline.didTimeout)
-            ) {
-              preloadImage(allWarmupImages[imageIndex])
+            while (imageIndex < allHeaderWarmupImages.length && (deadline.timeRemaining() > 4 || deadline.didTimeout)) {
+              preloadImage(allHeaderWarmupImages[imageIndex])
               imageIndex += 1
             }
 
-            if (imageIndex < allWarmupImages.length) {
+            if (imageIndex < allHeaderWarmupImages.length) {
               scheduleIdleWork()
             }
           },
@@ -144,26 +128,19 @@ export default function TechnikaHomepage() {
 
       timeoutId = setTimeout(() => {
         const endAt = Date.now() + 30
-        while (imageIndex < allWarmupImages.length && Date.now() < endAt) {
-          preloadImage(allWarmupImages[imageIndex])
+        while (imageIndex < allHeaderWarmupImages.length && Date.now() < endAt) {
+          preloadImage(allHeaderWarmupImages[imageIndex])
           imageIndex += 1
         }
 
-        if (imageIndex < allWarmupImages.length) {
+        if (imageIndex < allHeaderWarmupImages.length) {
           scheduleIdleWork()
         }
       }, 250)
     }
 
-    for (const route of warmupRoutes) {
-      router.prefetch(route)
-    }
-
-    void import("@/components/map").then(() => {
-      if (!canceled) {
-        setShouldLoadMap(true)
-      }
-    })
+    // Warm the map chunk without mounting it yet.
+    void import("@/components/map")
 
     scheduleIdleWork()
 
@@ -174,7 +151,7 @@ export default function TechnikaHomepage() {
         ;(globalThis as typeof globalThis & { cancelIdleCallback: (id: number) => void }).cancelIdleCallback(idleId)
       }
     }
-  }, [router])
+  }, [])
 
   React.useEffect(() => {
     if (shouldLoadMap) return
@@ -190,7 +167,7 @@ export default function TechnikaHomepage() {
           observer.disconnect()
         }
       },
-      { rootMargin: "1200px 0px" },
+      { rootMargin: "300px 0px" },
     )
 
     observer.observe(section)

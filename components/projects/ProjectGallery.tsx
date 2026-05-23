@@ -20,6 +20,10 @@ const shuffleArray = <T,>(array: T[]): T[] => {
 const projectImages = projects.flatMap(project => project.images)
 const allImages = [...projectImages, ...standaloneGalleryImages]
 
+const stripTrailingSequenceNumber = (title: string): string => {
+  return title.replace(/\s+\d+$/, "").trim()
+}
+
 export default function ProjectGallery() {
   // Initialize with non-shuffled images to match server render, then shuffle on client
   const [galleryImages, setGalleryImages] = useState(allImages)
@@ -102,10 +106,13 @@ export default function ProjectGallery() {
         imagePath.includes('/building-science/') ||
         imagePath.includes('/construction/')) {
       // Convert filename to readable format
-      return nameWithoutExt
+      const technicalTitle = nameWithoutExt
         .split('-')
         .map(word => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
+
+      // Hide sequence numbering in public-facing labels (e.g., "Structural 1" -> "Structural")
+      return stripTrailingSequenceNumber(technicalTitle)
     }
     
     // Default: just clean up the filename
